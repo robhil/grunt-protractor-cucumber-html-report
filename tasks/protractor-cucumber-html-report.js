@@ -30,8 +30,22 @@ module.exports = function(grunt) {
     }),
       EXAMPLE_TEST_RESULT_PATH = currentDir + '/../assets/example_test_result.json',
       jsonPath = options.testJSONResultPath || EXAMPLE_TEST_RESULT_PATH,
-      testResults  = grunt.file.readJSON(jsonPath);
+      testResults;
 
-    grunt.file.write(options.dest + '/' + options.output, formatter.generateReport(testResults, options.templates));
+    if (!options.testJSONResultPath) {
+      grunt.log.writeln('[Warning] Your testJSONResultPath option is empty. Task will use example test result JSON');
+    }
+
+
+    if (grunt.file.exists(jsonPath)) {
+      testResults = grunt.file.readJSON(jsonPath);
+      grunt.file.write(options.dest + '/' + options.output, formatter.generateReport(testResults, options.templates));
+      grunt.log.writeln('File ' + options.output + ' has been created in \'' + options.dest + '\' directory');
+    } else {
+      grunt.log.error('File ' + jsonPath + ' doesn\'t exists');
+      return false;
+    }
+
+
   });
 };

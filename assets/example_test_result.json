@@ -127,6 +127,31 @@
               "status": "skipped"
             },
             "match": {}
+          },
+          {
+            "name": "I should see bookmark set on:",
+            "line": 21,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "level",
+                  "unit",
+                  "lesson"
+                ]
+              },
+              {
+                "cells": [
+                  "2",
+                  "5",
+                  "2"
+                ]
+              }
+            ],
+            "result": {
+              "status": "undefined"
+            },
+            "match": {}
           }
         ]
       }

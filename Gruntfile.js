@@ -16,6 +16,7 @@ module.exports = function(grunt) {
       all: [
         'Gruntfile.js',
         'tasks/*.js',
+        'lib/*.js',
         '<%= nodeunit.tests %>'
       ],
       options: {
@@ -32,9 +33,10 @@ module.exports = function(grunt) {
     'protractor-cucumber-html-report': {
       default_options: {
         options: {
+          dest: 'tmp',
+          output: 'report.html'
         }
       }
-
     },
 
     // Unit tests.
@@ -57,6 +59,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['clean', 'protractor_cucumber_html-report', 'nodeunit']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('default', ['jshint', 'protractor-cucumber-html-report']);
 
 };
