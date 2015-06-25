@@ -33,9 +33,8 @@ module.exports = function(grunt) {
       testResults;
 
     if (!options.testJSONResultPath) {
-      grunt.log.writeln('[Warning] Your testJSONResultPath option is empty. Task will use example test result JSON');
+      grunt.log.writeln('[Warning] Your testJSONResultPath option is empty. Task will use example JSON');
     }
-
 
     if (grunt.file.exists(jsonPath)) {
       testResults = grunt.file.readJSON(jsonPath);
@@ -45,7 +44,6 @@ module.exports = function(grunt) {
       grunt.log.error('File ' + jsonPath + ' doesn\'t exists');
       return false;
     }
-
 
   });
 };
