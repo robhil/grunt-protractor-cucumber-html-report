@@ -17,10 +17,10 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-protractor-cucumber-html-report');
 ```
 
-## The "protractor_cucumber_html_report" task
+## The "protractor-cucumber-html-report" task
 
 ### Overview
-In your project's Gruntfile, add a section named `protractor_cucumber_html_report` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `protractor-cucumber-html-report` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
@@ -29,7 +29,7 @@ grunt.initConfig({
       // Task-specific options go here.
     },
     your_target: {
-      // Target-specific file lists and/or options go here.
+      // Target-specific options go here.
     },
   },
 });
@@ -52,31 +52,14 @@ A string value that is used to do something else with whatever else.
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
 
 ```js
 grunt.initConfig({
-  protractor_cucumber_html_report: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  protractor_cucumber_html_report: {
+  'protractor-cucumber-html-report': {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      dest: '.',
+      output: 'report.html',
+      testJSONResultPath: '',
     },
   },
 });
