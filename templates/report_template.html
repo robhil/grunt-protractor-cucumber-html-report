@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html, body, div, span, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        abbr, address, cite, code,
+        del, dfn, em, img, ins, kbd, q, samp,
+        small, strong, sub, sup, var,
+        b, i,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section, summary,
+        time, mark, audio, video {
+            margin:0;
+            padding:0;
+            border:0;
+            outline:0;
+            font-size:100%;
+            vertical-align:baseline;
+            background:transparent;
+        }
+
+        body {
+            line-height:1;
+            font-family: Arial;
+        }
+
+        article,aside,details,figcaption,figure,
+        footer,header,hgroup,menu,nav,section {
+            display:block;
+        }
+
+        nav ul {
+            list-style:none;
+        }
+
+        blockquote, q {
+            quotes:none;
+        }
+
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content:'';
+            content:none;
+        }
+
+        a {
+            margin:0;
+            padding:0;
+            font-size:100%;
+            vertical-align:baseline;
+            background:transparent;
+        }
+
+        /* change colours to suit your needs */
+        ins {
+            background-color:#ff9;
+            color:#000;
+            text-decoration:none;
+        }
+
+        /* change colours to suit your needs */
+        mark {
+            background-color:#ff9;
+            color:#000;
+            font-style:italic;
+            font-weight:bold;
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        abbr[title], dfn[title] {
+            border-bottom:1px dotted;
+            cursor:help;
+        }
+
+        table {
+            border-collapse:collapse;
+            border-spacing:0;
+        }
+
+        /* change border colour to suit your needs */
+        hr {
+            display:block;
+            height:1px;
+            border:0;
+            border-top:1px solid #cccccc;
+            margin:1em 0;
+            padding:0;
+        }
+
+        input, select {
+            vertical-align:middle;
+        }
+
+        header {
+            width: 100%;
+            height: 60px;
+        }
+
+        .passed {
+            background: #73c904;
+        }
+
+        header.failed {
+            background: #c90417;
+            color: white;
+        }
+
+        header h1 {
+            float: left;
+            font-size: 25px;
+            color: white;
+            height: 60px;
+            line-height: 60px;
+            font-weight: 500;
+            margin-left: 20px;
+        }
+
+        .step {
+            font-size: 12px;
+            padding: 5px;
+            margin-top: 5px;
+            margin-left: 20px;
+        }
+
+        .feature {
+            margin-left: 15px;
+            margin-top: 45px;
+            margin-bottom: 30px;
+        }
+
+        .feature-description {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        .scenario {
+            font-weight: 600;
+            font-size: 13px;
+            padding: 5px;
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+
+        .step.passed {
+            background: #e1fcc2;
+            color: #4e8633;
+            border-left: 5px solid #4e8633;
+        }
+
+        .step.skipped {
+            background: #c2dbfc;
+            color: #336086;
+            border-left: 5px solid #336086;
+        }
+
+        .step.failed {
+            background: #fcc2c2;
+            color: #863333;
+            border-left: 5px solid #863333;
+            cursor: pointer;
+        }
+
+        .step.pending {
+            background: #fcdfc2;
+            color: #c99404;
+            border-left: 5px solid #c99404;
+            cursor: pointer;
+        }
+
+        .scenario.passed {
+            background: #73c904;
+            color: white;
+        }
+
+        .scenario.failed {
+            background: #c90417;
+            color: white;
+        }
+
+        .scenario.skipped {
+            background: #0473c9;
+            color: white;
+        }
+
+        .scenario.pending {
+            background: #c99404;
+            color: white;
+        }
+
+        .error-details {
+            padding: 10px;
+            display: none;
+            width: 100%;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .test-summary {
+            color: white;
+            float: right;
+            margin: 5px;
+            font-size: 13px;
+        }
+
+        .test-summary div {
+            margin-top: 5px;
+        }
+
+    </style>
+
+    <script>
+        window.onload = function () {
+            var errors = document.querySelectorAll('.step.failed');
+            for (var i = 0; i < errors.length; i++) {
+                errors[i].onclick = function () {
+                    var display = this.querySelector('.error-details').style.display;
+
+                    if (display === 'block') {
+                        this.querySelector('.error-details').style.display = 'none';
+                    } else {
+                        this.querySelector('.error-details').style.display = 'block';
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<%= scenarios %>
+
+</body>
+</html>
