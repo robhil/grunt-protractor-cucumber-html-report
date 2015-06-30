@@ -1,9 +1,15 @@
 <header class="<%=status %>">
     <h1>Cucumber features</h1>
-
     <div class="test-summary">
         <div class="scenarios-summary"><%=scenariosSummary %></div>
         <div class="steps-summary"><%=stepsSummary %></div>
     </div>
-
 </header>
+<div class="filtering-buttons">
+    <button data-state="failed" class="btn error_btn" id="error_btn">Error</button>
+    <button data-state="passed" class="btn passed_btn" id="passed_btn">Passed</button>
+    <button data-state="pending" class="btn pending_btn" id="pending_btn">Pending</button>
+    <button data-state="skipped" class="btn skipped_btn" id="skipped_btn">Skipped</button>
+    <button data-state="undefined" class="btn undefined_btn" id="undefined_btn">Undefined</button>
+    <button data-state="all" class="btn all_btn active" id="all_btn">All</button>
+</div>
