@@ -16,60 +16,60 @@
         article, aside, canvas, details, figcaption, figure,
         footer, header, hgroup, menu, nav, section, summary,
         time, mark, audio, video {
-            margin:0;
-            padding:0;
-            border:0;
-            outline:0;
-            font-size:100%;
-            vertical-align:baseline;
-            background:transparent;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
         }
 
         body {
-            line-height:1;
+            line-height: 1;
             font-family: Arial;
         }
 
-        article,aside,details,figcaption,figure,
-        footer,header,hgroup,menu,nav,section {
-            display:block;
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
         }
 
         nav ul {
-            list-style:none;
+            list-style: none;
         }
 
         blockquote, q {
-            quotes:none;
+            quotes: none;
         }
 
         blockquote:before, blockquote:after,
         q:before, q:after {
-            content:'';
-            content:none;
+            content: '';
+            content: none;
         }
 
         a {
-            margin:0;
-            padding:0;
-            font-size:100%;
-            vertical-align:baseline;
-            background:transparent;
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
         }
 
         /* change colours to suit your needs */
         ins {
-            background-color:#ff9;
-            color:#000;
-            text-decoration:none;
+            background-color: #ff9;
+            color: #000;
+            text-decoration: none;
         }
 
         /* change colours to suit your needs */
         mark {
-            background-color:#ff9;
-            color:#000;
-            font-style:italic;
-            font-weight:bold;
+            background-color: #ff9;
+            color: #000;
+            font-style: italic;
+            font-weight: bold;
         }
 
         del {
@@ -77,27 +77,27 @@
         }
 
         abbr[title], dfn[title] {
-            border-bottom:1px dotted;
-            cursor:help;
+            border-bottom: 1px dotted;
+            cursor: help;
         }
 
         table {
-            border-collapse:collapse;
-            border-spacing:0;
+            border-collapse: collapse;
+            border-spacing: 0;
         }
 
         /* change border colour to suit your needs */
         hr {
-            display:block;
-            height:1px;
-            border:0;
-            border-top:1px solid #cccccc;
-            margin:1em 0;
-            padding:0;
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #cccccc;
+            margin: 1em 0;
+            padding: 0;
         }
 
         input, select {
-            vertical-align:middle;
+            vertical-align: middle;
         }
 
         header {
@@ -129,6 +129,7 @@
             padding: 5px;
             margin-top: 5px;
             margin-left: 20px;
+            display: none;
         }
 
         .feature {
@@ -149,6 +150,8 @@
             padding: 5px;
             margin-top: 10px;
             margin-left: 15px;
+            display: block;
+            cursor: pointer;
         }
 
         .step.passed {
@@ -199,7 +202,7 @@
             color: white;
         }
 
-        .scenario.pending {
+        .scenario.pending, .scenario.undefined {
             background: #c99404;
             color: white;
         }
@@ -222,7 +225,8 @@
         .test-summary div {
             margin-top: 5px;
         }
-	.filtering-buttons {
+
+        .filtering-buttons {
             display: inline-block;
             position: relative;
             float: right;
@@ -231,7 +235,8 @@
             padding: 10px 30px 30px 30px;
             margin-bottom: 10px;
         }
-        .btn{
+
+        .btn {
             color: white;
             padding: 7px;
             border: none;
@@ -241,7 +246,6 @@
             opacity: 1;
             transition: opacity 0.3s linear;
             border-radius: 1px;
-            font-size: 15px;
         }
 
         .btn:not(.active) {
@@ -251,17 +255,17 @@
         .error_btn {
             background: #c90417;
         }
+
         .passed_btn {
             background: #73c904;
         }
-        .pending_btn, .undefined_btn {
-            background: #c99404;
-        }
-        .skipped_btn {
-            background: #0473c9;
-        }
+
         .all_btn {
             background: #9D9D9A;
+        }
+
+        .display_btn {
+            background: #0000FF;
         }
 
     </style>
@@ -271,10 +275,15 @@
 
             var errors = document.querySelectorAll('.step.failed'),
                     filtering_btn = document.getElementsByClassName('btn'),
-                    currentState = 'all';
+                    scenarios = document.querySelectorAll('.scenario-container'),
+                    display_btn = document.querySelector('.display');
+
+            /** Displaying detailed information about failed step */
 
             for (var i = 0; i < errors.length; i++) {
-                errors[i].onclick = function () {
+
+                errors[i].onclick = function (e) {
+                    e.stopPropagation();
                     var display = this.querySelector('.error-details').style.display;
 
                     if (display === 'block') {
@@ -284,72 +293,88 @@
                     }
                 }
             }
-		for(var i = 0 ; i < filtering_btn.length; i++) {
-		  filtering_btn[i].onclick = function () {
-		    var btnState = this.dataset.state;
-		    if (btnState !== 'all') {
-		        filterSteps(btnState);
-		        removeClass(filtering_btn);
-		        if(currentState === 'all') {
-		            var allBtn = document.querySelector('.all_btn');
-		            allBtn.classList.add('active');
-		        } else {
-		            this.classList.add('active');
-		        }
-		    } else {
-		        displayAllSteps();
-		        removeClass(filtering_btn);
-                this.classList.add('active');
+            /** Displaying and hiding steps */
 
-		    }
-		}
-        }
+            for (var i = 0; i < scenarios.length; i++) {
+                scenarios[i].onclick = function () {
+                    var steps = this.querySelectorAll('.step');
+                    for (var k = 0; k < steps.length; k++) {
+                        if (steps[k].style.display === 'block') {
+                            steps[k].style.display = 'none';
+                        } else {
+                            steps[k].style.display = 'block';
+                        }
+                    }
+                }
+            }
 
-	/*
-	 * @param string buttonsList indicate the group of buttons that have the "active" class name
-	 *
-	 * Removing "active" class from all buttons except for the active one
-	 */
-            function removeClass(buttonsList){
+            for (var k = 0; k < filtering_btn.length; k++) {
+                filtering_btn[k].onclick = function () {
+                    var btnState = this.dataset.state;
+                    if (btnState !== 'all') {
+                        removeClass(filtering_btn);
+                        this.classList.add('active');
+                        filterScenarios(btnState);
+                    } else {
+                        removeClass(filtering_btn);
+                        this.classList.add('active');
+                        displayAllScenarios();
+                    }
+                }
+            }
+            /*
+             * @param string buttonsList indicate the group of buttons that have the "active" class name
+             *
+             * Removing "active" class from all buttons except for the active one
+             */
+            function removeClass(buttonsList) {
                 for (var j = 0; j < buttonsList.length; j++) {
                     buttonsList[j].classList.remove('active');
                 }
             }
-	/*
-	 * @param string stepCategory indicates the step's category that should be displayed
-	 *
-	 * Displaying only some certain steps and hiding the whole rest
-	 */
-            function filterSteps(stepCategory) {
-                var allSteps = document.getElementsByClassName('step');
-                if (currentState !== stepCategory) {
-                    displayAllSteps();
-                    for (var i = 0; i < allSteps.length; i++) {
-                        if (allSteps[i].classList.contains(stepCategory) === false) {
-                            allSteps[i].style.display = 'none';
-                        }
-                    }
-                    currentState = stepCategory;
-                }  else {
-                    for (var i = 0; i < allSteps.length; i++) {
-                        allSteps[i].style.display = 'block';
-                    }
-                    currentState = 'all';
-                }
-            }
-	/*
-	 * Display all hidden steps
-	 */
-            function displayAllSteps() {
-                var steps = document.getElementsByClassName('step');
-                for (var i = 0; i< steps.length; i++) {
-                    if(steps[i].style.display != 'block') {
-                        steps[i].style.display = 'block';
-                    }
-                }
-            }
-    }
 
+            /** Hide all scenario's steps */
+            function displaySteps() {
+                removeClass(filtering_btn);
+                var steps = document.querySelectorAll('.step');
+                for (var i = 0; i < steps.length; i++) {
+                    var display = steps[i].style.display;
+                    if (display === 'none' || display === '') {
+                        steps[i].style.display = 'block';
+                    } else {
+                        steps[i].style.display = 'none';
+                    }
+                }
+            }
+
+            /** Filtering scenarios */
+            function filterScenarios(buttonState) {
+                var scenarios = document.querySelectorAll('.scenario');
+                for (var i = 0; i < scenarios.length; i++) {
+                    var hasClass = scenarios[i].classList.contains(buttonState);
+                    if (hasClass === true) {
+                        if (scenarios[i].parentNode.style.display === 'none') {
+                            scenarios[i].parentNode.style.display = 'block';
+                        }
+                    } else {
+                        scenarios[i].parentNode.style.display = 'none';
+                    }
+                }
+            }
+
+            /** Displaying all scenarios */
+            function displayAllScenarios() {
+                var scenario = document.querySelectorAll('.scenario-container');
+                for (var i = 0; i < scenario.length; i++) {
+                    if (scenario[i].style.display != 'block') {
+                        scenario[i].style.display = 'block';
+                    }
+                }
+            }
+
+            /** Displaying all steps within scenarios */
+            display_btn.onclick = displaySteps;
+        }
     </script>
 
 </head>
