@@ -39,6 +39,14 @@ module.exports = function(grunt) {
     if (grunt.file.exists(jsonPath)) {
       testResults = grunt.file.readJSON(jsonPath);
       grunt.file.write(options.dest + '/' + options.output, formatter.generateReport(testResults, options.templates));
+
+      grunt.file.recurse('./templates/assets', function (abspath, rootdir, subdir, filename) {
+
+        grunt.file.copy(abspath, options.dest + '/assets/' + subdir + '/'+ filename);
+
+      });
+
+
       grunt.log.writeln('File ' + options.output + ' has been created in \'' + options.dest + '\' directory');
     } else {
       grunt.log.error('File ' + jsonPath + ' doesn\'t exists');
