@@ -40,7 +40,7 @@ module.exports = function(grunt) {
       testResults = grunt.file.readJSON(jsonPath);
       grunt.file.write(options.dest + '/' + options.output, formatter.generateReport(testResults, options.templates));
 
-      grunt.file.recurse('./templates/assets', function (abspath, rootdir, subdir, filename) {
+      grunt.file.recurse(currentDir + '/../templates/assets', function (abspath, rootdir, subdir, filename) {
 
         grunt.file.copy(abspath, options.dest + '/assets/' + subdir + '/'+ filename);
 
