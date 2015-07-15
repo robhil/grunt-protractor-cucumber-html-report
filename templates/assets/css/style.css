@@ -395,7 +395,9 @@ header h1 {
     -webkit-animation-name: hide_chart;
     -webkit-animation-duration: 0.3s;
     -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
-
+    animation-name: hide_chart;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .scenario-chart {
@@ -423,6 +425,32 @@ header h1 {
 
 }
 
+@-moz-keyframes display_chart {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes display_chart {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
 @-webkit-keyframes display_chart {
     0% {
         opacity: 0;
@@ -441,24 +469,61 @@ header h1 {
         opacity: 0;
     }
 
+    100% {
+        opacity: 0.6;
+    }
+}
+
+@-moz-keyframes display_backdrop {
+    0% {
+        opacity: 0;
+    }
 
     100% {
         opacity: 0.6;
+    }
+}
 
+@keyframes display_backdrop {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.6;
     }
 }
 
 @-webkit-keyframes hide_backdrop {
+     0% {
+         opacity: 0.6;
+     }
+
+     100% {
+         opacity: 0;
+     }
+}
+
+@-moz-keyframes hide_backdrop {
     0% {
         opacity: 0.6;
     }
 
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes hide_backdrop {
+    0% {
+        opacity: 0.6;
+    }
 
     100% {
         opacity: 0;
-
     }
 }
+
 
 .close_chart {
     font-size: 30px;
@@ -469,6 +534,36 @@ header h1 {
     right: 0;
     color: #bbb;
     top: 5px;
+}
+
+@-moz-keyframes hide_chart {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+}
+
+@keyframes hide_chart {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
 }
 
 @-webkit-keyframes hide_chart {
@@ -552,6 +647,9 @@ header h1 {
     -webkit-animation-name: hide_backdrop;
     -webkit-animation-duration: 0.5s;
     -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+    animation-name: hide_backdrop;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .document_container {

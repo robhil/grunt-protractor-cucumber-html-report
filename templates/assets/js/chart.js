@@ -24,7 +24,7 @@ app.chart  = (function () {
       var chartContainer = document.querySelector('.scenario-chart');
 
       chartContainer.addEventListener('webkitAnimationEnd', this.onAnimationEnd, false);
-      chartContainer.addEventListener('animationEnd', this.onAnimationEnd, false);
+      chartContainer.addEventListener('animationend', this.onAnimationEnd, false);
       chartContainer.addEventListener('oanimationEnd', this.onAnimationEnd, false);
       chartContainer.addEventListener('MSAnimationEnd', this.onAnimationEnd, false);
 
