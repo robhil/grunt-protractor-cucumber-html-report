@@ -5,11 +5,20 @@
         <div class="steps-summary"><%=stepsSummary %></div>
     </div>
 </header>
-<div class="filtering-buttons">
-    <button data-state="failed" class="btn error_btn" id="error_btn">Error</button>
-    <button data-state="passed" class="btn passed_btn" id="passed_btn">Passed</button>
-    <button data-state="pending" class="btn pending_btn" id="pending_btn">Pending</button>
-    <button data-state="skipped" class="btn skipped_btn" id="skipped_btn">Skipped</button>
-    <button data-state="undefined" class="btn undefined_btn" id="undefined_btn">Undefined</button>
-    <button data-state="all" class="btn all_btn active" id="all_btn">All</button>
+<div class="row">
+    <div class="filtering-buttons">
+        <div class="col-md-9 col-sm-8 main_btns">
+            <div class="btn_menu">
+                <button data-state="all" class="btn all_btn active" id="all_btn">All</button>
+                <button data-state="passed" class="btn passed_btn" id="passed_btn">Passed</button>
+                <button data-state="failed" class="btn error_btn" id="error_btn">Error</button>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4 additional_btns">
+            <div class="btn_support">
+                <button data-state="steps" class="btn fa fa-list btn_list" id="display_btn"></button>
+                <button data-state="chart" class=" btn fa fa-pie-chart btn_chart"></button>
+            </div>
+        </div>
+    </div>
 </div>
