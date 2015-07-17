@@ -33,8 +33,8 @@
         </div>
         <div class="col-md-3 col-sm-4 additional_btns">
             <div class="btn_support">
-                <button data-state="steps" class="btn fa fa-list btn_list" id="display_btn"></button>
-                <button data-state="chart" class=" btn fa fa-pie-chart btn_chart"></button>
+                <button data-state="steps" title="Display all steps within scenario" class="btn fa fa-list btn_list" id="display_btn"></button>
+                <button data-state="chart" title="Display chart" class="btn fa fa-pie-chart btn_chart"></button>
             </div>
         </div>
     </div>
