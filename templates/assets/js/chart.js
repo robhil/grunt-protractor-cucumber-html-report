@@ -35,20 +35,19 @@ app.chart  = (function () {
           c = this.getContext('2d'),
           p = c.getImageData(x, y, 1, 1).data,
           hex = "#" + ("000000" + self.rgbToHex(p[0], p[1], p[2])).slice(-6);
-        /** Displaying text inside donout chart*/
+
+        /** Displaying text inside donut chart*/
         var a = 200;
         var b = 200;
         chartCtx.font = '30pt Arial';
         chartCtx.textAlign = 'center';
         chartCtx.fillStyle = hex;
-        var statistics = self.getStatistics();
-        var passed = statistics.passed;
-        var passedRound = Math.round(passed) + "%";
-        var failed = statistics.failed;
-        var failedRound = Math.round(failed) + "%";
+        var statistics = self.getStatistics(),
+            passed = statistics.passed,
+            passedRound = Math.round(passed) + "%",
+            failed = statistics.failed,
+            failedRound = Math.round(failed) + "%";
         chartCtx.clearRect(120, 150, 150, 90);
-
-
 
         if (hex.toLowerCase() === data.colors.cs[0].toLowerCase()) {
           chartCtx.fillText(passedRound, a, b);
@@ -63,13 +62,13 @@ app.chart  = (function () {
       document.querySelector('.close_chart').onclick = this.toggleChart.bind(this);
       document.querySelector('.document_container').onclick = this.toggleChart.bind(this);
     },
-
+    /** Transforming rgb colors into Hex */
     rgbToHex: function (r, g, b) {
       if (r > 255 || g > 255 || b > 255)
         throw "Invalid color component";
       return ((r << 16) | (g << 8) | b).toString(16);
     },
-
+    /** Finding mouse position on chart */
     findPos: function(obj) {
       var curleft = 0, curtop = 0;
       if (obj.offsetParent) {
@@ -80,7 +79,7 @@ app.chart  = (function () {
         return {x: curleft, y: curtop};
       }
     },
-
+    /** Animated displaying and hiding chart */
     onAnimationEnd: function () {
 
       var documentContainer = document.querySelector('.document_container');
@@ -107,6 +106,7 @@ app.chart  = (function () {
         this.to = to;
         this.lineWidth = lineWidth;
       };
+      /** Drawing report chart */
 
       this.draw = function (data) {
 
@@ -128,7 +128,7 @@ app.chart  = (function () {
         }
       };
     },
-
+    /** Passed and failed percentage */
     getStatistics:function () {
       var scenarioPassed = document.querySelectorAll('.scenario.passed').length,
         scenarioFailed = document.querySelectorAll('.scenario.failed').length,
@@ -150,7 +150,7 @@ app.chart  = (function () {
       var documentContainer = document.querySelector('.document_container');
       documentContainer.style.display = (documentContainer.style.display != 'block' ? 'block' : documentContainer.classList.add('backdrop-hidden'));
     },
-
+    /** Displaying and hiding chart */
     toggleChart: function () {
       var chart = document.querySelector('.scenario-chart');
 
