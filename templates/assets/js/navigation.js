@@ -13,7 +13,7 @@ app.navigation  = (function () {
       this.bindEvents(errors, scenarios, filteringButtons, displayChartButton);
       this.bindFilterButtonsEvent(filteringButtons, scenarios, steps);
     },
-
+  /** Showing error log  for step that failed */
     showErrorDetails: function (e) {
         e.stopPropagation();
         var display = this.querySelector('.error-details').style.display;
@@ -24,7 +24,7 @@ app.navigation  = (function () {
           this.querySelector('.error-details').style.display = 'block';
         }
     },
-
+    /** Hiding and displaying steps after clicking on scenario header*/
     toggleStep: function () {
       var steps = this.querySelectorAll('.step');
       for (var k = 0; k < steps.length; k++) {
@@ -48,14 +48,15 @@ app.navigation  = (function () {
         scenarios[i].addEventListener('click', this.toggleStep, false);
       }
     },
-
-
-    /** Filtering scenarios */
+    /**
+     * Filtering passed and failed scenarios by clicking the passed or failed button respectively
+     *
+     * @param buttonState indicates the clicked button
+     */
     filterScenarios: function (buttonState) {
       var scenarios = document.querySelectorAll('.scenario'),
         hasClass;
       for (var i = 0; i < scenarios.length; i++) {
-
         hasClass = scenarios[i].classList.contains(buttonState);
         if (hasClass === true) {
           if (scenarios[i].parentNode.style.display === 'none') {
@@ -66,8 +67,12 @@ app.navigation  = (function () {
         }
       }
     },
-
-    /** Displaying all scenarios */
+    /**
+     * Displaying all scenarios within the report
+     *
+     * @param scenarios indicate the all scenarios in report
+     *
+     */
     displayAllScenarios: function (scenarios) {
       for (var i = 0; i < scenarios.length; i++) {
         if (scenarios[i].style.display != 'block') {
@@ -75,7 +80,7 @@ app.navigation  = (function () {
         }
       }
     },
-    /*
+    /**
      * @param string buttonsList indicate the group of buttons that have the "active" class name
      *
      * Removing "active" class from all buttons except for the active one
@@ -85,7 +90,15 @@ app.navigation  = (function () {
         buttonsList[j].classList.remove('active');
       }
     },
-
+    /**
+     * Run appropriate action depending on button state
+     *
+     * @param filteringButtons indicate the navigation buttons
+     *
+     * @param scenarios indicate all scenarios in report
+     *
+     * @param steps indicate all steps in report
+     */
     bindFilterButtonsEvent: function (filteringButtons, scenarios, steps) {
       var self = this,
         btnState;
@@ -94,7 +107,7 @@ app.navigation  = (function () {
 
           btnState = this.dataset.state;
 
-          if (btnState !== 'chart') {
+          if (btnState !== 'steps') {
             self.removeActiveClass(filteringButtons);
             this.classList.add('active');
             self.hideSteps(steps);
@@ -110,7 +123,7 @@ app.navigation  = (function () {
               break;
             case 'steps':
               self.displayAllScenarios(scenarios);
-              self.showSteps(steps);
+              self.toggleSteps(steps);
               break;
             default:
               self.filterScenarios(btnState);
@@ -120,13 +133,28 @@ app.navigation  = (function () {
         }, false);
       }
     },
-
-    showSteps: function (steps) {
+    /**
+     * Displaying and hiding steps by clicking "chart report" button
+     *
+     * @param steps indicate all steps in report
+     */
+    toggleSteps: function (steps) {
       for (var i = 0; i < steps.length; i++) {
-        steps[i].style.display = 'block';
+        var display = steps[i].style.display;
+        if (display === 'none' || display === '') {
+          steps[i].style.display = 'block';
+          all_btn.classList.add('active');
+        } else {
+          all_btn.classList.add('active');
+          steps[i].style.display = 'none';
+        }
       }
     },
-
+    /**
+     * Hiding currently displayed steps
+     *
+     * @param steps indicate all steps in report
+     */
     hideSteps: function (steps) {
       for (var i = 0; i < steps.length; i++) {
         steps[i].style.display = 'none';
