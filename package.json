@@ -1,41 +1,50 @@
 {
-  "name": "grunt-protractor-cucumber-html-report",
+  "name": "gulp-protractor-cucumber-html-report",
   "description": "Generate html report from JSON file returned by cucumber-js json formatter",
-  "version": "0.0.8",
-  "homepage": "https://github.com/robhil/grunt-protractor-cucumber-html-report",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mrooding/gulp-protractor-cucumber-html-report",
   "author": {
-    "name": "Hilscher, Robert",
-    "email": "robert.hilscher@pearson.com"
+    "name": "Rooding, Marc",
+    "email": "mrooding@xebia.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/robhil/grunt-protractor-cucumber-html-report.git"
+    "url": "git://github.com/mrooding/gulp-protractor-cucumber-html-report.git"
   },
   "bugs": {
-    "url": "https://github.com/robhil/grunt-protractor-cucumber-html-report/issues"
+    "url": "https://github.com/mrooding/gulp-protractor-cucumber-html-report/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/roberthilscher/grunt-protractor-cucumber-html-report/blob/master/LICENSE-MIT"
+      "url": "https://github.com/mrooding/gulp-protractor-cucumber-html-report/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "gulp-util": "^3.0.0",
+    "through2": "^0.6.1"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "^0.9.2",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-nodeunit": "^0.3.3",
-    "grunt": "~0.4.5"
-  },
-  "peerDependencies": {
-    "grunt": "~0.4.5"
+    "chai": "^3.2.0",
+    "cucumber": "^0.5.2",
+    "event-stream": "^3.3.1",
+    "fs-extra": "^0.22.1",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
+    "jshint-stylish": "^2.0.1",
+    "mocha": "^2.2.5",
+    "vinyl": "^0.5.0"
   },
   "keywords": [
-    "gruntplugin"
+    "gulpplugin"
   ]
 }
