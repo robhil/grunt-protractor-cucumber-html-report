@@ -2,7 +2,7 @@
 
 > Generate html report from JSON file returned by CucumberJS json formatter
 
-This is a stand-alone fork from [grunt-protractor-cucumber-html-report](https://github.com/robhil/grunt-protractor-cucumber-html-report)
+This is a stand-alone fork of [grunt-protractor-cucumber-html-report](https://github.com/robhil/grunt-protractor-cucumber-html-report)
 
 ## Getting Started
 This plugin requires Gulp `~3.9.0`
