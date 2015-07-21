@@ -21,7 +21,23 @@ var reporter = require('gulp-protractor-cucumber-html-report');
 
 ## The "protractor-cucumber-html-report" task
 
-### Overview
+### Options
+
+#### options.dest
+Type: `String`
+Default value: `'.'`
+
+The output directory for the HTML report relative from the Gulpfile
+
+#### options.filename
+Type: `String`
+Default value: `'report.html'`
+
+The filename for the HTML report
+
+### Usage Examples
+
+#### Overview
 In your project's Gulpfile, you can use the reporter in your pipeline as follows:
 
 ```js
@@ -31,7 +47,7 @@ gulp.src('./cucumber-test-results.json')
     }));
 ```
 
-### Saving CucumberJS json to disk when using Protractor
+#### Saving CucumberJS json to disk when using Protractor
 If you're using Protractor in combination with CucumberJS there currently is [no way](https://github.com/cucumber/cucumber-js/issues/90) to save the CucumberJS JSON output to a file. 
  
 It is however possible to add a listener to the CucumberJS JSON formatter and save it to a file manually. The following hook can be added to your project and included to your Protractor configuration.
@@ -56,7 +72,7 @@ module.exports = function JsonOutputHook() {
 
 Above snippet will hook into the CucumberJS JSON formatter and save the JSON to a file called 'cucumber-test-results.json' in the './reports' folder (relative from this file's location)
 
-### Setting up Protractor, CucumberJS and the JSON listener
+#### Setting up Protractor, CucumberJS and the JSON listener
 
 In your protractor.conf.js add a reference to the hook listener (as shown above). In this example the file is found in './support'. Also make sure to set the output format to 'json'.
 
@@ -65,35 +81,6 @@ cucumberOpts: {
   require: ['steps/*.js', 'support/*.js'],
   format: 'json'
 },
-```
-### Options
-
-#### options.dest
-Type: `String`
-Default value: `'.'`
-
-The output directory for the HTML report relative from the Gulpfile
-
-#### options.filename
-Type: `String`
-Default value: `'report.html'`
-
-The filename for the HTML report
-
-### Usage Examples
-
-#### Default Options
-
-```js
-grunt.initConfig({
-  'protractor-cucumber-html-report': {
-    options: {
-      dest: '.',
-      output: 'report.html',
-      testJSONResultPath: '',
-    },
-  },
-});
 ```
 
 ## Contributing
