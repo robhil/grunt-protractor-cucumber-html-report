@@ -27,7 +27,8 @@
     "test": "mocha"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "lib"
   ],
   "dependencies": {
     "gulp-util": "^3.0.0",
