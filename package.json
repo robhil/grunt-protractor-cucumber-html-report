@@ -33,13 +33,13 @@
   "dependencies": {
     "gulp-util": "^3.0.0",
     "lodash.template": "^3.6.2",
+    "fs-extra": "^0.22.1",
     "through2": "^0.6.1"
   },
   "devDependencies": {
     "chai": "^3.2.0",
     "cucumber": "^0.5.2",
     "event-stream": "^3.3.1",
-    "fs-extra": "^0.22.1",
     "gulp": "^3.9.0",
     "gulp-jshint": "^1.11.2",
     "jshint-stylish": "^2.0.1",
