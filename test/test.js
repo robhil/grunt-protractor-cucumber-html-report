@@ -1,7 +1,6 @@
 var assert = require('assert');
 var fs = require('fs-extra');
 var path = require('path');
-var es = require('event-stream');
 var File = require('vinyl');
 var reporter = require('../index');
 
