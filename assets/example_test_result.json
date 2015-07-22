@@ -1,140 +1,86 @@
 
 [
   {
-    "id": "As-a-Staff-Member-I-want-to-select-my-ID-or-username-and-view-Personal-Dashboard-so-that-I-can-manage-my-schedule,-tasks-and-students",
-    "name": "As a Staff Member I want to select my ID or username and view Personal Dashboard so that I can manage my schedule, tasks and students",
-    "description": "",
-    "line": 1,
+    "id": "As-a-Staff-Member-I-want-to-view-all-follow-up-activities-and-create,-delete-and-edit-my-own-follow-up-activities-or-comments,",
+    "name": "As a Staff Member I want to view all follow-up activities and create, delete and edit my own follow up activities or comments,",
+    "description": "recorded for the student, so that I can see how all the staff have interacted with the student.",
+    "line": 2,
     "keyword": "Feature",
-    "uri": "/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/uat_tests/tests/features/login.feature",
+    "tags": [
+      {
+        "name": "@NSEST",
+        "line": 1
+      },
+      {
+        "name": "@followUp",
+        "line": 1
+      }
+    ],
+    "uri": "/home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/stFollowUp.feature",
     "elements": [
       {
-        "name": "Log in as a teacher",
-        "id": "As-a-Staff-Member-I-want-to-select-my-ID-or-username-and-view-Personal-Dashboard-so-that-I-can-manage-my-schedule,-tasks-and-students;log-in-as-a-teacher",
-        "line": 3,
+        "name": "[NSESS-17a] Displaying follow-up activities list",
+        "id": "As-a-Staff-Member-I-want-to-view-all-follow-up-activities-and-create,-delete-and-edit-my-own-follow-up-activities-or-comments,;[nsess-17a]-displaying-follow-up-activities-list",
+        "line": 6,
         "keyword": "Scenario",
         "description": "",
         "type": "scenario",
+        "tags": [
+          {
+            "name": "@NSESS-17",
+            "line": 5
+          }
+        ],
         "steps": [
           {
-            "name": "I login as teacher",
-            "line": 4,
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 7,
             "keyword": "Given ",
             "result": {
-              "duration": 5819484382,
+              "duration": 5278152787,
               "status": "passed"
             },
             "match": {}
           },
           {
-            "name": "I log out",
-            "line": 5,
-            "keyword": "Then ",
+            "name": "I create new follow up with following data:",
+            "line": 8,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "email",
+                  "Newly created follow up!",
+                  "13",
+                  "15",
+                  "2014-01-12",
+                  "No"
+                ]
+              }
+            ],
             "result": {
-              "duration": 158910995,
-              "status": "passed"
-            },
-            "match": {}
-          }
-        ]
-      },
-      {
-        "name": "Log in as a student",
-        "id": "As-a-Staff-Member-I-want-to-select-my-ID-or-username-and-view-Personal-Dashboard-so-that-I-can-manage-my-schedule,-tasks-and-students;log-in-as-a-student",
-        "line": 8,
-        "keyword": "Scenario",
-        "description": "",
-        "type": "scenario",
-        "steps": [
-          {
-            "name": "I login as student",
-            "line": 9,
-            "keyword": "Given ",
-            "result": {
-              "error_message": "NoSuchElementError: no such element\n  (Session info: chrome=43.0.2357.125)\n  (Driver info: chromedriver=2.9.248304,platform=Linux 3.19.8-100.fc20.x86_64 x86_64) (WARNING: The server did not provide any stacktrace information)\nCommand duration or timeout: 12 milliseconds\nFor documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: '2.45.0', revision: '5017cb8', time: '2015-02-26 23:59:50'\nSystem info: host: 'DEV-N176SI5', ip: '10.157.50.100', os.name: 'Linux', os.arch: 'i386', os.version: '3.19.8-100.fc20.x86_64', java.version: '1.8.0_45'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=/tmp/.com.google.Chrome.RkrTRf}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.125, platform=LINUX, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]\nSession ID: 3c0f59c98573fad432c5d21011bcac04\n*** Element info: {Using=name, value=username}\n    at new bot.Error (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/atoms/error.js:113:18)\n    at Object.bot.response.checkResponse (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/atoms/response.js:106:9)\n    at /home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/webdriver.js:362:20\n    at /home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n    at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n    at notify (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n    at notifyAll (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n    at resolve (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n    at [object Object].fulfill (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n    at /home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1520:10\n    at /home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n    at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n    at notify (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n    at notifyAll (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n    at resolve (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n    at fulfill (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n    at /home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n    at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n    at notify (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n    at notifyAll (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n    at resolve (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n    at [object Object].fulfill (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n    at /home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:721:49\n    at /home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/http/http.js:96:5\n    at IncomingMessage.<anonymous> (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/http/index.js:131:7)\n    at IncomingMessage.emit (events.js:117:20)\n    at _stream_readable.js:944:16\n    at process._tickDomainCallback (node.js:486:13)\n==== async task ====\nWebDriver.findElement(By.name(\"username\"))\n    at [object Object].webdriver.WebDriver.schedule (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/webdriver.js:345:15)\n    at [object Object].webdriver.WebDriver.findElement (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/webdriver.js:819:17)\n    at Fn.module.exports.Page.create.userName.get (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/uat_tests/tests/features/page/loginPage.js:6:55)\n    at Fn.module.exports.Page.create.setUserName.value (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/uat_tests/tests/features/page/loginPage.js:10:52)\n    at World.<anonymous> (/home/dominikajedrzejczak/git/a_poc_nse/nse-learning-services-client/uat_tests/tests/features/context/loginSteps.js:47:21)\n    at process._tickDomainCallback (node.js:486:13)",
-              "duration": 1126260826,
+              "error_message": "TypeError: Cannot read property 'isPresent' of undefined\n  at [object Object].ExpectedConditions.presenceOf (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/protractor/lib/expectedConditions.js:233:23)\n  at [object Object].ExpectedConditions.visibilityOf (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/protractor/lib/expectedConditions.js:261:10)\n  at [object Object].ExpectedConditions.elementToBeClickable (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/protractor/lib/expectedConditions.js:148:12)\n  at Fn.Page.create.saveFollowUp.value (/home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/page/ST/stFollowUpPage.js:102:36)\n  at World.<anonymous> (/home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/context/ST/stFollowUpSteps.js:19:18)\n  at formatter.handleStepResultEvent (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/lib/frameworks/cucumber.js:121:13)\n  at /home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/context/loginSteps.js:64:69\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at fulfill (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at Object.webdriver.promise.asap (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:776:5)\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1665:25)\n  at notify (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at [object Object].fulfill (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1520:10\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at fulfill (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at [object Object].fulfill (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:721:49\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/http/http.js:96:5\n  at IncomingMessage.<anonymous> (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/http/index.js:131:7)\n  at IncomingMessage.emit (events.js:117:20)\n  at _stream_readable.js:944:16\n  at process._tickDomainCallback (node.js:486:13)\n",
+              "duration": 30185168,
               "status": "failed"
             },
             "match": {}
           },
           {
-            "name": "I log out",
-            "line": 10,
+            "name": "I should see \"Newly created follow up!\" value in \"Notes\" column for the \"1\" row",
+            "line": 11,
             "keyword": "Then ",
             "result": {
-              "status": "skipped"
-            },
-            "match": {}
-          }
-        ]
-      },
-      {
-        "name": "Set and verify bookmark tool",
-        "id": "As-a-Staff-Member-I-want-to-select-my-ID-or-username-and-view-Personal-Dashboard-so-that-I-can-manage-my-schedule,-tasks-and-students;set-and-verify-bookmark-tool",
-        "line": 12,
-        "keyword": "Scenario",
-        "description": "",
-        "type": "scenario",
-        "steps": [
-          {
-            "name": "I login as teacher",
-            "line": 13,
-            "keyword": "Given ",
-            "result": {
-              "duration": 3596225465,
-              "status": "passed"
-            },
-            "match": {}
-          },
-          {
-            "name": "I set bookmark tool for student 1 on:",
-            "line": 14,
-            "keyword": "When ",
-            "rows": [
-              {
-                "cells": [
-                  "level",
-                  "unit",
-                  "lesson"
-                ]
-              },
-              {
-                "cells": [
-                  "2",
-                  "5",
-                  "2"
-                ]
-              }
-            ],
-            "result": {
-              "duration": 13358468517,
-              "status": "passed"
-            },
-            "match": {}
-          },
-          {
-            "name": "I should see bookmark set on:",
-            "line": 17,
-            "keyword": "Then ",
-            "rows": [
-              {
-                "cells": [
-                  "level",
-                  "unit",
-                  "lesson"
-                ]
-              },
-              {
-                "cells": [
-                  "2",
-                  "5",
-                  "2"
-                ]
-              }
-            ],
-            "result": {
-              "duration": 1646766144,
-              "status": "passed"
+              "status": "undefined"
             },
             "match": {}
           }

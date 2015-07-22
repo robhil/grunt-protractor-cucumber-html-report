@@ -119,7 +119,7 @@ app.chart  = (function () {
         var parts = data.parts.pt;
         var colors = data.colors.cs;
         var df = 0;
-        for (var i = 0; i < numberOfParts; i++) {
+        for (var i = 0; i <= numberOfParts; i++) {
           canvas.beginPath();
           canvas.strokeStyle = colors[i];
           canvas.arc(this.x, this.y, this.radius, df, df + (Math.PI * 2) * (parts[i] / 100));
