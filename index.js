@@ -27,22 +27,28 @@ function gulpProtractorCucumberHtmlReport(opts) {
 
   return through.obj(function (file, enc, cb) {
     if (file.isNull()) {
-      return cb(null, file);
+      cb(null, file);
     }
 
     if (file.isBuffer()) {
       var testResults = JSON.parse(file.contents);
 
-      fs.writeFileSync(opts.dest + '/' + opts.filename, formatter.generateReport(testResults, opts.templates));
+      fs.open(opts.dest + '/' + opts.filename, 'w+', function (err, fd) {
+        if (err) {
+          fs.mkdirsSync(opts.dest);
+          fd = fs.openSync(opts.dest + '/' + opts.filename, 'w+');
+        }
+        fs.writeSync(fd, formatter.generateReport(testResults, opts.templates));
+        fs.copySync(currentDir + '/templates/assets', opts.dest + '/assets/');
 
-      fs.copySync(currentDir + '/templates/assets', opts.dest + '/assets/');
+        gutil.log(PLUGIN_NAME + ':', 'File \'' + opts.filename + '\' has been created in \'' + opts.dest + '\' directory');
 
-      gutil.log('File ' + opts.filename + ' has been created in \'' + opts.dest + '\' directory');
+        cb(null, file)
+      });
+
     } else {
       throw new PluginError(PLUGIN_NAME, '[Error] Currently only buffers are supported');
     }
-
-    return cb(null, file);
   });
 }
 
