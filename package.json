@@ -14,6 +14,7 @@
   "bugs": {
     "url": "https://github.com/mrooding/gulp-protractor-cucumber-html-report/issues"
   },
+  "license": "MIT",
   "licenses": [
     {
       "type": "MIT",
