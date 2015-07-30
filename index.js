@@ -22,7 +22,8 @@ function gulpProtractorCucumberHtmlReport(opts) {
     headerTemplate: path.join(currentDir, './templates/header_template.html'),
     reportTemplate: path.join(currentDir, './templates/report_template.html'),
     scenarioTemplate: path.join(currentDir, './templates/scenario_template.html'),
-    stepTemplate: path.join(currentDir, './templates/step_template.html')
+    stepTemplate: path.join(currentDir, './templates/step_template.html'),
+    screenshotTemplate: path.join(currentDir, './templates/screenshot_template.html')
   };
 
   return through.obj(function (file, enc, cb) {
