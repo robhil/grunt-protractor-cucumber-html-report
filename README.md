@@ -83,6 +83,31 @@ cucumberOpts: {
 },
 ```
 
+#### Screenshot support for failing scenarios
+
+Adding screenshots of failing scenarios to the HTML report requires you to add an After hook. This can be easily achieved by creating a Javascript file with the following content:
+
+```js
+module.exports = function TakeScreenshot() {
+    this.After(function (scenario, callback) {
+        if (scenario.isFailed()) {
+            browser.takeScreenshot().then(function (png) {
+                var decodedImage = new Buffer(png, 'base64').toString('binary');
+                scenario.attach(decodedImage, 'image/png');
+
+                callback();
+            });
+        } else {
+            callback();
+        }
+    });
+};
+```
+
+If you're using the cucumberOpts as shown in *Setting up Protractor, CucumberJS and the JSON listener* then all you need to do is save this to a Javascript file in the 'support/' folder. Otherwise you have to change the cucumberOpts require property to load your hook.
+
+This is all that's required to add the saved screenshots to the HTML report.
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality.
 
@@ -91,4 +116,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Copyright for portions of project [gulp-protractor-cucumber-html-report](https://github.com/mrooding/gulp-protractor-cucumber-html-report) are held by Robert Hilscher, 2015 as part of project [grunt-protractor-cucumber-html-report](https://github.com/robhil/grunt-protractor-cucumber-html-report). All other copyright for project [gulp-protractor-cucumber-html-report](https://github.com/mrooding/gulp-protractor-cucumber-html-report) are held by Marc Rooding, 2015.
 
 ## Release History
-_(Nothing yet)_
+0.0.6:
+  - Support for saving screenshots of failed scenarios
+  
+0.0.5:
+  - More robust creation of the output directory [thanks smuldr!](https://github.com/smuldr)
+  - Fixed the HTML reporter when using multiple feature files
