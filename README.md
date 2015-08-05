@@ -116,6 +116,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Copyright for portions of project [gulp-protractor-cucumber-html-report](https://github.com/mrooding/gulp-protractor-cucumber-html-report) are held by Robert Hilscher, 2015 as part of project [grunt-protractor-cucumber-html-report](https://github.com/robhil/grunt-protractor-cucumber-html-report). All other copyright for project [gulp-protractor-cucumber-html-report](https://github.com/mrooding/gulp-protractor-cucumber-html-report) are held by Marc Rooding, 2015.
 
 ## Release History
+0.0.8:
+  - Fix for not ignoring the After screenshot step
+  
 0.0.7:
   - Empty After steps as a result of the screenshot hook will not be added to the HTML report anymore
   
