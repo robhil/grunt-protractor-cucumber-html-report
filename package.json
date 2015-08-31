@@ -33,9 +33,9 @@
     "templates"
   ],
   "dependencies": {
+    "fs-extra": "^0.24.0",
     "gulp-util": "^3.0.0",
     "lodash.template": "^3.6.2",
-    "fs-extra": "^0.22.1",
     "through2": "^0.6.1"
   },
   "devDependencies": {
