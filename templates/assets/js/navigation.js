@@ -66,6 +66,14 @@ app.navigation = (function () {
                     scenarios[i].parentNode.style.display = 'none';
                 }
             }
+
+            if (buttonState === 'failed') {
+                this.hideFeatureContainer('passed');
+            } else {
+                this.hideFeatureContainer('failed');
+            }
+
+
         },
         /**
          * Displaying all scenarios within the report
@@ -106,6 +114,7 @@ app.navigation = (function () {
                 filteringButtons[k].addEventListener('click', function () {
 
                     btnState = this.dataset.state;
+                    self.showAllFeatures();
 
                     if (btnState !== 'steps') {
                         self.removeActiveClass(filteringButtons);
@@ -160,22 +169,45 @@ app.navigation = (function () {
                 steps[i].style.display = 'none';
             }
         },
-        hideFeatureContainder: function () {
+
+        showAllFeatures: function () {
             var features = document.querySelectorAll('.feature-with-scenarios');
+
             for (var i = 0; i < features.length; i++) {
-                features[i].querySelectorAll('.scenario-container');
+                features[i].style.display = 'block';
+            }
+        },
+
+        hideFeatureContainer: function (state) {
+            var features = document.querySelectorAll('.feature-with-scenarios'),
+                scenarios,
+                counter = 0;
+
+            for (var i = 0; i < features.length; i++) {
+                scenarios = features[i].querySelectorAll('.scenario');
+                counter  = 0;
+                for (var j = 0; j < scenarios.length; j++) {
+                    if (scenarios[j].classList.contains(state)) {
+                        counter++;
+                    }
+                }
+                console.log(counter, scenarios.length);
+                if (counter === scenarios.length) {
+                    features[i].style.display = 'none';
+                }
             }
         },
 
         toggleScenarios: function (scenario) {
             var scenarios = scenario.querySelectorAll('.scenario');
-            for(var i = 0; i < scenarios.length; i++) {
+            for (var i = 0; i < scenarios.length; i++) {
 
             }
-
         }
 
     }
 
-}());
+}()
+)
+;
 
