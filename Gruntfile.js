@@ -34,7 +34,8 @@ module.exports = function(grunt) {
       default_options: {
         options: {
           dest: 'tmp',
-          output: 'report.html'
+          output: 'report.html',
+          reportTitle: "Test report generated via automatic tests"
         }
       }
     },

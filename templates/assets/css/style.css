@@ -100,7 +100,7 @@ header {
     height: 60px;
 }
 
-.scenarios-summary {
+.scenarios-summary, .report-date {
     font-family: Roboto;
     font-size: 14px;
 }
@@ -112,16 +112,18 @@ header {
 header.failed {
     background: #FF5252;
     color: white;
+    position: relative;
 }
 
 header h1 {
     float: left;
-    font-size: 25px;
+    font-size: 23px;
     color: white;
-    height: 60px;
-    line-height: 60px;
+    height: 46px;
+    line-height: 51px;
     font-weight: 500;
-    margin-left: 20px;
+    margin-left: 5px;
+    margin-top: 14px;
 }
 
 .step {
@@ -134,7 +136,7 @@ header h1 {
 
 .feature {
     margin-left: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     background: #E8F5E9;
     clear: both;
     padding: 15px;
@@ -290,6 +292,15 @@ header h1 {
     margin-top: 5px;
 }
 
+.report-date{
+    color: white;
+    float: left;
+    font-size: 13px;
+    margin-top: 5px;
+    padding: 3px;
+    margin-left: 3px;
+    position: absolute;
+}
 .btn {
     color: white;
     outline: none !important;
@@ -703,4 +714,12 @@ header h1 {
 
 .feature-container {
     margin-top: 30px;
+}
+.feature{
+    border-top: 3px red;
+}
+
+.feature-with-scenarios {
+    padding: 10px;
+    margin-bottom: 40px;
 }

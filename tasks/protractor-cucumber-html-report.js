@@ -20,12 +20,15 @@ module.exports = function(grunt) {
       dest: '.',
       output: 'report.html',
       testJSONResultPath: '',
+      reportTitle: "Test report",
       templates: {
         featureTemplate: currentDir + '/../templates/feature_template.html',
         headerTemplate: currentDir + '/../templates/header_template.html',
         reportTemplate: currentDir + '/../templates/report_template.html',
         scenarioTemplate: currentDir + '/../templates/scenario_template.html',
-        stepTemplate: currentDir + '/../templates/step_template.html'
+        stepTemplate: currentDir + '/../templates/step_template.html',
+        scenarioContainerTemplate: currentDir + '/../templates/scenario-container_template.html',
+        featureContainerTemplate: currentDir + '/../templates/feature-container_template.html'
       }
     }),
       EXAMPLE_TEST_RESULT_PATH = currentDir + '/../assets/example_test_result.json',
@@ -38,7 +41,7 @@ module.exports = function(grunt) {
 
     if (grunt.file.exists(jsonPath)) {
       testResults = grunt.file.readJSON(jsonPath);
-      grunt.file.write(options.dest + '/' + options.output, formatter.generateReport(testResults, options.templates));
+      grunt.file.write(options.dest + '/' + options.output, formatter.generateReport(testResults, options));
 
       grunt.file.recurse(currentDir + '/../templates/assets', function (abspath, rootdir, subdir, filename) {
 
