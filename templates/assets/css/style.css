@@ -723,3 +723,7 @@ header h1 {
     padding: 10px;
     margin-bottom: 40px;
 }
+.feature-with-scenarios.hidden {
+    display: none;
+
+}
