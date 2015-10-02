@@ -4,4 +4,5 @@ languages:
   PHP: false
   Python: false
 exclude_paths:
-- "output/**/*.js"
+- "output/**/*"
+- "templates/**/*"
