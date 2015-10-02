@@ -1,5 +1,7 @@
 # gulp-protractor-cucumber-html-report
 
+[![Build Status](https://travis-ci.org/mrooding/gulp-protractor-cucumber-html-report.svg?branch=master)](https://travis-ci.org/mrooding/gulp-protractor-cucumber-html-report)
+
 > Generate html report from JSON file returned by CucumberJS json formatter
 
 This is a stand-alone fork of [grunt-protractor-cucumber-html-report](https://github.com/robhil/grunt-protractor-cucumber-html-report)
