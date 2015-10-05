@@ -60,6 +60,7 @@ grunt.initConfig({
       dest: '.',
       output: 'report.html',
       testJSONResultPath: '',
+      testJSONDirectory: '',
     },
   },
 });

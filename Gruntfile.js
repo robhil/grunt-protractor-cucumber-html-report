@@ -34,7 +34,9 @@ module.exports = function(grunt) {
       default_options: {
         options: {
           dest: 'tmp',
-          output: 'report.html'
+          output: 'report.html',
+          testJSONDirectory: 'assets',
+          reportTitle: "Test report generated via automatic tests"
         }
       }
     },

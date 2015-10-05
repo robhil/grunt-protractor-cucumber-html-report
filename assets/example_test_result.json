@@ -1,6 +1,535 @@
 
 [
   {
+    "id": "As-a-Staff-Member-I-want-simple-tool-which-allows-me-to-change-a-student's-next-activity",
+    "name": "As a Staff Member I want simple tool which allows me to change a student's next activity",
+    "description": "so that they can remediate or continue from a desired point.",
+    "line": 2,
+    "keyword": "Feature",
+    "tags": [
+      {
+        "name": "@NSEST",
+        "line": 1
+      },
+      {
+        "name": "@smokeTest",
+        "line": 1
+      },
+      {
+        "name": "@bookmark",
+        "line": 1
+      }
+    ],
+    "uri": "/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/uat_tests/tests/stBookmark.feature",
+    "elements": [
+      {
+        "name": "Set and verify bookmark tool",
+        "id": "As-a-Staff-Member-I-want-simple-tool-which-allows-me-to-change-a-student's-next-activity;set-and-verify-bookmark-tool",
+        "line": 5,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 6,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1781558970,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I set bookmark tool for student on:",
+            "line": 7,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "level",
+                  "unit",
+                  "lesson",
+                  "cycle",
+                  "activity"
+                ]
+              },
+              {
+                "cells": [
+                  "2",
+                  "7",
+                  "2",
+                  "2",
+                  "Theater - Listen for Meaning"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 18328036669,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see bookmark set on:",
+            "line": 10,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "level",
+                  "unit",
+                  "lesson",
+                  "activity"
+                ]
+              },
+              {
+                "cells": [
+                  "NSE Level 2",
+                  "Unit 7",
+                  "2",
+                  "Theater - Listen for Meaning"
+                ]
+              }
+            ],
+            "result": {
+              "error_message": "AssertionError: Level on student view dashboard is not proper.: expected 'Level 2' to equal 'NSE Level 2'\n\n",
+              "duration": 2233503469,
+              "status": "failed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see on student progress header:",
+            "line": 13,
+            "keyword": "And ",
+            "rows": [
+              {
+                "cells": [
+                  "unit",
+                  "lesson",
+                  "nextStep",
+                  "nextEncounter"
+                ]
+              },
+              {
+                "cells": [
+                  "7",
+                  "LESSON 2",
+                  "Theater - Listen for Meaning",
+                  "-"
+                ]
+              }
+            ],
+            "result": {
+              "status": "skipped"
+            },
+            "match": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "As-a-Staff-Member-I-want-to-be-able-to-navigate-to-any-specific-activity-on-demand-so-that-I-can-demonstrate-or-support-a-student-in-their-studies.",
+    "name": "As a Staff Member I want to be able to navigate to any specific activity on demand so that I can demonstrate or support a student in their studies.",
+    "description": "",
+    "line": 2,
+    "keyword": "Feature",
+    "tags": [
+      {
+        "name": "@NSEST",
+        "line": 1
+      },
+      {
+        "name": "@cataloqueTool",
+        "line": 1
+      }
+    ],
+    "uri": "/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/uat_tests/tests/stCatalogueTool.feature",
+    "elements": [
+      {
+        "name": "Verifying the default values of Catalogue Tool",
+        "id": "As-a-Staff-Member-I-want-to-be-able-to-navigate-to-any-specific-activity-on-demand-so-that-I-can-demonstrate-or-support-a-student-in-their-studies.;verifying-the-default-values-of-catalogue-tool",
+        "line": 5,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@smokeTest",
+            "line": 4
+          }
+        ],
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 6,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1517185274,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I go to Catalogue Tool",
+            "line": 7,
+            "keyword": "When ",
+            "result": {
+              "duration": 2246333,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see Catalogue Tool table set on:",
+            "line": 8,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "unit",
+                  "lesson",
+                  "mini-cycle",
+                  "section",
+                  "activity"
+                ]
+              },
+              {
+                "cells": [
+                  "5",
+                  "1",
+                  "1",
+                  "Watch",
+                  "Watch and Learn"
+                ]
+              }
+            ],
+            "result": {
+              "error_message": "AssertionError: Section column value is not proper.: expected 'Presentation' to equal 'Watch'\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/uat_tests/tests/step_definitions/ST/stCatalogueToolSteps.js:14:51\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at fulfill (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at [object Object].then (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:522:7)\n  at Object.webdriver.promise.asap (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:767:11)\n  at newFrame.onComplete (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1670:25)\n  at [object Object].webdriver.promise.Frame_.notify_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1914:5)\n  at [object Object]._onTimeout (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1901:11)\n  at Timer.listOnTimeout [as ontimeout] (timers.js:112:15)\n",
+              "duration": 3374447029,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see Catalogue Tool cover set on:",
+            "line": 11,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "level",
+                  "unit",
+                  "lesson",
+                  "cycle",
+                  "activity"
+                ]
+              },
+              {
+                "cells": [
+                  "2",
+                  "5",
+                  "1",
+                  "1",
+                  "Watch and Learn"
+                ]
+              }
+            ],
+            "result": {
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Setting Catalogue Tool",
+        "id": "As-a-Staff-Member-I-want-to-be-able-to-navigate-to-any-specific-activity-on-demand-so-that-I-can-demonstrate-or-support-a-student-in-their-studies.;setting-catalogue-tool",
+        "line": 15,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 16,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1477105232,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I set Catalogue Tool on:",
+            "line": 17,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "level",
+                  "unit",
+                  "lesson",
+                  "cycle",
+                  "activity"
+                ]
+              },
+              {
+                "cells": [
+                  "1",
+                  "3",
+                  "3",
+                  "2",
+                  "Practice Your Skills"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 23762548,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see Catalogue Tool table set on:",
+            "line": 20,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "unit",
+                  "lesson",
+                  "mini-cycle",
+                  "section",
+                  "activity"
+                ]
+              },
+              {
+                "cells": [
+                  "3",
+                  "3",
+                  "2",
+                  "Skills",
+                  "Practice Your Skills"
+                ]
+              }
+            ],
+            "result": {
+              "error_message": "AssertionError: Activity column value is not proper.: expected 'Read and Record' to equal 'Practice Your Skills'\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/uat_tests/tests/step_definitions/ST/stCatalogueToolSteps.js:14:51\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at fulfill (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at [object Object].then (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:522:7)\n  at Object.webdriver.promise.asap (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:767:11)\n  at newFrame.onComplete (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1670:25)\n  at [object Object].webdriver.promise.Frame_.notify_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1914:5)\n  at [object Object]._onTimeout (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1901:11)\n  at Timer.listOnTimeout [as ontimeout] (timers.js:112:15)\n",
+              "duration": 13549035724,
+              "status": "failed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see Catalogue Tool cover set on:",
+            "line": 23,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "level",
+                  "unit",
+                  "lesson",
+                  "cycle",
+                  "activity"
+                ]
+              },
+              {
+                "cells": [
+                  "1",
+                  "3",
+                  "3",
+                  "2",
+                  "Practice Your Skills"
+                ]
+              }
+            ],
+            "result": {
+              "status": "skipped"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Launching Catalogue Tool activity through cover",
+        "id": "As-a-Staff-Member-I-want-to-be-able-to-navigate-to-any-specific-activity-on-demand-so-that-I-can-demonstrate-or-support-a-student-in-their-studies.;launching-catalogue-tool-activity-through-cover",
+        "line": 28,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@smokeTest",
+            "line": 27
+          }
+        ],
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 29,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1460388539,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I go to Catalogue Tool",
+            "line": 30,
+            "keyword": "When ",
+            "result": {
+              "duration": 2124695,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I launch and close active Catalogue Tool activity through cover",
+            "line": 31,
+            "keyword": "And ",
+            "result": {
+              "error_message": "NoSuchElementError: No element found using locator: By.xpath(\"//div[contains(@class, \\\"playerProgressBar__close\\\")]\")\n  at new bot.Error (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/atoms/error.js:113:18)\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/lib/element.js:673:15\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at fulfill (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at [object Object].then (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:522:7)\n  at Object.webdriver.promise.asap (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:767:11)\n  at newFrame.onComplete (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1670:25)\n  at [object Object].webdriver.promise.Frame_.notify_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1914:5)\n  at [object Object]._onTimeout (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1901:11)\n  at Timer.listOnTimeout [as ontimeout] (timers.js:112:15)\n\nError\n  at [object Object].ElementArrayFinder.applyAction_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/lib/element.js:390:21)\n  at [object Object].self.(anonymous function) [as click] (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/lib/element.js:77:19)\n  at [object Object].self.(anonymous function) [as click] (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/lib/element.js:700:11)\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/uat_tests/tests/page/LS/iap.js:113:51\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at [object Object].reject (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:545:5)\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1529:10\n  at newFrame.onAbort (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1679:7)\n  at [object Object].webdriver.promise.Frame_.notify_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1914:5)\n  at [object Object]._onTimeout (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1887:13)\n  at Timer.listOnTimeout [as ontimeout] (timers.js:112:15)\n",
+              "duration": 8201898507,
+              "status": "failed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see Catalogue Tool cover set on:",
+            "line": 32,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "level",
+                  "unit",
+                  "lesson",
+                  "cycle",
+                  "activity"
+                ]
+              },
+              {
+                "cells": [
+                  "2",
+                  "5",
+                  "1",
+                  "1",
+                  "Watch and Learn"
+                ]
+              }
+            ],
+            "result": {
+              "status": "skipped"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Launching Catalogue Tool activity through table with verifying values",
+        "id": "As-a-Staff-Member-I-want-to-be-able-to-navigate-to-any-specific-activity-on-demand-so-that-I-can-demonstrate-or-support-a-student-in-their-studies.;launching-catalogue-tool-activity-through-table-with-verifying-values",
+        "line": 37,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@smokeTest",
+            "line": 36
+          }
+        ],
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 38,
+            "keyword": "Given ",
+            "result": {
+              "duration": 928641928,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I set Catalogue Tool on:",
+            "line": 39,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "level",
+                  "unit",
+                  "lesson",
+                  "cycle",
+                  "activity"
+                ]
+              },
+              {
+                "cells": [
+                  "1",
+                  "3",
+                  "3",
+                  "2",
+                  "Practice Your Skills"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 17569847,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I launch and close active Catalogue Tool activity through table",
+            "line": 42,
+            "keyword": "And ",
+            "result": {
+              "duration": 16755650450,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see Catalogue Tool table set on:",
+            "line": 43,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "unit",
+                  "lesson",
+                  "mini-cycle",
+                  "section",
+                  "activity"
+                ]
+              },
+              {
+                "cells": [
+                  "3",
+                  "3",
+                  "2",
+                  "Skills",
+                  "Practice Your Skills"
+                ]
+              }
+            ],
+            "result": {
+              "error_message": "AssertionError: Activity column value is not proper.: expected 'Read and Record' to equal 'Practice Your Skills'\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/uat_tests/tests/step_definitions/ST/stCatalogueToolSteps.js:14:51\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at fulfill (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at /home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at [object Object].then (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:522:7)\n  at Object.webdriver.promise.asap (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:767:11)\n  at newFrame.onComplete (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1670:25)\n  at [object Object].webdriver.promise.Frame_.notify_ (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1914:5)\n  at [object Object]._onTimeout (/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1901:11)\n  at Timer.listOnTimeout [as ontimeout] (timers.js:112:15)\n",
+              "duration": 475967019,
+              "status": "failed"
+            },
+            "match": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "As-a-Staff-Member-I-want-to-view-all-follow-up-activities-and-create,-delete-and-edit-my-own-follow-up-activities-or-comments,",
     "name": "As a Staff Member I want to view all follow-up activities and create, delete and edit my own follow up activities or comments,",
     "description": "recorded for the student, so that I can see how all the staff have interacted with the student.",
@@ -16,18 +545,18 @@
         "line": 1
       }
     ],
-    "uri": "/home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/stFollowUp.feature",
+    "uri": "/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/uat_tests/tests/stFollowUp.feature",
     "elements": [
       {
-        "name": "[NSESS-17a] Displaying follow-up activities list",
-        "id": "As-a-Staff-Member-I-want-to-view-all-follow-up-activities-and-create,-delete-and-edit-my-own-follow-up-activities-or-comments,;[nsess-17a]-displaying-follow-up-activities-list",
+        "name": "[NSESS-17a] Not reaching student using phone",
+        "id": "As-a-Staff-Member-I-want-to-view-all-follow-up-activities-and-create,-delete-and-edit-my-own-follow-up-activities-or-comments,;[nsess-17a]-not-reaching-student-using-phone",
         "line": 6,
         "keyword": "Scenario",
         "description": "",
         "type": "scenario",
         "tags": [
           {
-            "name": "@NSESS-17",
+            "name": "@smokeTest",
             "line": 5
           }
         ],
@@ -37,13 +566,13 @@
             "line": 7,
             "keyword": "Given ",
             "result": {
-              "duration": 5278152787,
+              "duration": 1436301480,
               "status": "passed"
             },
             "match": {}
           },
           {
-            "name": "I create new follow up with following data:",
+            "name": "I create new follow up with the following data:",
             "line": 8,
             "keyword": "When ",
             "rows": [
@@ -59,28 +588,738 @@
               },
               {
                 "cells": [
-                  "email",
-                  "Newly created follow up!",
+                  "phone",
+                  "Contacting by phone.",
                   "13",
                   "15",
-                  "2014-01-12",
+                  "2012-02-14",
                   "No"
                 ]
               }
             ],
             "result": {
-              "error_message": "TypeError: Cannot read property 'isPresent' of undefined\n  at [object Object].ExpectedConditions.presenceOf (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/protractor/lib/expectedConditions.js:233:23)\n  at [object Object].ExpectedConditions.visibilityOf (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/protractor/lib/expectedConditions.js:261:10)\n  at [object Object].ExpectedConditions.elementToBeClickable (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/protractor/lib/expectedConditions.js:148:12)\n  at Fn.Page.create.saveFollowUp.value (/home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/page/ST/stFollowUpPage.js:102:36)\n  at World.<anonymous> (/home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/context/ST/stFollowUpSteps.js:19:18)\n  at formatter.handleStepResultEvent (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/lib/frameworks/cucumber.js:121:13)\n  at /home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/context/loginSteps.js:64:69\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at fulfill (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at Object.webdriver.promise.asap (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:776:5)\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1665:25)\n  at notify (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at [object Object].fulfill (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1520:10\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at fulfill (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at [object Object].fulfill (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:721:49\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/http/http.js:96:5\n  at IncomingMessage.<anonymous> (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/http/index.js:131:7)\n  at IncomingMessage.emit (events.js:117:20)\n  at _stream_readable.js:944:16\n  at process._tickDomainCallback (node.js:486:13)\n",
-              "duration": 30185168,
-              "status": "failed"
+              "duration": 14343601298,
+              "status": "passed"
             },
             "match": {}
           },
           {
-            "name": "I should see \"Newly created follow up!\" value in \"Notes\" column for the \"1\" row",
+            "name": "I should see new follow up note with the following data:",
             "line": 11,
             "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "followUpDate",
+                  "employee",
+                  "notes",
+                  "icon"
+                ]
+              },
+              {
+                "cells": [
+                  "13 Feb 2012",
+                  "Teacher1 t1",
+                  "Contacting by phone.",
+                  "Phone"
+                ]
+              }
+            ],
             "result": {
-              "status": "undefined"
+              "duration": 2156700088,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "[NSESS-17b] Reaching student using an email",
+        "id": "As-a-Staff-Member-I-want-to-view-all-follow-up-activities-and-create,-delete-and-edit-my-own-follow-up-activities-or-comments,;[nsess-17b]-reaching-student-using-an-email",
+        "line": 16,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 17,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1275570804,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with the following data:",
+            "line": 18,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "email",
+                  "Contacting by email.",
+                  "13",
+                  "15",
+                  "2012-02-14",
+                  "Yes"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 14305371923,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see new follow up note with the following data:",
+            "line": 21,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "followUpDate",
+                  "employee",
+                  "notes",
+                  "icon"
+                ]
+              },
+              {
+                "cells": [
+                  "13 Feb 2012",
+                  "Teacher1 t1",
+                  "Contacting by email.",
+                  "Email"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 2140305539,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "[NSESS-17c] Editing newly added follow-up",
+        "id": "As-a-Staff-Member-I-want-to-view-all-follow-up-activities-and-create,-delete-and-edit-my-own-follow-up-activities-or-comments,;[nsess-17c]-editing-newly-added-follow-up",
+        "line": 26,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@smokeTest",
+            "line": 25
+          }
+        ],
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 27,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1275733027,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with the following data:",
+            "line": 28,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "meeting",
+                  "Gonna to edit this follow-up.",
+                  "13",
+                  "15",
+                  "2015-02-14",
+                  "Yes"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 14405814513,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I edit newly added follow up with the following data:",
+            "line": 31,
+            "keyword": "And ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "comment",
+                  "New comment.",
+                  "20",
+                  "15",
+                  "2015-02-14",
+                  "No"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 9334108029,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see new follow up note with the following data:",
+            "line": 34,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "followUpDate",
+                  "employee",
+                  "notes",
+                  "icon"
+                ]
+              },
+              {
+                "cells": [
+                  "13 Feb 2015",
+                  "Teacher1 t1",
+                  "New comment.",
+                  "Comment"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 2227436506,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "[NSESS-17d] Creating new follow up with incorrect time",
+        "id": "As-a-Staff-Member-I-want-to-view-all-follow-up-activities-and-create,-delete-and-edit-my-own-follow-up-activities-or-comments,;[nsess-17d]-creating-new-follow-up-with-incorrect-time",
+        "line": 39,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 40,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1451832392,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with wrong value:",
+            "line": 41,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "email",
+                  "Contacting by email.",
+                  "13",
+                  "70",
+                  "2012-02-14",
+                  "Yes"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 13729669683,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see disabled save button",
+            "line": 44,
+            "keyword": "Then ",
+            "result": {
+              "duration": 88992098,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "[NSESS-17e] Creating new follow up with incorrect date",
+        "id": "As-a-Staff-Member-I-want-to-view-all-follow-up-activities-and-create,-delete-and-edit-my-own-follow-up-activities-or-comments,;[nsess-17e]-creating-new-follow-up-with-incorrect-date",
+        "line": 47,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 48,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1474912312,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with wrong value:",
+            "line": 49,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "email",
+                  "Contacting by email.",
+                  "13",
+                  "15",
+                  "2014-22-14",
+                  "Yes"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 12074789794,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see disabled save button",
+            "line": 52,
+            "keyword": "Then ",
+            "result": {
+              "duration": 64302193,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "As-a-staff-member-I-want-to-see-a-sortable-list-of-all-the-students-in-my-center-so-that-I-can-take-further-actions",
+    "name": "As a staff member I want to see a sortable list of all the students in my center so that I can take further actions",
+    "description": "",
+    "line": 2,
+    "keyword": "Feature",
+    "tags": [
+      {
+        "name": "@NSEST",
+        "line": 1
+      }
+    ],
+    "uri": "/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/uat_tests/tests/stStudentList.feature",
+    "elements": [
+      {
+        "name": "Displaying student list",
+        "id": "As-a-staff-member-I-want-to-see-a-sortable-list-of-all-the-students-in-my-center-so-that-I-can-take-further-actions;displaying-student-list",
+        "line": 5,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@smokeTest",
+            "line": 4
+          }
+        ],
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 6,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1411924012,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I go to Student List",
+            "line": 7,
+            "keyword": "When ",
+            "result": {
+              "duration": 2258771,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see student list with columns:",
+            "line": 8,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "headerName"
+                ]
+              },
+              {
+                "cells": [
+                  ""
+                ]
+              },
+              {
+                "cells": [
+                  "Last name"
+                ]
+              },
+              {
+                "cells": [
+                  "Name"
+                ]
+              },
+              {
+                "cells": [
+                  "Risk"
+                ]
+              },
+              {
+                "cells": [
+                  "Unit"
+                ]
+              },
+              {
+                "cells": [
+                  "Status"
+                ]
+              },
+              {
+                "cells": [
+                  "Student code"
+                ]
+              },
+              {
+                "cells": [
+                  "Contact"
+                ]
+              },
+              {
+                "cells": [
+                  "Book class"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 3369239147,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Student list sorting",
+        "id": "As-a-staff-member-I-want-to-see-a-sortable-list-of-all-the-students-in-my-center-so-that-I-can-take-further-actions;student-list-sorting",
+        "line": 20,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 21,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1490245894,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I go to Student List",
+            "line": 22,
+            "keyword": "When ",
+            "result": {
+              "duration": 2154474,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I sort list ascending by first name",
+            "line": 23,
+            "keyword": "And ",
+            "result": {
+              "duration": 2306017,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see list sorted ascending by first name",
+            "line": 24,
+            "keyword": "Then ",
+            "result": {
+              "duration": 2526285,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Searching through student list",
+        "id": "As-a-staff-member-I-want-to-see-a-sortable-list-of-all-the-students-in-my-center-so-that-I-can-take-further-actions;searching-through-student-list",
+        "line": 27,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@smokeTest",
+            "line": 26
+          }
+        ],
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 28,
+            "keyword": "Given ",
+            "result": {
+              "duration": 2101153394,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I go to Student List",
+            "line": 29,
+            "keyword": "When ",
+            "result": {
+              "duration": 1622898,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I filter list with phrase \"Domi\"",
+            "line": 30,
+            "keyword": "And ",
+            "result": {
+              "duration": 7369783,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see on list only elements with phrase \"Domi\"",
+            "line": 31,
+            "keyword": "Then ",
+            "result": {
+              "duration": 4955114501,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Student-Profile",
+    "name": "Student Profile",
+    "description": "",
+    "line": 2,
+    "keyword": "Feature",
+    "tags": [
+      {
+        "name": "@NSEST",
+        "line": 1
+      },
+      {
+        "name": "@smokeTest",
+        "line": 1
+      }
+    ],
+    "uri": "/home/maciejkamela/Budowa srodowisk/nse-learning-services-client/uat_tests/tests/stStudentProfile.feature",
+    "elements": [
+      {
+        "name": "Editing Basic Information on student profile",
+        "id": "Student-Profile;editing-basic-information-on-student-profile",
+        "line": 4,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 5,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1021955205,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I edit student basic information on student profile:",
+            "line": 6,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "birthdate",
+                  "gender",
+                  "territory",
+                  "nativeLanguage",
+                  "secondaryLanguage",
+                  "profession"
+                ]
+              },
+              {
+                "cells": [
+                  "2000-11-12",
+                  "Other",
+                  "China",
+                  "Chinese",
+                  "Korean",
+                  "Consulting"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 9604194596,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see basic information on student profile:",
+            "line": 9,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "birthdate",
+                  "gender",
+                  "territory",
+                  "nativeLanguage",
+                  "secondaryLanguage",
+                  "profession"
+                ]
+              },
+              {
+                "cells": [
+                  "2000-11-12",
+                  "Other",
+                  "China",
+                  "Chinese",
+                  "Korean",
+                  "Consulting"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 3377538892,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Adding new student photo",
+        "id": "Student-Profile;adding-new-student-photo",
+        "line": 13,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@photo",
+            "line": 12
+          }
+        ],
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 14,
+            "keyword": "Given ",
+            "result": {
+              "duration": 1277474901,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I add new student photo",
+            "line": 15,
+            "keyword": "When ",
+            "result": {
+              "duration": 5706536641,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see new photo on student profile",
+            "line": 16,
+            "keyword": "Then ",
+            "result": {
+              "duration": 65645658,
+              "status": "passed"
             },
             "match": {}
           }
