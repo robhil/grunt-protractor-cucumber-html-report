@@ -20,6 +20,7 @@ module.exports = function(grunt) {
       dest: '.',
       output: 'report.html',
       testJSONResultPath: '',
+      testJSONDirectory: '',
       reportTitle: "Test report",
       templates: {
         featureTemplate: currentDir + '/../templates/feature_template.html',
@@ -33,7 +34,31 @@ module.exports = function(grunt) {
     }),
       EXAMPLE_TEST_RESULT_PATH = currentDir + '/../assets/example_test_result.json',
       jsonPath = options.testJSONResultPath || EXAMPLE_TEST_RESULT_PATH,
-      testResults;
+      testResults,
+      jsonDirectory = options.testJSONDirectory;
+
+    function generateReport (jsonPath, directoryName) {
+      testResults = grunt.file.readJSON(jsonPath);
+      grunt.file.write(options.dest + (directoryName ? '/' + directoryName + '/' : '/') + options.output, formatter.generateReport(testResults, options));
+      grunt.file.recurse(currentDir + '/../templates/assets', function (abspath, rootdir, subdir, filename) {
+        grunt.file.copy(abspath, options.dest + '/' + (directoryName ? '/' + directoryName + '' : '') + '/assets/' + subdir + '/' + filename);
+      });
+    }
+
+    if (jsonDirectory) {
+      if (grunt.file.isDir(jsonDirectory)) {
+        grunt.file.recurse(jsonDirectory, function (abspath, rootdir, subdir, filename) {
+          var pattern = /^.*\.(json)$/,
+              directoryName = filename.replace('.json', '');
+          if (pattern.test(filename)) {
+            generateReport(abspath, directoryName);
+          }
+        });
+      } else {
+        grunt.log.error('The directory doesn\'t exist');
+      }
+        return true;
+    }
 
     if (!options.testJSONResultPath) {
       grunt.log.writeln('[Warning] Your testJSONResultPath option is empty. Task will use example JSON');
@@ -41,18 +66,10 @@ module.exports = function(grunt) {
 
     if (grunt.file.exists(jsonPath)) {
       testResults = grunt.file.readJSON(jsonPath);
-      grunt.file.write(options.dest + '/' + options.output, formatter.generateReport(testResults, options));
-
-      grunt.file.recurse(currentDir + '/../templates/assets', function (abspath, rootdir, subdir, filename) {
-
-        grunt.file.copy(abspath, options.dest + '/assets/' + subdir + '/'+ filename);
-
-      });
-
-
+      generateReport(jsonPath);
       grunt.log.writeln('File ' + options.output + ' has been created in \'' + options.dest + '\' directory');
     } else {
-      grunt.log.error('File ' + jsonPath + ' doesn\'t exists');
+      grunt.log.error('File ' + jsonPath + ' doesn\'t exist');
       return false;
     }
 
