@@ -294,12 +294,12 @@ header h1 {
 
 .report-date{
     color: white;
-    float: left;
     font-size: 13px;
     margin-top: 5px;
     padding: 3px;
     margin-left: 3px;
     position: absolute;
+    left: 0;
 }
 .btn {
     color: white;

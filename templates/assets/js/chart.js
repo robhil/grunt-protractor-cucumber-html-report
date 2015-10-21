@@ -2,7 +2,6 @@ var app = app || {};
 
 app.chart  = (function () {
 
-
   return {
 
     init: function () {

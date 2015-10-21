@@ -46,18 +46,17 @@ module.exports = function(grunt) {
     }
 
     if (jsonDirectory) {
-      if (grunt.file.isDir(jsonDirectory)) {
-        grunt.file.recurse(jsonDirectory, function (abspath, rootdir, subdir, filename) {
-          var pattern = /^.*\.(json)$/,
-              directoryName = filename.replace('.json', '');
-          if (pattern.test(filename)) {
-            generateReport(abspath, directoryName);
-          }
-        });
-      } else {
-        grunt.log.error('The directory doesn\'t exist');
+      if (!grunt.file.isDir(jsonDirectory)) {
+        grunt.file.mkdir(jsonDirectory);
       }
-        return true;
+      grunt.file.recurse(jsonDirectory, function (abspath, rootdir, subdir, filename) {
+        var pattern = /^.*\.(json)$/,
+            directoryName = filename.replace('.json', '');
+        if (pattern.test(filename)) {
+          generateReport(abspath, directoryName);
+        }
+      });
+      return true;
     }
 
     if (!options.testJSONResultPath) {
