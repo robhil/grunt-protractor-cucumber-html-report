@@ -1,7 +1,5 @@
 # gulp-protractor-cucumber-html-report
 
-[![Build Status](https://travis-ci.org/mrooding/gulp-protractor-cucumber-html-report.svg?branch=master)](https://travis-ci.org/mrooding/gulp-protractor-cucumber-html-report)
-
 > Generate html report from JSON file returned by CucumberJS json formatter
 
 This is a stand-alone fork of [grunt-protractor-cucumber-html-report](https://github.com/robhil/grunt-protractor-cucumber-html-report)
@@ -62,9 +60,16 @@ module.exports = function JsonOutputHook() {
   var path = require('path');
 
   JsonFormatter.log = function (json) {
-    fs.writeFile(path.join(__dirname, './reports/cucumber-test-results.json'), json, function (err) {
-      if (err) throw err;
-      console.log('json file location: ' + path.join(__dirname, './reports/cucumber-test-results.json'));
+    var destination = path.join(__dirname, '../../reports/cucumber-test-results.json');
+    fs.open(destination, 'w+', function (err, fd) {
+      if (err) {
+        fs.mkdirsSync(destination);
+        fd = fs.openSync(destination, 'w+');
+      }
+
+      fs.writeSync(fd, json);
+
+      console.log('json file location: ' + destination);
     });
   };
 
