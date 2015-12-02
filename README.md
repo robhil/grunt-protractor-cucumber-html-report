@@ -47,20 +47,75 @@ gulp.src('./cucumber-test-results.json')
     }));
 ```
 
-#### Saving CucumberJS json to disk when using Protractor
+#### Saving CucumberJS JSON to disk when using Protractor
 If you're using Protractor in combination with CucumberJS there currently is [no way](https://github.com/cucumber/cucumber-js/issues/90) to save the CucumberJS JSON output to a file. 
  
 It is however possible to add a listener to the CucumberJS JSON formatter and save it to a file manually. The following hook can be added to your project and included to your Protractor configuration.
 
-```js
-module.exports = function JsonOutputHook() {
-  var Cucumber = require('cucumber');
-  var JsonFormatter = Cucumber.Listener.JsonFormatter();
-  var fs = require('fs');
-  var path = require('path');
+I've added 2 different hooks which basically do the same but one of the 2 requires you to add an extra dependency to your package.json. You're free to choose which one you prefer.
 
+##### Without any extra dependencies
+
+```js
+var Cucumber = require('cucumber'),
+    fs = require('fs');
+    path = require('path');
+
+var JsonFormatter = Cucumber.Listener.JsonFormatter();
+
+var reportDirectory = 'reports/one/two/';
+var reportFileName = 'cucumber-test-results.json';
+
+var reportDirectoryPath = path.join(__dirname, '../../' + reportDirectory);
+var reportFilePath = path.join(reportDirectoryPath + reportFileName);
+
+function mkdirp(path, root) {
+  var dirs = path.split('/'), dir = dirs.shift(), root = (root || '') + dir + '/';
+
+  try {
+    fs.mkdirSync(root);
+  } catch (e) {
+    if(!fs.statSync(root).isDirectory()) throw new Error(e);
+  }
+
+  return !dirs.length || mkdirp(dirs.join('/'), root);
+}
+
+module.exports = function JsonOutputHook() {
   JsonFormatter.log = function (json) {
-    var destination = path.join(__dirname, '../../reports/cucumber-test-results.json');
+    fs.open(reportFilePath, 'w+', function (err, fd) {
+      if (err) {
+        mkdirp(reportDirectoryPath);
+        fd = fs.openSync(reportFilePath, 'w+');
+      }
+
+      fs.writeSync(fd, json);
+
+      console.log('json file location: ' + reportFilePath);
+    });
+  };
+
+  this.registerListener(JsonFormatter);
+};
+
+```
+
+##### With the fs-extra dependency
+
+If you're going for this implementation, be sure to add fs-extra(https://www.npmjs.com/package/fs-extra) to your package.json in order for this to work.
+
+```js
+var Cucumber = require('cucumber');
+    fs = require('fs-extra');
+    path = require('path');
+
+var JsonFormatter = Cucumber.Listener.JsonFormatter();
+
+var reportFile = ''../../reports/cucumber-test-results.json';
+
+module.exports = function JsonOutputHook() {
+  JsonFormatter.log = function (json) {
+    var destination = path.join(__dirname, reportFile);
     fs.open(destination, 'w+', function (err, fd) {
       if (err) {
         fs.mkdirsSync(destination);
@@ -77,7 +132,7 @@ module.exports = function JsonOutputHook() {
 };
 ```
 
-Above snippet will hook into the CucumberJS JSON formatter and save the JSON to a file called 'cucumber-test-results.json' in the './reports' folder (relative from this file's location)
+Both 2 snippets above will hook into the CucumberJS JSON formatter and save the JSON to a file called 'cucumber-test-results.json' in the '../../reports' folder (relative from this file's location)
 
 #### Setting up Protractor, CucumberJS and the JSON listener
 
@@ -123,6 +178,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Copyright for portions of project [gulp-protractor-cucumber-html-report](https://github.com/mrooding/gulp-protractor-cucumber-html-report) are held by Robert Hilscher, 2015 as part of project [grunt-protractor-cucumber-html-report](https://github.com/robhil/grunt-protractor-cucumber-html-report). All other copyright for project [gulp-protractor-cucumber-html-report](https://github.com/mrooding/gulp-protractor-cucumber-html-report) are held by Marc Rooding, 2015.
 
 ## Release History
+0.0.9:
+  - The readme now contains 2 different ways to use the JSON output hook. One using an external library and one without.
+  
 0.0.8:
   - Fix for not ignoring the After screenshot step
   
