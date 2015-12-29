@@ -129,6 +129,7 @@ app.navigation = (function () {
                                 break;
                             case 'chart':
                                 app.chart.toggleChart();
+                                self.displayAllScenarios(scenarios);
                                 break;
                             case 'steps':
                                 if (document.querySelector('.error_btn').classList.contains('active')) {
