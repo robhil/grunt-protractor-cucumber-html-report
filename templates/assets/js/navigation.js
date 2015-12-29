@@ -94,7 +94,6 @@ app.navigation = (function () {
              * Removing "active" class from all buttons except for the active one
              */
             removeActiveClass: function (buttonsList) {
-                console.log(buttonsList.length);
                 for (var j = 0; j < buttonsList.length; j++) {
                     buttonsList[j].classList.remove('active');
                 }
@@ -132,17 +131,55 @@ app.navigation = (function () {
                                 app.chart.toggleChart();
                                 break;
                             case 'steps':
-                                self.displayAllScenarios(scenarios);
-                                self.toggleSteps(steps);
+                                if (document.querySelector('.error_btn').classList.contains('active')) {
+                                    self.toggleStepsVisibilities('.scenario.failed', 'passed');
+                                }
+                                else if (document.querySelector('.passed_btn').classList.contains('active')) {
+                                    self.toggleStepsVisibilities('.scenario.passed', 'failed');
+                                } else {
+                                    self.displayAllScenarios(scenarios);
+                                    self.toggleSteps(steps);
+                                }
                                 break;
                             default:
                                 self.filterScenarios(btnState);
                                 break;
                         }
-
                     }, false);
                 }
             },
+            /**
+             * If I filtered out passed/failed scenarios I want to expand only filtered steps not all of them.
+             * @param scenariosStatus
+             * @param status
+             */
+            toggleStepsVisibilities: function (scenariosStatus, status) {
+                var self = this,
+                    parents = document.querySelectorAll(scenariosStatus),
+                    parentsCollection = [],
+                    stepsCollection = [],
+                    i,
+                    k;
+                for (i = 0; i < parents.length; i++) {
+                    parentsCollection.push(parents[i].parentNode);
+                }
+
+                for (i = 0; i < parentsCollection.length; i++) {
+                    stepsCollection.push(parentsCollection[i].querySelectorAll('.step'))
+                }
+
+                for (i = 0; i < stepsCollection.length; i++) {
+                    for (k = 0; k < stepsCollection[i].length; k++) {
+                        if (stepsCollection[i][k].style.display === 'none') {
+                            stepsCollection[i][k].style.display = 'block';
+                        } else {
+                            stepsCollection[i][k].style.display = 'none';
+                        }
+                    }
+                }
+                self.hideFeatureContainer(status);
+            },
+
             /**
              * Displaying and hiding steps by clicking "chart report" button
              *
@@ -176,7 +213,6 @@ app.navigation = (function () {
              */
             displayAllFeatures: function () {
                 var features = document.querySelectorAll('.feature-with-scenarios');
-
                 for (var i = 0; i < features.length; i++) {
                     features[i].classList.remove('hidden');
                 }
@@ -209,4 +245,3 @@ app.navigation = (function () {
     }()
 )
 ;
-
