@@ -29,6 +29,7 @@ function gulpProtractorCucumberHtmlReport(opts) {
   return through.obj(function (file, enc, cb) {
     if (file.isNull()) {
       cb(null, file);
+      return;
     }
 
     if (file.isBuffer()) {
@@ -44,7 +45,7 @@ function gulpProtractorCucumberHtmlReport(opts) {
 
         gutil.log(PLUGIN_NAME + ':', 'File \'' + opts.filename + '\' has been created in \'' + opts.dest + '\' directory');
 
-        cb(null, file)
+        cb(null, file);
       });
 
     } else {
