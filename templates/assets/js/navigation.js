@@ -158,23 +158,17 @@ app.navigation = (function () {
                 var self = this,
                     parents = document.querySelectorAll(scenariosStatus),
                     parentsCollection = [],
-                    stepsCollection = [],
                     i,
                     k;
                 for (i = 0; i < parents.length; i++) {
-                    parentsCollection.push(parents[i].parentNode);
+                    parentsCollection.push(parents[i].parentNode.childNodes);
                 }
-
                 for (i = 0; i < parentsCollection.length; i++) {
-                    stepsCollection.push(parentsCollection[i].querySelectorAll('.step'))
-                }
-
-                for (i = 0; i < stepsCollection.length; i++) {
-                    for (k = 0; k < stepsCollection[i].length; k++) {
-                        if (stepsCollection[i][k].style.display === 'none') {
-                            stepsCollection[i][k].style.display = 'block';
+                    for (k = 2; k < parentsCollection[i].length - 1 ; k++) {
+                        if (parentsCollection[i][k].style.display === 'none') {
+                            parentsCollection[i][k].style.display = 'block';
                         } else {
-                            stepsCollection[i][k].style.display = 'none';
+                            parentsCollection[i][k].style.display = 'none';
                         }
                     }
                 }
