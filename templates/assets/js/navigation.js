@@ -157,18 +157,18 @@ app.navigation = (function () {
             toggleStepsVisibilities: function (scenariosStatus, status) {
                 var self = this,
                     parents = document.querySelectorAll(scenariosStatus),
-                    parentsCollection = [],
+                    stepsCollection = [],
                     i,
                     k;
                 for (i = 0; i < parents.length; i++) {
-                    parentsCollection.push(parents[i].parentNode.childNodes);
+                    stepsCollection.push(parents[i].parentNode.childNodes);
                 }
-                for (i = 0; i < parentsCollection.length; i++) {
-                    for (k = 2; k < parentsCollection[i].length - 1 ; k++) {
-                        if (parentsCollection[i][k].style.display === 'none') {
-                            parentsCollection[i][k].style.display = 'block';
+                for (i = 0; i < stepsCollection.length; i++) {
+                    for (k = 2; k < stepsCollection[i].length - 1 ; k++) {
+                        if (stepsCollection[i][k].style.display === 'none') {
+                            stepsCollection[i][k].style.display = 'block';
                         } else {
-                            parentsCollection[i][k].style.display = 'none';
+                            stepsCollection[i][k].style.display = 'none';
                         }
                     }
                 }
