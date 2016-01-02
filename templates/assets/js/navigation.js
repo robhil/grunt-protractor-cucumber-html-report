@@ -133,10 +133,10 @@ app.navigation = (function () {
                                 break;
                             case 'steps':
                                 if (document.querySelector('.error_btn').classList.contains('active')) {
-                                    self.toggleStepsVisibilities('.scenario.failed', 'passed');
+                                    self.toggleStepsVisibilities('.scenario.failed .step', 'passed');
                                 }
                                 else if (document.querySelector('.passed_btn').classList.contains('active')) {
-                                    self.toggleStepsVisibilities('.scenario.passed', 'failed');
+                                    self.toggleStepsVisibilities('.scenario.passed .step', 'failed');
                                 } else {
                                     self.displayAllScenarios(scenarios);
                                     self.toggleSteps(steps);
@@ -151,27 +151,20 @@ app.navigation = (function () {
             },
             /**
              * If I filtered out passed/failed scenarios I want to expand only filtered steps not all of them.
-             * @param scenariosStatus
-             * @param status
+             * @param stepsLocator locates steps in scenarios
+             * @param status indicates scenarios which should be hidden
              */
-            toggleStepsVisibilities: function (scenariosStatus, status) {
+            toggleStepsVisibilities: function (stepsLocator, status) {
                 var self = this,
-                    parents = document.querySelectorAll(scenariosStatus),
-                    stepsCollection = [],
-                    i,
-                    k;
-                for (i = 0; i < parents.length; i++) {
-                    stepsCollection.push(parents[i].parentNode.childNodes);
-                }
-                for (i = 0; i < stepsCollection.length; i++) {
-                    for (k = 2; k < stepsCollection[i].length - 1 ; k++) {
-                        if (stepsCollection[i][k].style.display === 'none') {
-                            stepsCollection[i][k].style.display = 'block';
+                    stepsCollection = document.querySelectorAll(stepsLocator),
+                    i;
+                    for (i = 0; i < stepsCollection.length; i++) {
+                        if (stepsCollection[i].style.display === 'none') {
+                            stepsCollection[i].style.display = 'block';
                         } else {
-                            stepsCollection[i][k].style.display = 'none';
+                            stepsCollection[i].style.display = 'none';
                         }
                     }
-                }
                 self.hideFeatureContainer(status);
             },
 
