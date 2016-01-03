@@ -11,12 +11,7 @@ function gulpProtractorCucumberHtmlReport(opts) {
   var currentDir = __dirname;
 
   opts = opts || {};
-  if (!opts.dest) {
-    opts.dest = '.';
-  }
-  if (!opts.filename) {
-    opts.filename = 'report.html';
-  }
+
   opts.templates = {
     featureTemplate: path.join(currentDir, './templates/feature_template.html'),
     headerTemplate: path.join(currentDir, './templates/header_template.html'),
@@ -29,22 +24,30 @@ function gulpProtractorCucumberHtmlReport(opts) {
   return through.obj(function (file, enc, cb) {
     if (file.isNull()) {
       cb(null, file);
+      return;
     }
 
     if (file.isBuffer()) {
+      if (!opts.dest) {
+        opts.dest = __dirname;
+      }
+      if (!opts.filename) {
+        opts.filename = path.basename(gutil.replaceExtension(file.path, '.html'));
+      }
       var testResults = JSON.parse(file.contents);
 
-      fs.open(opts.dest + '/' + opts.filename, 'w+', function (err, fd) {
+      var output = path.join(opts.dest, opts.filename);
+      fs.open(output, 'w+', function (err, fd) {
         if (err) {
           fs.mkdirsSync(opts.dest);
-          fd = fs.openSync(opts.dest + '/' + opts.filename, 'w+');
+          fd = fs.openSync(output, 'w+');
         }
         fs.writeSync(fd, formatter.generateReport(testResults, opts.templates));
-        fs.copySync(currentDir + '/templates/assets', opts.dest + '/assets/');
+        fs.copySync(path.join(__dirname, 'templates', 'assets'), path.join(opts.dest, 'assets'));
 
-        gutil.log(PLUGIN_NAME + ':', 'File \'' + opts.filename + '\' has been created in \'' + opts.dest + '\' directory');
+        gutil.log(PLUGIN_NAME + ':', 'HTML report has been created in', gutil.colors.cyan(output));
 
-        cb(null, file)
+        cb(null, file);
       });
 
     } else {

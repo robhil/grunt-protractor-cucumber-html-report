@@ -33,18 +33,19 @@
     "templates"
   ],
   "dependencies": {
-    "fs-extra": "^0.24.0",
+    "fs-extra": "^0.26.3",
     "gulp-util": "^3.0.0",
     "lodash.template": "^3.6.2",
-    "through2": "^0.6.1"
+    "through2": "^2.0.0"
   },
   "devDependencies": {
     "chai": "^3.2.0",
     "gulp": "^3.9.0",
-    "gulp-jshint": "^1.11.2",
+    "gulp-jshint": "^2.0.0",
+    "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
     "mocha": "^2.2.5",
-    "vinyl": "^0.5.0"
+    "vinyl": "^1.1.0"
   },
   "keywords": [
     "gulpplugin"

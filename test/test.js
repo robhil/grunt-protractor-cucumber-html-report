@@ -19,13 +19,14 @@ describe('gulp-protractor-cucumber-html-report', function() {
 
       var jsonFileBuffer = fs.readFileSync(path.join(__dirname, './data/cucumber_report.json'));
       var jsonFile = new File({
-        contents: jsonFileBuffer
+        contents: jsonFileBuffer,
+        path: path.join(__dirname, './data/cucumber_report.json')
       });
 
       var expectedReportBuffer = fs.readFileSync(path.join(__dirname, './data/expected_report.html'));
 
       stream.on('data', function () {
-        var resultBuffer = fs.readFileSync(outputFolder + '/report.html');
+        var resultBuffer = fs.readFileSync(outputFolder + '/cucumber_report.html');
 
         assert.equal(resultBuffer.toString(), expectedReportBuffer.toString());
       });
