@@ -105,10 +105,6 @@ header {
     font-size: 14px;
 }
 
-.passed {
-    background: #4CAF50;
-}
-
 header.failed {
     background: #FF5252;
     color: white;
@@ -211,13 +207,13 @@ header h1 {
 .scenario {
     font-weight: 600;
     font-size: 16px;
-    padding-left: 5px;
     margin-top: 10px;
     margin-left: 15px;
     display: block;
     cursor: pointer;
-    height: 35px;
+    min-height: 35px;
     line-height: 35px;
+    color:#FFF;
 }
 
 .step.passed {
@@ -253,15 +249,6 @@ header h1 {
     cursor: pointer;
 }
 
-.scenario.passed {
-    background: #4CAF50;
-    color: white;
-}
-
-.scenario.failed {
-    background: #FF5252;
-    color: white;
-}
 
 .scenario.skipped {
     background: #0473c9;
@@ -725,5 +712,23 @@ header h1 {
 }
 .feature-with-scenarios.hidden {
     display: none;
+
+}
+
+.status.failed  {
+    background: #FF5252;
+}
+
+.status.passed  {
+    background: #4CAF50;
+}
+
+.status.skipped {
+    background: #0473c9;
+}
+.status {
+    display: block;
+    margin:0;
+    padding: 10px;
 
 }
