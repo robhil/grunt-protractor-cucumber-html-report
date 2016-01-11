@@ -94,7 +94,6 @@ app.navigation = (function () {
              * Removing "active" class from all buttons except for the active one
              */
             removeActiveClass: function (buttonsList) {
-                console.log(buttonsList.length);
                 for (var j = 0; j < buttonsList.length; j++) {
                     buttonsList[j].classList.remove('active');
                 }
@@ -130,19 +129,45 @@ app.navigation = (function () {
                                 break;
                             case 'chart':
                                 app.chart.toggleChart();
+                                self.displayAllScenarios(scenarios);
                                 break;
                             case 'steps':
-                                self.displayAllScenarios(scenarios);
-                                self.toggleSteps(steps);
+                                if (document.querySelector('.error_btn').classList.contains('active')) {
+                                    self.toggleStepsVisibilities('.scenario.failed .step', 'passed');
+                                }
+                                else if (document.querySelector('.passed_btn').classList.contains('active')) {
+                                    self.toggleStepsVisibilities('.scenario.passed .step', 'failed');
+                                } else {
+                                    self.displayAllScenarios(scenarios);
+                                    self.toggleSteps(steps);
+                                }
                                 break;
                             default:
                                 self.filterScenarios(btnState);
                                 break;
                         }
-
                     }, false);
                 }
             },
+            /**
+             * If I filtered out passed/failed scenarios I want to expand only filtered steps not all of them.
+             * @param stepsLocator locates steps in scenarios
+             * @param status indicates scenarios which should be hidden
+             */
+            toggleStepsVisibilities: function (stepsLocator, status) {
+                var self = this,
+                    stepsCollection = document.querySelectorAll(stepsLocator),
+                    i;
+                    for (i = 0; i < stepsCollection.length; i++) {
+                        if (stepsCollection[i].style.display === 'none') {
+                            stepsCollection[i].style.display = 'block';
+                        } else {
+                            stepsCollection[i].style.display = 'none';
+                        }
+                    }
+                self.hideFeatureContainer(status);
+            },
+
             /**
              * Displaying and hiding steps by clicking "chart report" button
              *
@@ -176,7 +201,6 @@ app.navigation = (function () {
              */
             displayAllFeatures: function () {
                 var features = document.querySelectorAll('.feature-with-scenarios');
-
                 for (var i = 0; i < features.length; i++) {
                     features[i].classList.remove('hidden');
                 }
@@ -209,4 +233,3 @@ app.navigation = (function () {
     }()
 )
 ;
-
