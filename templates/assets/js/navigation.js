@@ -8,11 +8,11 @@ app.navigation = (function () {
                 filteringButtons = document.getElementsByClassName('btn'),
                 scenarios = document.querySelectorAll('.scenario-container'),
                 steps = document.querySelectorAll('.step'),
-                displayChartButton = document.querySelector('.btn_chart'),
-                currentView = 'all';
+                displayChartButton = document.querySelector('.btn_chart');
             this.bindEvents(errors, scenarios, filteringButtons, displayChartButton);
             this.bindFilterButtonsEvent(filteringButtons, scenarios, steps);
         },
+        currentView: 'all',
         /** Showing error log  for step that failed */
         showErrorDetails: function (e) {
             e.stopPropagation();
@@ -83,6 +83,8 @@ app.navigation = (function () {
          *
          */
         displayAllScenarios: function (scenarios) {
+            var self = this;
+            self.currentView = 'all';
             for (var i = 0; i < scenarios.length; i++) {
                 if (scenarios[i].style.display != 'block') {
                     scenarios[i].style.display = 'block';
