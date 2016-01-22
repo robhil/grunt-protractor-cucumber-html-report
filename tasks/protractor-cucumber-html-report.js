@@ -29,7 +29,8 @@ module.exports = function(grunt) {
         scenarioTemplate: currentDir + '/../templates/scenario_template.html',
         stepTemplate: currentDir + '/../templates/step_template.html',
         scenarioContainerTemplate: currentDir + '/../templates/scenario-container_template.html',
-        featureContainerTemplate: currentDir + '/../templates/feature-container_template.html'
+        featureContainerTemplate: currentDir + '/../templates/feature-container_template.html',
+        screenshotTemplate: currentDir + '/../templates/screenshot_template.html'
       }
     }),
       EXAMPLE_TEST_RESULT_PATH = currentDir + '/../assets/example_test_result.json',
