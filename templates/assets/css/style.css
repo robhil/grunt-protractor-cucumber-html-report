@@ -700,3 +700,7 @@ header h1 {
 
 }
 
+.duration {
+  font-weight: bold;
+  float: right;
+}

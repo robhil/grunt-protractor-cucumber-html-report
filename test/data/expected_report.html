@@ -59,14 +59,17 @@
     Scenario: Log in as a teacher
 </div><div class="step passed">
     Given I login as teacher
+    <span class="duration">5.82s</span>
     
 </div><div class="step passed">
     Then I log out
+    <span class="duration">0.16s</span>
     
 </div></div><div class="scenario-container"><div class="scenario failed">
     Scenario: Log in as a student
 </div><div class="step failed">
     Given I login as student
+    <span class="duration">1.13s</span>
     
     <div class="error-details">
         <blockquote>
@@ -126,17 +129,21 @@
     
 </div><div class="step skipped">
     Then I log out
+    <span class="duration"></span>
     
 </div></div><div class="scenario-container"><div class="scenario passed">
     Scenario: Set and verify bookmark tool
 </div><div class="step passed">
     Given I login as teacher
+    <span class="duration">3.60s</span>
     
 </div><div class="step passed">
     When I set bookmark tool for student 1 on:
+    <span class="duration">13.36s</span>
     
 </div><div class="step passed">
     Then I should see bookmark set on:
+    <span class="duration">1.65s</span>
     
 </div></div>
 
