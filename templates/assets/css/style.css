@@ -111,6 +111,11 @@ header.failed {
     position: relative;
 }
 
+header.passed {
+    background: #4CAF50;
+    color: white;
+    position: relative;
+}
 header h1 {
     float: left;
     font-size: 23px;
