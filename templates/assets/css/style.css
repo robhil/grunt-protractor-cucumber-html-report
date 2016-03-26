@@ -100,7 +100,7 @@ header {
     height: 70px;
 }
 
-.scenarios-summary, .report-date {
+.report-date {
     font-family: Roboto;
     font-size: 14px;
 }
@@ -276,11 +276,18 @@ header h1 {
     color: white;
     float: right;
     margin: 5px;
-    font-size: 13px;
+    font-family: Roboto;
+    font-size: 14px;
 }
 
 .test-summary div {
     margin-top: 5px;
+}
+
+.elapsed-time .fa-hourglass-end {
+    font-size: 14px;
+    color: white;
+    padding-right: 3px;
 }
 
 .report-date {
