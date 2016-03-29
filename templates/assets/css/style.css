@@ -749,3 +749,13 @@ header h1 {
     float: right;
     margin-right: 10px;
 }
+
+.table-outline {
+    width: 100%;
+    border: 1px solid black;
+    text-align: center;
+}
+.table-header {
+    border: 1px solid black;
+    background-color: #bcb3b3;
+}
