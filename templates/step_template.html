@@ -1,6 +1,9 @@
 <div class="step <%= status %>">
     <span class="step-duration"><%= duration %></span>
     <%= name %>
+    <% if (tableOutline) { %>
+    <div class="table-outline"><%= tableOutline %></div>
+    <% } %>
     <% if (errorDetails) { %>
     <div class="error-details">
         <blockquote>
