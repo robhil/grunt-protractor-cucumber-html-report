@@ -2,33 +2,24 @@
     <span class="step-duration"><%= duration %></span>
     <%= name %>
     <% if (tableOutline) { %>
-    <table class="table-outline">
-        <thead>
-        <tr class="table-header">
-            <td>Unit</td>
-            <td>Lesson</td>
-            <td>Mini-cycle</td>
-            <td>Section</td>
-            <td>Activity</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>5</td>
-            <td>1</td>
-            <td>1</td>
-            <td>Watch</td>
-            <td>Watch and learn</td>
-        </tr>
-        <tr>
-            <td>15</td>
-            <td>11</td>
-            <td>13</td>
-            <td>Speak</td>
-            <td>Meaning</td>
-        </tr>
-        </tbody>
-    </table>
+            <table class="table-outline">
+                <thead>
+                <tr class="table-outline-header">
+                    <% for (var i = 0; i < tableOutline[0].cells.length; i++ ) { %>
+                        <td><%= tableOutline[0].cells[i] %></td>
+                    <% } %>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (var i = 1; i < tableOutline.length; i++ ) { %>
+                    <tr>
+                        <% for (var j = 0; j < tableOutline[i].cells.length; j++ ) { %>
+                            <td><%= tableOutline[i].cells[j] %></td>
+                        <% } %>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
     <% } %>
     <% if (errorDetails) { %>
     <div class="error-details">
