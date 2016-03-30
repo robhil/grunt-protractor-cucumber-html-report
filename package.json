@@ -3,10 +3,16 @@
   "description": "Generate html report from JSON file returned by cucumber-js json formatter",
   "version": "0.2.5",
   "homepage": "https://github.com/robhil/grunt-protractor-cucumber-html-report",
-  "author": {
-    "name": "Hilscher, Robert",
-    "email": "robert.hilscher@pearson.com"
-  },
+  "authors": [
+    {
+      "name": "Hilscher, Robert",
+      "email": "robert.hilscher@pearson.com"
+    },
+    {
+      "name": "Kamela, Maciej",
+      "email": "maciej.kamela@wp.pl"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/robhil/grunt-protractor-cucumber-html-report.git"
