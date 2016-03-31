@@ -756,7 +756,7 @@ header h1 {
     text-align: center;
     padding: 5px;
 }
-.table-header {
+.table-outline-header {
     border: 1px solid black;
     background-color: #DDDDDD;
 }
