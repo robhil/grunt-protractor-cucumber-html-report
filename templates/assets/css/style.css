@@ -97,10 +97,10 @@ input, select {
 
 header {
     width: 100%;
-    height: 60px;
+    height: 70px;
 }
 
-.scenarios-summary, .report-date {
+.report-date {
     font-family: Roboto;
     font-size: 14px;
 }
@@ -116,6 +116,7 @@ header.passed {
     color: white;
     position: relative;
 }
+
 header h1 {
     float: left;
     font-size: 23px;
@@ -152,7 +153,6 @@ header h1 {
 
 .feature-statistics {
 }
-
 
 .feature h2 {
     font-weight: bold;
@@ -218,7 +218,7 @@ header h1 {
     cursor: pointer;
     min-height: 35px;
     line-height: 35px;
-    color:#FFF;
+    color: #FFF;
 }
 
 .step.passed {
@@ -254,7 +254,6 @@ header h1 {
     cursor: pointer;
 }
 
-
 .scenario.skipped {
     background: #0473c9;
     color: white;
@@ -277,14 +276,21 @@ header h1 {
     color: white;
     float: right;
     margin: 5px;
-    font-size: 13px;
+    font-family: Roboto;
+    font-size: 14px;
 }
 
 .test-summary div {
     margin-top: 5px;
 }
 
-.report-date{
+.elapsed-time .fa-hourglass-end {
+    font-size: 14px;
+    color: white;
+    padding-right: 3px;
+}
+
+.report-date {
     color: white;
     font-size: 13px;
     margin-top: 5px;
@@ -293,6 +299,7 @@ header h1 {
     position: absolute;
     left: 0;
 }
+
 .btn {
     color: white;
     outline: none !important;
@@ -498,13 +505,13 @@ header h1 {
 }
 
 @-webkit-keyframes hide_backdrop {
-     0% {
-         opacity: 0.6;
-     }
+    0% {
+        opacity: 0.6;
+    }
 
-     100% {
-         opacity: 0;
-     }
+    100% {
+        opacity: 0;
+    }
 }
 
 @-moz-keyframes hide_backdrop {
@@ -526,7 +533,6 @@ header h1 {
         opacity: 0;
     }
 }
-
 
 .close_chart {
     font-size: 30px;
@@ -671,7 +677,6 @@ header h1 {
     cursor: pointer;
 }
 
-
 @media (max-width: 768px) {
 
     .feature-statistics {
@@ -707,7 +712,8 @@ header h1 {
 .feature-container {
     margin-top: 30px;
 }
-.feature{
+
+.feature {
     border-top: 3px red;
 }
 
@@ -715,25 +721,31 @@ header h1 {
     padding: 10px;
     margin-bottom: 40px;
 }
+
 .feature-with-scenarios.hidden {
     display: none;
 
 }
 
-.status.failed  {
+.status.failed {
     background: #FF5252;
 }
 
-.status.passed  {
+.status.passed {
     background: #4CAF50;
 }
 
 .status.skipped {
     background: #0473c9;
 }
+
 .status {
     display: block;
-    margin:0;
+    margin: 0;
     padding: 10px;
+}
 
+.step-duration {
+    float: right;
+    margin-right: 10px;
 }
