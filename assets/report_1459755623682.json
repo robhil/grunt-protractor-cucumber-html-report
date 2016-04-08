@@ -1,0 +1,663 @@
+[
+  {
+    "id": "Follow-Up-regression-tests",
+    "name": "Follow Up regression tests",
+    "description": "",
+    "line": 2,
+    "keyword": "Feature",
+    "tags": [
+      {
+        "name": "@follow",
+        "line": 1
+      }
+    ],
+    "uri": "/home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/features/Regression/followUp.feature",
+    "elements": [
+      {
+        "name": "Reaching student using an email",
+        "id": "Follow-Up-regression-tests;reaching-student-using-an-email",
+        "line": 4,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 5,
+            "keyword": "Given ",
+            "result": {
+              "duration": 6509034131,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with the following data:",
+            "line": 6,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "email",
+                  "Contacting by email.",
+                  "13",
+                  "15",
+                  "2012-02-14",
+                  "Yes"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 17895590965,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see new follow up note with the following data:",
+            "line": 9,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "followUpDate",
+                  "employee",
+                  "notes",
+                  "icon"
+                ]
+              },
+              {
+                "cells": [
+                  "13 Feb 2012",
+                  "AUTOMATIC TEACHER1",
+                  "Contacting by email.",
+                  "Email"
+                ]
+              }
+            ],
+            "result": {
+              "error_message": "AssertionError: Follow Up was not added properly.: expected false to equal true\n  at /home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/step_definitions/followUpSteps.js:59:44\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/lib/element.js:772:12\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at notifyAll (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at Object.fulfill (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at notify (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:470:16)\n  at notifyAll (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:442:7)\n  at resolve (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:420:7)\n  at fulfill (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:535:5)\n  at /home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/base.js:1582:15\n  at [object Object].webdriver.promise.ControlFlow.runInNewFrame_ (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1654:20)\n  at notify (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:465:12)\n  at [object Object].then (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:522:7)\n  at Object.webdriver.promise.asap (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:767:11)\n  at newFrame.onComplete (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1670:25)\n  at [object Object].webdriver.promise.Frame_.notify_ (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1914:5)\n  at [object Object]._onTimeout (/home/maciejkamela/GIT/nse-learning-services-client/node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1901:11)\n  at Timer.listOnTimeout [as ontimeout] (timers.js:112:15)\n",
+              "duration": 2442081294,
+              "status": "failed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Reaching student using a meeting",
+        "id": "Follow-Up-regression-tests;reaching-student-using-a-meeting",
+        "line": 13,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 14,
+            "keyword": "Given ",
+            "result": {
+              "duration": 3577982543,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with the following data:",
+            "line": 15,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "meeting",
+                  "Contacting by meeting.",
+                  "13",
+                  "15",
+                  "2012-02-14",
+                  "Yes"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 16182879550,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see new follow up note with the following data:",
+            "line": 18,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "followUpDate",
+                  "employee",
+                  "notes",
+                  "icon"
+                ]
+              },
+              {
+                "cells": [
+                  "13 Feb 2012",
+                  "AUTOMATIC TEACHER1",
+                  "Contacting by meeting.",
+                  "Meeting"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 2171729916,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Reaching student using a comment",
+        "id": "Follow-Up-regression-tests;reaching-student-using-a-comment",
+        "line": 22,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 23,
+            "keyword": "Given ",
+            "result": {
+              "duration": 3301978348,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with the following data:",
+            "line": 24,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "comment",
+                  "Contacting by comment.",
+                  "13",
+                  "15",
+                  "2012-02-14",
+                  "Yes"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 17021371039,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see new follow up note with the following data:",
+            "line": 27,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "followUpDate",
+                  "employee",
+                  "notes",
+                  "icon"
+                ]
+              },
+              {
+                "cells": [
+                  "13 Feb 2012",
+                  "AUTOMATIC TEACHER1",
+                  "Contacting by comment.",
+                  "Comment"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 2142982355,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Creating new follow up with incorrect time",
+        "id": "Follow-Up-regression-tests;creating-new-follow-up-with-incorrect-time",
+        "line": 31,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 32,
+            "keyword": "Given ",
+            "result": {
+              "duration": 3828543077,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with wrong value:",
+            "line": 33,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "email",
+                  "Contacting by email.",
+                  "13",
+                  "70",
+                  "2012-02-14",
+                  "Yes"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 14398836881,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see disabled save button",
+            "line": 36,
+            "keyword": "Then ",
+            "result": {
+              "duration": 87765744,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Creating new follow up with incorrect date",
+        "id": "Follow-Up-regression-tests;creating-new-follow-up-with-incorrect-date",
+        "line": 38,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 39,
+            "keyword": "Given ",
+            "result": {
+              "duration": 3311915114,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with wrong value:",
+            "line": 40,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "email",
+                  "Contacting by email.",
+                  "13",
+                  "15",
+                  "2014-22-14",
+                  "Yes"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 15008562243,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see disabled save button",
+            "line": 43,
+            "keyword": "Then ",
+            "result": {
+              "duration": 85674524,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Loading more students (default value of displayed students is 10)",
+        "id": "Follow-Up-regression-tests;loading-more-students-(default-value-of-displayed-students-is-10)",
+        "line": 45,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 46,
+            "keyword": "Given ",
+            "result": {
+              "duration": 3360016124,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I add 11 follow ups with the following data:",
+            "line": 47,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "email",
+                  "New message",
+                  "13",
+                  "15",
+                  "2012-02-14",
+                  "Yes"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 113393773252,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I load more follow ups",
+            "line": 50,
+            "keyword": "And ",
+            "result": {
+              "duration": 1836504322,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see 11 follow ups",
+            "line": 51,
+            "keyword": "Then ",
+            "result": {
+              "duration": 195701,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Follow-Up-sanity-tests",
+    "name": "Follow Up sanity tests",
+    "description": "",
+    "line": 2,
+    "keyword": "Feature",
+    "tags": [
+      {
+        "name": "@follow",
+        "line": 1
+      }
+    ],
+    "uri": "/home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/features/Sanity/followUp.feature",
+    "elements": [
+      {
+        "name": "Not reaching student using phone",
+        "id": "Follow-Up-sanity-tests;not-reaching-student-using-phone",
+        "line": 3,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 4,
+            "keyword": "Given ",
+            "result": {
+              "duration": 2934229082,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with the following data:",
+            "line": 5,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "phone",
+                  "Contacting by phone.",
+                  "13",
+                  "15",
+                  "2012-02-14",
+                  "No"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 16697151464,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see new follow up note with the following data:",
+            "line": 8,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "followUpDate",
+                  "employee",
+                  "notes",
+                  "icon"
+                ]
+              },
+              {
+                "cells": [
+                  "13 Feb 2012",
+                  "AUTOMATIC TEACHER1",
+                  "Contacting by phone.",
+                  "Phone"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 2142487076,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Editing newly added follow-up",
+        "id": "Follow-Up-sanity-tests;editing-newly-added-follow-up",
+        "line": 12,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 13,
+            "keyword": "Given ",
+            "result": {
+              "duration": 3301652007,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with the following data:",
+            "line": 14,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "meeting",
+                  "Gonna to edit this follow-up.",
+                  "13",
+                  "15",
+                  "2015-02-14",
+                  "Yes"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 15231746701,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I edit newly added follow up with the following data:",
+            "line": 17,
+            "keyword": "And ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "comment",
+                  "New comment.",
+                  "20",
+                  "15",
+                  "2015-02-14",
+                  "No"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 10287708561,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see new follow up note with the following data:",
+            "line": 20,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "followUpDate",
+                  "employee",
+                  "notes",
+                  "icon"
+                ]
+              },
+              {
+                "cells": [
+                  "13 Feb 2015",
+                  "AUTOMATIC TEACHER1",
+                  "New comment.",
+                  "Comment"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 2321913785,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      }
+    ]
+  }
+]

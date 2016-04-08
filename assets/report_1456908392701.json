@@ -1,0 +1,98 @@
+[
+  {
+    "id": "Follow-Up",
+    "name": "Follow Up",
+    "description": "",
+    "line": 1,
+    "keyword": "Feature",
+    "uri": "/home/maciejkamela/GIT/nse-learning-services-client/uat_tests/tests/features/ST/stFollowUp.feature",
+    "elements": [
+      {
+        "name": "[NSESS-17a] Not reaching student using phone",
+        "id": "Follow-Up;[nsess-17a]-not-reaching-student-using-phone",
+        "line": 3,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@follow",
+            "line": 2
+          }
+        ],
+        "steps": [
+          {
+            "name": "I log into dashboard as \"teacher1\"",
+            "line": 4,
+            "keyword": "Given ",
+            "result": {
+              "duration": 12682522879,
+              "status": "failed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I create new follow up with the following data:",
+            "line": 5,
+            "keyword": "When ",
+            "rows": [
+              {
+                "cells": [
+                  "action",
+                  "message",
+                  "hour",
+                  "minute",
+                  "date",
+                  "reachedStudent"
+                ]
+              },
+              {
+                "cells": [
+                  "phone",
+                  "Contacting by phone.",
+                  "13",
+                  "15",
+                  "2012-02-14",
+                  "No"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 26597670342,
+              "status": "passed"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see new follow up note with the following data:",
+            "line": 8,
+            "keyword": "Then ",
+            "rows": [
+              {
+                "cells": [
+                  "followUpDate",
+                  "employee",
+                  "notes",
+                  "icon"
+                ]
+              },
+              {
+                "cells": [
+                  "13 Feb 2012",
+                  "Teacher1 t1",
+                  "Contacting by phone.",
+                  "Phone"
+                ]
+              }
+            ],
+            "result": {
+              "duration": 2694614579,
+              "status": "passed"
+            },
+            "match": {}
+          }
+        ]
+      }
+    ]
+  }
+]
