@@ -114,7 +114,7 @@ app.chart = (function () {
                 canvas.beginPath();
                 canvas.lineWidth = this.lineWidth;
                 canvas.arc(this.x, this.y, this.radius, this.from, this.to);
-                canvas.strokeStyle = '#fff';
+                canvas.strokeStyle = '#0000';
                 canvas.stroke();
                 var numberOfParts = data.numberOfParts;
                 var parts = data.parts.pt;
