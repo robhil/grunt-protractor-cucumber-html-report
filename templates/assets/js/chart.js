@@ -11,7 +11,7 @@ app.chart = (function () {
                 data = {
                     numberOfParts: statistics.scenariosAmount,// total amount of scenarios
                     parts: {"pt": [statistics.passed, statistics.failed]},//percentage of each parts
-                    colors: {"cs": ['#ed1c24', "#1dcb34"]}//color of each part
+                    colors: {"cs": ["#1dcb34",'#ed1c24']}//color of each part
                 },
                 self = this,
                 chart;

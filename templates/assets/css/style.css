@@ -114,13 +114,13 @@ header {
 }
 
 header.failed {
-    background: #FF5252;
+    background: #A53D39;
     color: white;
     position: relative;
 }
 
 header.passed {
-    background: #4CAF50;
+    background: #579533;
     color: white;
     position: relative;
 }
@@ -137,11 +137,12 @@ header h1 {
 }
 
 .step {
-    font-size: 14px;
-    padding: 5px;
-    margin-top: 10px;
-    margin-left: 45px;
+    font-size: 15px;
+    padding: 5px 5px 5px 20px;
+    margin-top: 20px;
+    margin-left: 30px;
     display: none;
+    font-weight: 400;
 }
 
 .feature {
@@ -231,27 +232,25 @@ header h1 {
 
 
 .step.passed {
-    background: #E8F5E9;
-    color: #000;
-    border-left: 5px solid #388E3C;
+    background: #579533;
+    color: #FFF;
 }
 
 .step.skipped {
     background: #E3F2FD;
-    color: #000;
+    color: #FFF;
     border-left: 5px solid #2196F3;
 }
 
 .step.failed {
-    background: #FFEBEE;
-    color: #000;
-    border-left: 5px solid #E53935;
+    background: #A53D39;
+    color: #FFF;
     cursor: pointer;
 }
 
 .step.pending {
     background: #fcdfc2;
-    color: #c99404;
+    color: #FFF;
     border-left: 5px solid #c99404;
     cursor: pointer;
 }
@@ -333,12 +332,12 @@ header h1 {
 }
 
 .error_btn {
-    background: #FF5252;
+    background: #A53D39;
     margin-left: 20px;
 }
 
 .passed_btn {
-    background: #4CAF50;
+    background: #579533;
     margin-left: 20px;
 }
 
@@ -370,7 +369,7 @@ header h1 {
 }
 
 .error_btn, .error_btn:hover, .error_btn.active:focus, .error_btn:active {
-    background: #FF5252;
+    background: #A53D39;
     color: white;
     opacity: 1;
     border: none;
@@ -736,11 +735,11 @@ header h1 {
 }
 
 .status.failed {
-    background: #FF5252;
+    background: #A53D39;
 }
 
 .status.passed {
-    background: #4CAF50;
+    background: #579533;
 }
 
 .status.skipped {
@@ -760,11 +759,14 @@ header h1 {
 
 .table-outline {
     width: 100%;
-    border: 1px solid black;
     text-align: center;
     padding: 5px;
+    font-weight: 400;
+    font-size: 15px;
 }
 .table-outline-header {
-    border: 1px solid black;
-    background-color: #DDDDDD;
+    border-bottom: 1px solid #FFFFFF;
+    color: #000;
+    font-weight: 600;
+
 }
