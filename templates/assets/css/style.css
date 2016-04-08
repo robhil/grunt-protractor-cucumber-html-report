@@ -229,6 +229,7 @@ header h1 {
     color: #FFF;
 }
 
+
 .step.passed {
     background: #E8F5E9;
     color: #000;
@@ -342,12 +343,13 @@ header h1 {
 }
 
 .all_btn {
-    background: #C4C7C7;
-    color: black;
+    /*background: #C4C7C7;*/
+    /*color: black;*/
+    border-bottom: solid 1px rgb(176, 209, 255);
 }
 
 .btn.active {
-    opacity: 1;
+    border-bottom: solid 1px rgb(176, 209, 255);
 }
 
 .passed_btn:not(active), .error_btn:not(active), .all_btn:not(active) {
@@ -364,10 +366,7 @@ header h1 {
 
 .all_btn.active, .all_btn.active:hover, .all_btn.active:focus,
 .all_btn:active, .all_btn:hover {
-    background: #C4C7C7;
-    color: black;
-
-    border: none;
+    border-bottom: solid 1px rgb(176, 209, 255);
 }
 
 .error_btn, .error_btn:hover, .error_btn.active:focus, .error_btn:active {
@@ -551,6 +550,7 @@ header h1 {
     right: 0;
     color: #bbb;
     top: 5px;
+    border-radius: 50%;
 }
 
 @-moz-keyframes hide_chart {

@@ -11,13 +11,13 @@ app.chart  = (function () {
         data = {
           numberOfParts: statistics.scenariosAmount,// total amount of scenarios
           parts: {"pt": [statistics.passed, statistics.failed]},//percentage of each parts
-          colors: {"cs": ['#4CAF50', "#FF5252"]}//color of each part
+          colors: {"cs": ['#ed1c24', "#1dcb34"]}//color of each part
         },
         self = this,
         chart;
 
       chart = new app.chart.Chart(chartCtx);
-      chart.set(200, 200, 130, 0, Math.PI * 2, 70, "blue");
+      chart.set(200, 200, 130, 0, Math.PI * 2, 20, "blue");
       chart.draw(data);
 
       var chartContainer = document.querySelector('.scenario-chart');
@@ -43,9 +43,9 @@ app.chart  = (function () {
         chartCtx.fillStyle = hex;
         var statistics = self.getStatistics(),
             passed = statistics.passed,
-            passedRound = Math.round(passed) + "%",
+            passedRound = Math.round(passed) + "%" + "Scenarios passed",
             failed = statistics.failed,
-            failedRound = Math.round(failed) + "%";
+            failedRound = Math.round(failed) + "%\b" + "Scenarios passed";
         chartCtx.clearRect(120, 150, 150, 90);
 
         if (hex.toLowerCase() === data.colors.cs[0].toLowerCase()) {
