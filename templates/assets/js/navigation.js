@@ -27,11 +27,18 @@ app.navigation = (function () {
         /** Hiding and displaying steps after clicking on scenario header*/
         toggleStep: function () {
             var steps = this.querySelectorAll('.step');
+            console.log(this.querySelector('.scenario-arrow'));
+            var scenarioArrow = this.querySelector('.scenario-arrow');
+
             for (var k = 0; k < steps.length; k++) {
                 if (steps[k].style.display === 'block') {
+                    scenarioArrow.classList.remove('fa-angle-up');
+                    scenarioArrow.classList.add('fa-angle-down');
                     steps[k].style.display = 'none';
                 } else {
                     steps[k].style.display = 'block';
+                    scenarioArrow.classList.remove('fa-angle-down');
+                    scenarioArrow.classList.add('fa-angle-up');
                 }
             }
         },
@@ -160,16 +167,20 @@ app.navigation = (function () {
         toggleStepsVisibilities: function (stepsLocator, status) {
             var self = this,
                 stepsCollection = document.querySelectorAll(stepsLocator),
-                i;
+                i,
+                scenarioArrowCollection = document.querySelectorAll('.scenario-arrow');
             for (i = 0; i < stepsCollection.length; i++) {
                 if (stepsCollection[i].style.display === 'none') {
+                    this.addArrowUp(scenarioArrowCollection);
                     stepsCollection[i].style.display = 'block';
                 } else {
+                    this.addArrowDown(scenarioArrowCollection);
                     stepsCollection[i].style.display = 'none';
                 }
             }
             self.hideFeatureContainer(status);
         },
+
 
         /**
          * Displaying and hiding steps by clicking "chart report" button
@@ -177,15 +188,31 @@ app.navigation = (function () {
          * @param steps indicate all steps in report
          */
         toggleSteps: function (steps) {
+            var scenarioArrowCollection = document.querySelectorAll('.scenario-arrow');
+            console.log(scenarioArrowCollection);
             for (var i = 0; i < steps.length; i++) {
                 var display = steps[i].style.display;
                 if (display === 'none' || display === '') {
+                    this.addArrowUp(scenarioArrowCollection);
                     steps[i].style.display = 'block';
                     all_btn.classList.add('active');
                 } else {
+                    this.addArrowDown(scenarioArrowCollection);
                     all_btn.classList.add('active');
                     steps[i].style.display = 'none';
                 }
+            }
+        },
+        addArrowUp: function(collection) {
+            for(var i = 0; i < collection.length; i++) {
+                collection[i].classList.remove('fa-angle-down');
+                collection[i].classList.add('fa-angle-up');
+            }
+        },
+        addArrowDown: function(collection) {
+            for(var i = 0; i < collection.length; i++) {
+                collection[i].classList.remove('fa-angle-up');
+                collection[i].classList.add('fa-angle-down');
             }
         },
         /**
