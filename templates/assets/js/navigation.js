@@ -27,7 +27,6 @@ app.navigation = (function () {
         /** Hiding and displaying steps after clicking on scenario header*/
         toggleStep: function () {
             var steps = this.querySelectorAll('.step');
-            console.log(this.querySelector('.scenario-arrow'));
             var scenarioArrow = this.querySelector('.scenario-arrow');
 
             for (var k = 0; k < steps.length; k++) {
@@ -189,7 +188,6 @@ app.navigation = (function () {
          */
         toggleSteps: function (steps) {
             var scenarioArrowCollection = document.querySelectorAll('.scenario-arrow');
-            console.log(scenarioArrowCollection);
             for (var i = 0; i < steps.length; i++) {
                 var display = steps[i].style.display;
                 if (display === 'none' || display === '') {

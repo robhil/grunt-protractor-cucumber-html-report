@@ -114,7 +114,15 @@ header {
 
 .report-date {
     font-family: Roboto;
+    color: white;
     font-size: 14px;
+    margin-top: 14px;
+    padding: 3px;
+    margin-right: 3px;
+    position: relative;
+    left: 0;
+    float: right;
+    line-height: 51px;
 }
 
 header h1 {
@@ -130,7 +138,7 @@ header h1 {
 
 .step {
     font-size: 15px;
-    padding: 5px 5px 5px 20px;
+    padding: 5px 32px 5px 32px;
     margin-top: 20px;
     margin-left: 30px;
     display: none;
@@ -271,6 +279,10 @@ header h1 {
     box-sizing: border-box;
 }
 
+.error-details code {
+    color: #FFF;
+}
+
 .test-summary {
     color: white;
     float: right;
@@ -287,16 +299,6 @@ header h1 {
     font-size: 14px;
     color: white;
     padding-right: 3px;
-}
-
-.report-date {
-    color: white;
-    font-size: 13px;
-    margin-top: 5px;
-    padding: 3px;
-    margin-left: 3px;
-    position: absolute;
-    left: 0;
 }
 
 .btn {
@@ -689,7 +691,6 @@ header h1 {
 .table-outline {
     width: 100%;
     text-align: center;
-    padding: 5px;
     font-weight: 400;
     font-size: 15px;
 }
@@ -713,4 +714,44 @@ header h1 {
     float: right;
     font-size: 24px;
     font-weight: 600;
+}
+.toggle-printscreen {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+.step.screenshot {
+    margin-top: 0px;
+    margin-left: 30px;
+    margin-right: auto;
+    background: #A53D39;
+    font-size: 18px;
+    padding: 0px 30px 30px 30px;
+}
+
+.img-screenshot {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: none;
+}
+.toggle-error {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+    vertical-align: top;
+}
+.error-message {
+    display: none;
+}
+.error-code-btn {
+    padding: 30px 0px 10px 0px;
+    font-size: 18px;
 }
