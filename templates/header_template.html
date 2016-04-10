@@ -1,16 +1,17 @@
 <header class="<%=status %>">
     <time class="report-date"><%=reportDate %></time>
     <h1><%=reportTitle%></h1>
-    <!--<div class="test-summary">-->
-        <!--<div class="scenarios-summary"><%=scenariosSummary%></div>-->
-        <!--<div class="steps-summary"><%=stepsSummary%></div>-->
-        <!--<div class="elapsed-time">-->
-            <!--<i class="fa fa-clock-o"></i>-->
-            <!--<%=elapsedTime%>-->
-        <!--</div>-->
-    <!--</div>-->
 </header>
 <div class="row">
+    <div class="test-summary">
+        <span>Report summary:</span>
+        <div class="elapsed-time">
+            <i class="fa fa-clock-o">Time</i>
+            <%=elapsedTime%>
+        </div>
+        <div class="scenarios-summary"><%=scenariosSummary%></div>
+        <div class="steps-summary"><%=stepsSummary%></div>
+    </div>
     <div class="filtering-buttons">
         <div class="col-md-9 col-sm-8 main_btns">
             <div class="btn_menu">
