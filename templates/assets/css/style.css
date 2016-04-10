@@ -155,7 +155,9 @@ header h1 {
     height: 102px;
 
 }
-
+.feature-with-scenarios {
+    border-bottom: 1px dashed #FFF;
+}
 .feature-container {
     margin-top: 60px;
 }
@@ -715,7 +717,7 @@ header h1 {
     font-size: 24px;
     font-weight: 600;
 }
-.toggle-printscreen {
+.printscreen-arrow {
     font-size: 20px;
     font-weight: 600;
     padding: 10px;
@@ -725,7 +727,7 @@ header h1 {
     vertical-align: top;
 }
 
-.step.screenshot {
+.step.screenshot-container {
     margin-top: 0px;
     margin-left: 30px;
     margin-right: auto;
@@ -739,7 +741,7 @@ header h1 {
     margin-bottom: 30px;
     display: none;
 }
-.toggle-error {
+.error-arrow {
     font-size: 20px;
     font-weight: 600;
     padding: 10px;
@@ -751,7 +753,10 @@ header h1 {
 .error-message {
     display: none;
 }
-.error-code-btn {
+.error-message code {
+    color: #FFF;
+}
+.error-container {
     padding: 30px 0px 10px 0px;
     font-size: 18px;
 }

@@ -4,7 +4,8 @@ app.navigation = (function () {
 
     return {
         init: function () {
-            var errors = document.querySelectorAll('.step.failed'),
+            var errors = document.querySelectorAll('.error-container'),
+                screenshots = document.querySelectorAll('.screenshot-container'),
                 filteringButtons = document.getElementsByClassName('btn'),
                 scenarios = document.querySelectorAll('.scenario-container'),
                 steps = document.querySelectorAll('.step'),
@@ -16,14 +17,41 @@ app.navigation = (function () {
         /** Showing error log  for step that failed */
         showErrorDetails: function (e) {
             e.stopPropagation();
-            var display = this.querySelector('.error-details').style.display;
+            var display = this.querySelector('.error-message').style.display;
+            var errorArrow = this.querySelector('.error-arrow');
+            //var text = this;
 
             if (display === 'block') {
-                this.querySelector('.error-details').style.display = 'none';
+                errorArrow.classList.remove('fa-angle-up');
+                errorArrow.classList.add('fa-angle-down');
+                //this.x(text);
+                this.querySelector('.error-message').style.display = 'none';
             } else {
-                this.querySelector('.error-details').style.display = 'block';
+                this.querySelector('.error-message').style.display = 'block';
+                errorArrow.classList.remove('fa-angle-down');
+                errorArrow.classList.add('fa-angle-up');
             }
         },
+        x:function(loc) {
+            loc.innerHTML = 'dooopa';
+        },
+        //showPrintscreen: function (e) {
+        //    e.stopPropagation();
+        //    var display = this.querySelector('.img-screenshot').style.display;
+        //    var errorArrow = this.querySelector('.error-arrow');
+        //    //var text = this;
+        //
+        //    if (display === 'block') {
+        //        errorArrow.classList.remove('fa-angle-up');
+        //        errorArrow.classList.add('fa-angle-down');
+        //        //this.x(text);
+        //        this.querySelector('.error-message').style.display = 'none';
+        //    } else {
+        //        this.querySelector('.error-message').style.display = 'block';
+        //        errorArrow.classList.remove('fa-angle-down');
+        //        errorArrow.classList.add('fa-angle-up');
+        //    }
+        //},
         /** Hiding and displaying steps after clicking on scenario header*/
         toggleStep: function () {
             var steps = this.querySelectorAll('.step');
