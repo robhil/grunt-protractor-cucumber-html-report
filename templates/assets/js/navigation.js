@@ -15,41 +15,45 @@ app.navigation = (function () {
             },
             currentView: 'all',
             /** Showing error log  for step that failed */
-            showPrintscreen: function (e) {
+            showPrintScreen: function (e) {
                 e.stopPropagation();
-                var display = this.querySelector('.img-screenshot').style.display;
-                var printScreen = this.querySelector('.printscreen-arrow');
-                //var text = this;
-
+                var display = this.querySelector('.img-screenshot').style.display,
+                    printScreen = this.querySelector('.printscreen-arrow'),
+                    commandLoc = this.querySelector('.screenshot-label'),
+                    showPrintScreen = 'Show print screen',
+                    hidePrintScreen = 'Hide print screen';
                 if (display === 'block') {
                     printScreen.classList.remove('fa-angle-up');
                     printScreen.classList.add('fa-angle-down');
-                    //this.x(text);
+                    app.navigation.writeNewText(commandLoc, showPrintScreen);
                     this.querySelector('.img-screenshot').style.display = 'none';
                 } else {
                     this.querySelector('.img-screenshot').style.display = 'block';
                     printScreen.classList.remove('fa-angle-down');
                     printScreen.classList.add('fa-angle-up');
+                    app.navigation.writeNewText(commandLoc, hidePrintScreen);
                 }
             },
-            x: function (loc) {
-                loc.innerHTML = 'dooopa';
+            writeNewText: function (loc, newText) {
+                loc.innerHTML = newText;
             },
             showErrorDetails: function (e) {
                 e.stopPropagation();
-                var display = this.querySelector('.error-message').style.display;
-                var errorArrow = this.querySelector('.error-arrow');
-                //var text = this;
-
+                var display = this.querySelector('.error-message').style.display,
+                    errorArrow = this.querySelector('.error-arrow'),
+                    commandLoc = this.querySelector('.error-code-label'),
+                    showErrorCode = 'Show error code',
+                    hideErrorCode = 'Hide error code';
                 if (display === 'block') {
                     errorArrow.classList.remove('fa-angle-up');
                     errorArrow.classList.add('fa-angle-down');
-                    //this.x(text);
+                    app.navigation.writeNewText(commandLoc, showErrorCode);
                     this.querySelector('.error-message').style.display = 'none';
                 } else {
-                    this.querySelector('.error-message').style.display = 'block';
                     errorArrow.classList.remove('fa-angle-down');
                     errorArrow.classList.add('fa-angle-up');
+                    app.navigation.writeNewText(commandLoc, hideErrorCode);
+                    this.querySelector('.error-message').style.display = 'block';
                 }
             },
             /** Hiding and displaying steps after clicking on scenario header*/
@@ -80,7 +84,7 @@ app.navigation = (function () {
                     scenarios[i].addEventListener('click', this.toggleStep, false);
                 }
                 for (i = 0; i < screenshots.length; i++) {
-                    screenshots[i].addEventListener('click', this.showPrintscreen, false);
+                    screenshots[i].addEventListener('click', this.showPrintScreen, false);
                 }
             },
             /**
