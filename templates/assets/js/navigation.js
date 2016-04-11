@@ -19,7 +19,7 @@ app.navigation = (function () {
                 e.stopPropagation();
                 var display = this.querySelector('.img-screenshot').style.display,
                     printScreen = this.querySelector('.ps-error-arrow'),
-                    commandLoc = this.querySelector('.label'),
+                    commandLoc = this.querySelector('.ps-error-label'),
                     showPrintScreen = 'Show print screen',
                     hidePrintScreen = 'Hide print screen';
                 if (display === 'block') {
