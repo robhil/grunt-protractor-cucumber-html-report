@@ -18,8 +18,8 @@ app.navigation = (function () {
             showPrintScreen: function (e) {
                 e.stopPropagation();
                 var display = this.querySelector('.img-screenshot').style.display,
-                    printScreen = this.querySelector('.printscreen-arrow'),
-                    commandLoc = this.querySelector('.screenshot-label'),
+                    printScreen = this.querySelector('.ps-error-arrow'),
+                    commandLoc = this.querySelector('.label'),
                     showPrintScreen = 'Show print screen',
                     hidePrintScreen = 'Hide print screen';
                 if (display === 'block') {
@@ -77,6 +77,7 @@ app.navigation = (function () {
             bindEvents: function (errors, scenarios, screenshots, filteringButtons, displayChartButton) {
                 var i = 0,
                     self = this;
+                //var printScreen = '.img-screenshot';
                 for (i = 0; i < errors.length; i++) {
                     errors[i].addEventListener('click', this.showErrorDetails, false);
                 }
@@ -85,6 +86,7 @@ app.navigation = (function () {
                 }
                 for (i = 0; i < screenshots.length; i++) {
                     screenshots[i].addEventListener('click', this.showPrintScreen, false);
+                    //screenshots[i].addEventListener('click', this.showPrintScreen(printScreen), false);
                 }
             },
             /**

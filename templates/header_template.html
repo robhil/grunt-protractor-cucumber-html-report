@@ -6,25 +6,34 @@
     <div class="test-summary">
         <span>Report summary:</span>
         <div class="elapsed-time">
-            <i class="fa fa-clock-o">Time</i>
-            <%=elapsedTime%>
+            <i class="fa fa-clock-o">Time:</i>
+            <span class="time-duration"><%=elapsedTime%></span>
         </div>
-        <div class="scenarios-summary"><%=scenariosSummary%></div>
-        <div class="steps-summary"><%=stepsSummary%></div>
+        <div class="scenarios-summary"><%=scenariosSummary%> scenarios:</div>
+        <div class="passed-scenarios">(<%=passedScenarios%> passed)</div>
+        <div class="steps-summary"><%=stepsSummary%> steps</div>
+        <div class="passed-steps">(<%=passedSteps%> passed)</div>
     </div>
     <div class="filtering-buttons">
         <div class="col-md-9 col-sm-8 main_btns">
+        <span class="filtering-buttons-header">Features:</span>
             <div class="btn_menu">
-                <button data-state="all" class="btn all_btn active" id="all_btn">All</button>
-                <button data-state="passed" class="btn passed_btn" id="passed_btn">Passed</button>
-                <button data-state="failed" class="btn error_btn" id="error_btn">Error</button>
+                <span>Filters:</span>
+                <button data-state="all" class="btn all_btn active" id="all_btn">All
+                <span><%=scenariosSummary%></span>
+                </button>
+                <button data-state="passed" class="btn passed_btn" id="passed_btn">Passed
+                <span><%=passedScenarios%></span>
+                </button>
+                <button data-state="failed" class="btn error_btn" id="error_btn">Error
+                    <span><%=failedScenarios%></span></button>
             </div>
         </div>
         <div class="col-md-3 col-sm-4 additional_btns">
             <div class="btn_support">
                 <button data-state="steps" title="Display all steps within scenario" class="btn fa fa-list btn_list"
                         id="display_btn"></button>
-                <button data-state="chart" title="Display chart" class="btn fa fa-pie-chart btn_chart"></button>
+                <button data-state="chart" title="Display chart" class="btn fa fa-circle-o btn_chart"></button>
             </div>
         </div>
     </div>
