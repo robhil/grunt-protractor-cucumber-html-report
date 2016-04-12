@@ -148,16 +148,33 @@ header h1 {
 .feature {
     margin-left: 15px;
     margin-bottom: 10px;
-    background: #E8F5E9;
     clear: both;
     padding: 15px;
     overflow: auto;
-    height: 102px;
-
+    color: #FFF;
 }
 
 .feature-container {
     margin-top: 60px;
+}
+
+.feature-number {
+    position: absolute;
+}
+.feature-file-icon {
+    color: #475368;
+    font-size: 40px;
+    margin-right: 5px;
+}
+
+.feature-with-scenarios {
+    padding: 0px 25px 50px 21px;
+    margin-bottom: 40px;
+    border-bottom: 1px dashed #FFF;
+}
+
+.feature-with-scenarios.hidden {
+    display: none;
 }
 
 .feature-statistics {
@@ -165,7 +182,6 @@ header h1 {
     float: right;
     font-family: Roboto;
     font-size: 30px;
-    background-color: #363A40;
     width: 100%;
     height: 150px;
     margin-top: 30px;
@@ -185,25 +201,6 @@ header h1 {
     font-size: 16px;
 }
 
-.feature .fa-magic {
-    font-size: 20px;
-    margin-right: 5px;
-}
-
-.scenario-label, .steps-label {
-    background: #E8F5E9;
-    font-size: 14px;
-    text-align: center;
-    width: 90px;
-    height: 51px;
-    line-height: 51px;
-    float: left;
-}
-
-.scenario-label {
-    border-bottom: solid 2px white;
-}
-
 .clear {
     clear: both;
 }
@@ -214,19 +211,13 @@ header h1 {
     height: 51px;
     margin-left: 90px;
     box-sizing: border-box;
-    border: 1px solid #E8F5E9;
-    border-left: none;
     line-height: 14px;
-    padding-top: 11px;
 }
 
 .scenario-amount-passed span, .steps-amount-passed span {
     font-size: 14px;
 }
 
-.steps-label {
-    background: #E8F5E9;
-}
 
 .scenario {
     font-weight: 600;
@@ -414,7 +405,8 @@ header h1 {
     color: #A3C1FD;
     width: 82px;
     height: 55px;
-    background-color: #343537
+    background-color: #343537;
+    border-radius: 0;
 }
 
 .btn_list {
@@ -430,7 +422,6 @@ header h1 {
 }
 
 .main_btns {
-    margin-bottom: 50px;
     margin-top: 50px;
 }
 
@@ -688,25 +679,6 @@ header h1 {
     .additional_btns {
         margin-top: 0;
     }
-
-}
-
-.feature-container {
-    margin-top: 30px;
-}
-
-.feature {
-    border-top: 3px red;
-}
-
-.feature-with-scenarios {
-    padding: 60px;
-    margin-bottom: 40px;
-    border-bottom: 1px dashed #FFF;
-}
-
-.feature-with-scenarios.hidden {
-    display: none;
 
 }
 
