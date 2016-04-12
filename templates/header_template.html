@@ -3,16 +3,24 @@
     <h1><%=reportTitle%></h1>
 </header>
 <div class="row">
-    <div class="test-summary">
-        <span>Report summary:</span>
-        <div class="elapsed-time">
-            <i class="fa fa-clock-o">Time:</i>
-            <span class="time-duration"><%=elapsedTime%></span>
+    <div class="container test-summary">
+        <div class="row test-summary-header">
+            <span>Report summary:</span>
         </div>
-        <div class="scenarios-summary"><%=scenariosSummary%> scenarios:</div>
-        <div class="passed-scenarios">(<%=passedScenarios%> passed)</div>
-        <div class="steps-summary"><%=stepsSummary%> steps</div>
-        <div class="passed-steps">(<%=passedSteps%> passed)</div>
+        <div class="row text-center">
+            <div class="elapsed-time col-xs-4">
+                <i class="fa fa-clock-o">Time:</i>
+                <span class="time-duration"><%=elapsedTime%></span>
+            </div>
+            <div class="col-xs-4">
+                <div class="scenarios-summary col-xs-6"><%=scenariosSummary%> scenarios:</div>
+                <div class="passed-scenarios col-xs-6">(<%=passedScenarios%> passed)</div>
+            </div>
+            <div class="col-xs-4">
+                <div class="steps-summary col-xs-6"><%=stepsSummary%> steps</div>
+                <div class="passed-steps col-xs-6">(<%=passedSteps%> passed)</div>
+            </div>
+        </div>
     </div>
     <div class="filtering-buttons">
         <div class="col-md-9 col-sm-8 main_btns">
@@ -33,7 +41,9 @@
             <div class="btn_support">
                 <button data-state="steps" title="Display all steps within scenario" class="btn fa fa-list btn_list"
                         id="display_btn"></button>
-                <button data-state="chart" title="Display chart" class="btn fa fa-circle-o btn_chart"></button>
+                <button data-state="chart" title="Display chart" class="btn btn_chart">
+                    <i class="fa fa-circle-o"></i>
+                </button>
             </div>
         </div>
     </div>

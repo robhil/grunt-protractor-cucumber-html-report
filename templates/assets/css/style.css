@@ -155,9 +155,7 @@ header h1 {
     height: 102px;
 
 }
-.feature-with-scenarios {
-    border-bottom: 1px dashed #FFF;
-}
+
 .feature-container {
     margin-top: 60px;
 }
@@ -168,7 +166,7 @@ header h1 {
     font-family: Roboto;
     font-size: 30px;
     background-color: #363A40;
-    width:100%;
+    width: 100%;
     height: 150px;
     margin-top: 30px;
     min-width: 400px;
@@ -301,53 +299,64 @@ header h1 {
     font-family: Roboto;
     font-size: 30px;
     background-color: #363A40;
-    width:100%;
+    width: 100%;
     height: 150px;
-    margin-top: 30px;
+    margin-top: 40px;
     min-width: 400px;
     min-height: 90px;
 }
-.summary-details{
+
+.summary-details {
     float: left;
 }
+
 .test-summary span {
-    float: left;
     margin-top: 20px;
     margin-left: 22px;
 }
-.test-summary div {
-    display: inline-block;
-    position: relative;
-    top: 60px;
-    float: left;
-    padding-right: 20px;
-    font-size: 22px;
 
+.test-summary div {
+    font-size: 22px;
 }
+
 .time-duration, .passed-scenarios, .passed-steps {
     color: #A3C1FD;
 }
+
+.test-summary div.test-summary-header {
+    padding: 25px 0 20px 7px;
+    font-size: 36px;
+}
+
 .elapsed-time .fa-hourglass-end {
     font-size: 14px;
     color: white;
     padding-right: 3px;
 }
+
 .filtering-buttons-header {
     color: #fff;
     font-size: 30px;
 }
+
 .btn_menu span {
     color: #FFF;
 }
+
 .btn {
     color: white;
     outline: none !important;
     padding: 7px;
     width: 115px;
-    height: 44px;
+    height: 47px;
     font-size: 18px;
     cursor: pointer;
     margin-top: 30px;
+}
+
+.btn.focus, .btn:focus, .btn:hover {
+    color: #A3C1FD;;
+    text-decoration: none;
 }
 
 .passed_btn, .error_btn {
@@ -356,46 +365,55 @@ header h1 {
 
 .all_btn, .all_btn.active, .all_btn.active:hover, .all_btn.active:focus,
 .all_btn:active, .all_btn:hover,
-.passed_btn,.passed_btn.active, .passed_btn.active:hover, .passed_btn.active:focus,
+.passed_btn, .passed_btn.active, .passed_btn.active:hover, .passed_btn.active:focus,
 .passed_btn:active, .passed_btn:hover,
 .error_btn, .error_btn.active, .error_btn.active:hover, .error_btn.active:focus,
-.error_btn:active, .error_btn:hover{
+.error_btn:active, .error_btn:hover {
     background: #343537;
     color: white;
     opacity: 1;
     border-radius: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
 }
+
 .all_btn span {
     background: #000;
     color: #FFF;
-    font-size: 13px;
-    padding: 4px;
-    border-radius: 50%;
+    font-size: 11px;
+    padding: 3px 11px;
+    border-radius: 40%;
+    margin-left: 5px;
 }
+
 .passed_btn span {
     background: #1DCA34;
     color: #FFF;
-    font-size: 13px;
-    padding: 4px;
-    border-radius: 50%;
+    font-size: 11px;
+    padding: 3px 11px;
+    border-radius: 40%;
+    margin-left: 5px;
 }
+
 .error_btn span {
     background: #EB1C24;
     color: #FFF;
-    font-size: 13px;
-    padding: 4px;
-    border-radius: 50%;
+    font-size: 11px;
+    padding: 3px 11px;
+    border-radius: 40%;
+    margin-left: 5px;
 }
+
 .btn.active {
     border-bottom: solid 3px #A3C1FD;
-    box-shadow: inset 0 0px 0px rgba(0,0,0,.125);
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, .125);
 }
 
 .btn_list, .btn_chart {
-    font-size: 35px;
+    font-size: 33px;
     color: #A3C1FD;
     width: 82px;
-    height: 45px;
+    height: 55px;
     background-color: #343537
 }
 
@@ -407,6 +425,8 @@ header h1 {
 .btn_chart:active, .btn_chart:hover {
     color: #A3C1FD;
     opacity: 1;
+    box-shadow: none;
+    -webkit-box-shadow: none;
 }
 
 .main_btns {
@@ -680,13 +700,33 @@ header h1 {
 }
 
 .feature-with-scenarios {
-    padding: 10px;
+    padding: 60px;
     margin-bottom: 40px;
+    border-bottom: 1px dashed #FFF;
 }
 
 .feature-with-scenarios.hidden {
     display: none;
 
+}
+
+.passed-scenarios-in-feature, .passed-steps-in-feature {
+    float: left;
+    color: #1DCA34;
+    margin-left: 20px;
+    font-size: 30px;
+}
+
+.scenarios-number-in-feature, .steps-number-in-feature {
+    float: left;
+    color: #FFF;
+    margin-left: 5px;
+    font-size: 17px;
+}
+
+.scenario-amount-passed span, .steps-amount-passed span {
+    float: left;
+    font-size: 18px;
 }
 
 .status.failed {
@@ -739,6 +779,7 @@ header h1 {
     font-size: 24px;
     font-weight: 600;
 }
+
 .printscreen-arrow {
     font-size: 20px;
     font-weight: 600;
@@ -763,6 +804,7 @@ header h1 {
     margin-bottom: 30px;
     display: none;
 }
+
 .error-arrow {
     font-size: 20px;
     font-weight: 600;
@@ -772,12 +814,15 @@ header h1 {
     cursor: pointer;
     vertical-align: top;
 }
+
 .error-message {
     display: none;
 }
+
 .error-message code {
     color: #FFF;
 }
+
 .error-container {
     padding: 30px 0px 10px 0px;
     font-size: 18px;

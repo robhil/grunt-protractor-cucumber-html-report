@@ -10,9 +10,20 @@
     </div>
     <div class="col-md-3 col-sm-4 feature-statistics">
         <div class="scenario-label">Scenarios</div>
-        <div class="scenario-amount-passed"> <%= passedScenariosNumberInFeature %>/<%= scenariosNumberInFeature %> <br/><span>passed</span></div>
+        <div class="feature-number"><%=featureCount %></div>
+        <div class="scenario-amount-passed"><span>Scenarios passed:</span>
+
+            <div class="passed-scenarios-in-feature"><%= passedScenariosNumberInFeature %></div>
+            <div class="scenarios-number-in-feature">/ <%=scenariosNumberInFeature %></div>
+        </div>
         <div class="clear"></div>
         <div class="steps-label">Steps</div>
-        <div class="steps-amount-passed"> <%= passedStepsInFeature %>/<%= stepsNumberInFeature %> <br/><span>passed</span></div>
+        <div class="steps-amount-passed">
+            <span>Steps passed:</span>
+            <div class="passed-steps-in-feature">
+                <%= passedStepsInFeature %>
+            </div>
+            <div class="steps-number-in-feature">/ <%= stepsNumberInFeature %></div>
+            <br/></div>
     </div>
 </div>
