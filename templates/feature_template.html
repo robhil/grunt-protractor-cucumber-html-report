@@ -1,13 +1,14 @@
-    <div class="row feature-container">
-        <div class="col-md-3 col-sm-4 feature-statistics">
-            <div class="feature-number"><%=featureCount %></div>
-            <div class="scenario-amount-passed">
+<div class="row feature-container">
+    <div class="feature-statistics col-xs-12">
+        <div class="feature-number col-xs-1"><%=featureCount %></div>
+        <div class="col-xs-4">
+            <div class="scenario-amount-passed col-xs-12">
                 <span>Scenarios passed:</span>
 
                 <div class="passed-scenarios-in-feature"><%= passedScenariosNumberInFeature %></div>
                 <div class="scenarios-number-in-feature">/ <%=scenariosNumberInFeature %></div>
             </div>
-                    <div class="steps-amount-passed">
+            <div class="steps-amount-passed col-xs-12">
                 <span>Steps passed:</span>
 
                 <div class="passed-steps-in-feature">
@@ -15,12 +16,17 @@
                 </div>
                 <div class="steps-number-in-feature">/ <%= stepsNumberInFeature %></div>
                 <br/></div>
-            <div class="feature">
-                <h2><i class="fa fa-file feature-file-icon" aria-hidden="true"></i> Description:</h2>
-
-                <div class="feature-description">
-                    <%= name %>
-                </div>
+        </div>
+    <div class="feature col-xs-7">
+        <i class="fa fa-file feature-file-icon feature col-xs-1" aria-hidden="true"></i>
+        <div class="col-xs-11">
+            <h2 class="col-xs-12"> Description:</h2>
+            <div class="feature-description col-xs-12">
+                <%= name %>
             </div>
         </div>
+
     </div>
+
+    </div>
+</div>
