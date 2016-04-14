@@ -9,59 +9,64 @@ app.navigation = (function () {
                 filteringButtons = document.getElementsByClassName('btn'),
                 scenarios = document.querySelectorAll('.scenario-container'),
                 steps = document.querySelectorAll('.step'),
-                displayChartButton = document.querySelector('.btn_chart');
+                displayChartButton = document.querySelector('.btn_chart'),
+                errorMessage = '.error-message',
+                printScreenImg = '.img-screenshot';
             this.bindEvents(errors, scenarios, screenshots, filteringButtons, displayChartButton);
+            this.toggleDataVisibility(errors, errorMessage);
+            this.toggleDataVisibility(screenshots, printScreenImg);
             this.bindFilterButtonsEvent(filteringButtons, scenarios, steps);
         },
         currentView: 'all',
         /** Showing error log  for step that failed */
-        showPrintScreen: function (e, element, newElement) {
-            e.stopPropagation();
-            console.log(element,'element');
-            console.log(newElement, 'newelement');
-
-            console.log(newElement.style.display, 'newelement.style.display');
-
-            var display = this.querySelector(element).style.display,
-                printScreen = this.querySelector('.ps-error-arrow'),
-                commandLoc = this.querySelector('.ps-error-label'),
-                showPrintScreen = 'Show print screen',
-                hidePrintScreen = 'Hide print screen';
-            if (display === 'block') {
-                printScreen.classList.remove('fa-angle-up');
-                printScreen.classList.add('fa-angle-down');
-                app.navigation.writeNewText(commandLoc, showPrintScreen);
-                this.querySelector(element).style.display = 'none';
-            } else {
-                this.querySelector(element).style.display = 'block';
-                printScreen.classList.remove('fa-angle-down');
-                printScreen.classList.add('fa-angle-up');
-                app.navigation.writeNewText(commandLoc, hidePrintScreen);
-            }
-        },
+        //showPrintScreen: function (e, element, newElement) {
+        //    e.stopPropagation();
+        //
+        //    var display = this.querySelector(element).style.display,
+        //        printScreen = this.querySelector('.ps-error-arrow'),
+        //        commandLoc = this.querySelector('.ps-error-label'),
+        //        showPrintScreen = 'Show print screen',
+        //        hidePrintScreen = 'Hide print screen';
+        //    if (display === 'block') {
+        //        printScreen.classList.remove('fa-angle-up');
+        //        printScreen.classList.add('fa-angle-down');
+        //        app.navigation.writeNewText(commandLoc, showPrintScreen);
+        //        this.querySelector(element).style.display = 'none';
+        //    } else {
+        //        this.querySelector(element).style.display = 'block';
+        //        printScreen.classList.remove('fa-angle-down');
+        //        printScreen.classList.add('fa-angle-up');
+        //        app.navigation.writeNewText(commandLoc, hidePrintScreen);
+        //    }
+        //},
         writeNewText: function (loc, newText) {
             loc.innerHTML = newText;
         },
-        querySelector: function () {
-          console.log('domek');
-        },
-        showErrorDetails: function (e) {
-            e.stopPropagation();
-            var display = this.querySelector('.error-message').style.display,
-                errorArrow = this.querySelector('.error-arrow'),
-                commandLoc = this.querySelector('.error-code-label'),
-                showErrorCode = 'Show error code',
-                hideErrorCode = 'Hide error code';
-            if (display === 'block') {
-                errorArrow.classList.remove('fa-angle-up');
-                errorArrow.classList.add('fa-angle-down');
-                app.navigation.writeNewText(commandLoc, showErrorCode);
-                this.querySelector('.error-message').style.display = 'none';
-            } else {
-                errorArrow.classList.remove('fa-angle-down');
-                errorArrow.classList.add('fa-angle-up');
-                app.navigation.writeNewText(commandLoc, hideErrorCode);
-                this.querySelector('.error-message').style.display = 'block';
+
+        toggleDataVisibility: function (dataContainer, displayedElementClass) {
+            var errorContainers = dataContainer;
+            for (var i = 0, len = errorContainers.length; i < len; i++) {
+                errorContainers[i].addEventListener("click", function (e) {
+                    if (e.target) {
+                        var displayedData = this.querySelector(displayedElementClass),
+                            arrow = this.querySelector('.arrow'),
+                            commandLoc = this.querySelector('.label'),
+                            showErrorCode = 'Show error code',
+                            hideErrorCode = 'Hide error code';
+                        if (displayedData.style.display === 'block') {
+                            arrow.classList.remove('fa-angle-up');
+                            arrow.classList.add('fa-angle-down');
+                            app.navigation.writeNewText(commandLoc, showErrorCode);
+                            displayedData.style.display = 'none';
+                        } else {
+                            arrow.classList.remove('fa-angle-down');
+                            arrow.classList.add('fa-angle-up');
+                            app.navigation.writeNewText(commandLoc, hideErrorCode);
+                            displayedData.style.display = 'block';
+                        }
+                    }
+                    e.stopPropagation();
+                });
             }
         },
         /** Hiding and displaying steps after clicking on scenario header*/
@@ -87,21 +92,21 @@ app.navigation = (function () {
                 self = this;
             var printScreen = '.img-screenshot';
             var errorMessage = '.error-message';
-            for (i = 0; i < errors.length; i++) {
-                errors[i].addEventListener('click', this.showErrorDetails, false);
-            }
+            //for (i = 0; i < errors.length; i++) {
+            //    errors[i].addEventListener('click', this.showErrorDetails, false);
+            //}
             for (i = 0; i < scenarios.length; i++) {
                 scenarios[i].addEventListener('click', this.toggleStep, false);
             }
-            for (i = 0; i < screenshots.length; i++) {
-                //screenshots[i].addEventListener('click', this.showPrintScreen, false);
-                console.log(self);
-                screenshots[i].addEventListener('click', function (ev) {
-                    console.log('arguments', arguments);
-                    var element =  ev.target;
-                    self.showPrintScreen(ev, printScreen, element);
-                }, false);
-            }
+            //for (i = 0; i < screenshots.length; i++) {
+            //    //screenshots[i].addEventListener('click', this.showPrintScreen, false);
+            //    console.log(self);
+            //    screenshots[i].addEventListener('click', function (ev) {
+            //        console.log('arguments', arguments);
+            //        var element =  ev.target;
+            //        self.showPrintScreen(ev, printScreen, element);
+            //    }, false);
+            //}
         },
         /**
          * Filtering passed and failed scenarios by clicking the passed or failed button respectively

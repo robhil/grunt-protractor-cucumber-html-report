@@ -25,7 +25,8 @@ html, body {
     height: 100%;
     background: no-repeat;
     background-attachment: fixed;
-    background-image: url("../images/background.jpg");
+    /*background-image: url("../images/background.jpg");*/
+    background-color: #A3C1FD;
     background-position: left;
     background-size: 100% 100%;
 
@@ -334,6 +335,7 @@ header h1 {
     text-decoration: none;
     border-bottom: solid 3px #A3C1FD;
     opacity: 0.5;
+    height: 44px;
 }
 
 .passed_btn, .error_btn {
@@ -767,15 +769,15 @@ header h1 {
     display: none;
 }
 
-.error-arrow {
-    font-size: 20px;
-    font-weight: 600;
-    padding: 10px;
-    width: 0;
-    height: 0;
-    cursor: pointer;
-    vertical-align: top;
-}
+/*.error-arrow {*/
+    /*font-size: 20px;*/
+    /*font-weight: 600;*/
+    /*padding: 10px;*/
+    /*width: 0;*/
+    /*height: 0;*/
+    /*cursor: pointer;*/
+    /*vertical-align: top;*/
+/*}*/
 
 .error-message {
     display: none;
