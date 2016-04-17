@@ -360,8 +360,8 @@ header h1 {
     background: #000;
     color: #FFF;
     font-size: 11px;
-    padding: 3px 11px;
-    border-radius: 40%;
+    padding: 3px 6px 3px 6px;
+    border-radius: 42%;
     margin-left: 5px;
     vertical-align: text-top;
 }
@@ -370,8 +370,8 @@ header h1 {
     background: #1DCA34;
     color: #FFF;
     font-size: 11px;
-    padding: 3px 11px;
-    border-radius: 40%;
+    padding: 3px 6px 3px 6px;
+    border-radius: 42%;
     margin-left: 5px;
     vertical-align: text-top;
 }
@@ -380,8 +380,8 @@ header h1 {
     background: #EB1C24;
     color: #FFF;
     font-size: 11px;
-    padding: 3px 11px;
-    border-radius: 40%;
+    padding: 3px 6px 3px 6px;
+    border-radius: 42%;
     margin-left: 5px;
     vertical-align: text-top;
 }

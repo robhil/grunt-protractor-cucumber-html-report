@@ -34,7 +34,7 @@ app.chart = (function () {
                     c = this.getContext('2d'),
                     p = c.getImageData(x, y, 1, 1).data,
                     hex = "#" + ("000000" + self.rgbToHex(p[0], p[1], p[2])).slice(-6);
-
+console.log(hex,p[0], p[1], p[2]);
                 /** Displaying text inside donut chart*/
                 var a = 250;
                 var b = 180;
@@ -61,7 +61,7 @@ app.chart = (function () {
                     chartCtx.fillText("Scenarios", a, b + 60);
                     chartCtx.fillText("failed", a, b + 110);
                 } else {
-                    chartCtx.fillText("", a, b);
+                    chartCtx.fillText("no data", a, b);
                 }
                 chartCtx.textBaseline = 'middle';
             };
@@ -160,7 +160,8 @@ app.chart = (function () {
         /** Displaying and hiding chart */
         toggleChart: function () {
             var chart = document.querySelector('.scenario-chart'),
-                chartBtn = document.querySelectorAll('.btn_chart');
+                chartBtn = document.querySelectorAll('.btn_chart'),
+                allBtn =  document.querySelector('.all_btn');
 
             if (chart.style.display != 'block') {
                 chart.style.display = 'block';
@@ -169,6 +170,7 @@ app.chart = (function () {
                 chart.classList.add('chart-hidden');
                 document.body.style.overflow = 'auto';
                 app.navigation.removeActiveClass(chartBtn);
+                allBtn.classList.add('active');
             }
 
             this.toggleChartBackdrop();
