@@ -331,11 +331,9 @@ header h1 {
 }
 
 .btn.focus, .btn:focus, .btn:hover {
-    color: #A3C1FD;;
+    color: #A3C1FD;
     text-decoration: none;
     border-bottom: solid 3px #A3C1FD;
-    opacity: 0.5;
-    height: 44px;
 }
 
 .passed_btn, .error_btn {
@@ -347,13 +345,15 @@ header h1 {
 .passed_btn, .passed_btn.active, .passed_btn.active:hover, .passed_btn.active:focus,
 .passed_btn:active, .passed_btn:hover,
 .error_btn, .error_btn.active, .error_btn.active:hover, .error_btn.active:focus,
-.error_btn:active, .error_btn:hover {
+.error_btn:active, .error_btn:hover
+{
     background: #343537;
     color: white;
     opacity: 1;
     border-radius: 0;
     box-shadow: none;
     -webkit-box-shadow: none;
+    height: 41px;
 }
 
 .all_btn span {
@@ -404,12 +404,16 @@ header h1 {
     margin-right: 20px;
 }
 
-.btn_list:active, .btn_list:hover, .btn_list:focus,
-.btn_chart:active, .btn_chart:hover {
+.btn_list,.btn_list.focus, .btn_list:focus, .btn_list.active, .btn_list.active:hover,
+.btn_list:active, .btn_list:hover,
+.btn_chart, .btn_chart.active, .btn_chart.active:hover, .btn_chart.active:focus,
+.btn_chart:active, .btn_chart:hover
+{
     color: #A3C1FD;
     opacity: 1;
     box-shadow: none;
     -webkit-box-shadow: none;
+    height: 55px;
 }
 
 .main_btns {
