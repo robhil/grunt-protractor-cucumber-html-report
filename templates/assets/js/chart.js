@@ -60,7 +60,7 @@ app.chart = (function () {
                     chartCtx.fillText("Scenarios", a, b + 60);
                     chartCtx.fillText("failed", a, b + 110);
                 } else {
-                    chartCtx.fillText("no data", a, b);
+                    chartCtx.fillText("", a, b);
                 }
                 chartCtx.textBaseline = 'middle';
             };
@@ -145,8 +145,8 @@ app.chart = (function () {
 
             statistics = {
                 scenariosAmount: scenariosAmount,
-                passed: passed,
-                failed: failed
+                passed: Math.floor(passed),
+                failed: Math.ceil(failed)
             };
 
             return statistics;
@@ -158,6 +158,7 @@ app.chart = (function () {
         },
         /** Displaying and hiding chart */
         toggleChart: function () {
+            window.scrollTo(0, 0);
             var chart = document.querySelector('.scenario-chart'),
                 chartBtn = document.querySelectorAll('.btn_chart'),
                 allBtn =  document.querySelector('.all_btn');

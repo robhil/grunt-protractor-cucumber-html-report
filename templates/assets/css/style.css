@@ -163,8 +163,8 @@ header h1 {
 }
 
 .feature-with-scenarios {
-    /*padding: 0px 25px 50px 21px;*/
-    /*margin-bottom: 40px;*/
+    padding: 0px 25px 50px 21px;
+    margin-bottom: 40px;
     border-bottom: 1px dashed #FFF;
 }
 
@@ -770,25 +770,17 @@ header h1 {
     margin-bottom: 30px;
     display: none;
 }
-
-/*.error-arrow {*/
-/*font-size: 20px;*/
-/*font-weight: 600;*/
-/*padding: 10px;*/
-/*width: 0;*/
-/*height: 0;*/
-/*cursor: pointer;*/
-/*vertical-align: top;*/
-/*}*/
-
 .error-message {
     display: none;
+    color: #FFF;
 }
-
 .error-message code {
     color: #FFF;
 }
-
+.command-label {
+    font-size: 17px;
+    font-weight: 400;
+}
 .error-container {
     padding: 30px 0px 10px 0px;
     font-size: 18px;
