@@ -155,6 +155,7 @@ header h1 {
     position: absolute;
     font-size: 49px;
 }
+
 .feature-file-icon {
     color: #475368;
     font-size: 34px;
@@ -162,8 +163,8 @@ header h1 {
 }
 
 .feature-with-scenarios {
-    padding: 0px 25px 50px 21px;
-    margin-bottom: 40px;
+    /*padding: 0px 25px 50px 21px;*/
+    /*margin-bottom: 40px;*/
     border-bottom: 1px dashed #FFF;
 }
 
@@ -180,7 +181,7 @@ header h1 {
     min-height: 90px;
 }
 
-.feature h2, .feature-description{
+.feature h2, .feature-description {
     font-size: 18px;
     box-sizing: border-box;
     height: 51px;
@@ -202,7 +203,6 @@ header h1 {
 .scenario-amount-passed span, .steps-amount-passed span {
     font-size: 14px;
 }
-
 
 .scenario {
     font-weight: 600;
@@ -345,8 +345,7 @@ header h1 {
 .passed_btn, .passed_btn.active, .passed_btn.active:hover, .passed_btn.active:focus,
 .passed_btn:active, .passed_btn:hover,
 .error_btn, .error_btn.active, .error_btn.active:hover, .error_btn.active:focus,
-.error_btn:active, .error_btn:hover
-{
+.error_btn:active, .error_btn:hover {
     background: #343537;
     color: white;
     opacity: 1;
@@ -404,11 +403,10 @@ header h1 {
     margin-right: 20px;
 }
 
-.btn_list,.btn_list.focus, .btn_list:focus, .btn_list.active, .btn_list.active:hover,
+.btn_list, .btn_list.focus, .btn_list:focus, .btn_list.active, .btn_list.active:hover,
 .btn_list:active, .btn_list:hover,
 .btn_chart, .btn_chart.active, .btn_chart.active:hover, .btn_chart.active:focus,
-.btn_chart:active, .btn_chart:hover
-{
+.btn_chart:active, .btn_chart:hover {
     color: #A3C1FD;
     opacity: 1;
     box-shadow: none;
@@ -774,13 +772,13 @@ header h1 {
 }
 
 /*.error-arrow {*/
-    /*font-size: 20px;*/
-    /*font-weight: 600;*/
-    /*padding: 10px;*/
-    /*width: 0;*/
-    /*height: 0;*/
-    /*cursor: pointer;*/
-    /*vertical-align: top;*/
+/*font-size: 20px;*/
+/*font-weight: 600;*/
+/*padding: 10px;*/
+/*width: 0;*/
+/*height: 0;*/
+/*cursor: pointer;*/
+/*vertical-align: top;*/
 /*}*/
 
 .error-message {
