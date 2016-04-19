@@ -9,8 +9,8 @@
 'use strict';
 
 module.exports = function (grunt) {
-
     // Project configuration.
+    require('load-grunt-tasks')(grunt);
     grunt.initConfig({
         jshint: {
             all: [
@@ -40,12 +40,12 @@ module.exports = function (grunt) {
                 }
             }
         },
-        sass: {                              // Task
-            dist: {                            // Target
-                options: {                       // Target options
-                    style: 'expanded'
-                },
-                files: {                         // Dictionary of files
+        sass: {
+            options: {
+                sourceMap: true
+            },
+            dist: {
+                files: {
                     'templates/assets/css/style.css': 'templates/assets/css/style.scss'     // 'destination': 'source'
                 }
             }
@@ -70,15 +70,15 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-nodeunit');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Whenever the "test" task is run, first clean the "tmp" dir, then run this
     // plugin's task(s), then test the result.
-    grunt.registerTask('test', ['clean','sass', 'protractor-cucumber-html-report', 'nodeunit']);
+    grunt.registerTask('test', ['clean', 'sass', 'protractor-cucumber-html-report', 'nodeunit']);
 
     // By default, lint and run all tests.
     grunt.registerTask('default', ['jshint', 'sass', 'protractor-cucumber-html-report']);
-    grunt.registerTask('dev',['watch', 'protractor-cucumber-html-report']);
+    grunt.registerTask('dev', ['watch', 'protractor-cucumber-html-report']);
 
 };

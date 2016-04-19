@@ -270,6 +270,7 @@ header {
 .command-label {
   font-size: 17px;
   font-weight: 400;
+  margin-right: 5px;
 }
 .printscreen-arrow {
   font-size: 20px;
@@ -318,7 +319,6 @@ header {
     background-color: $undefined-color;
   }
 }
-
 
 .passed-scenarios-in-feature, .passed-steps-in-feature {
   float: left;
