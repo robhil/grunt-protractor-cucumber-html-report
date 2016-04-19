@@ -107,7 +107,6 @@ header {
 }
 
 .report-date {
-  font-family: Roboto;
   color: $font-primary-color;
   font-size: 14px;
   margin-top: 14px;
@@ -198,7 +197,6 @@ header {
 
 .feature-statistics {
   color: $font-primary-color;
-  font-family: Roboto;
   font-size: 30px;
   height: 150px;
   margin-top: 30px;
@@ -365,11 +363,23 @@ header {
   margin-top: 30px;
   margin-bottom: 30px;
   display: none;
+  -webkit-animation-name: display_backdrop;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-name: display_backdrop;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .error-message {
   display: none;
   color: $font-primary-color;
+  -webkit-animation-name: display_backdrop;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-name: display_backdrop;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
   code {
     color: $font-primary-color;
   }

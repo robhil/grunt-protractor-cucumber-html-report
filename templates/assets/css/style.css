@@ -106,7 +106,6 @@ header {
     margin-top: 14px; }
 
 .report-date {
-  font-family: Roboto;
   color: #FFF;
   font-size: 14px;
   margin-top: 14px;
@@ -180,7 +179,6 @@ header {
 
 .feature-statistics {
   color: #FFF;
-  font-family: Roboto;
   font-size: 30px;
   height: 150px;
   margin-top: 30px;
@@ -316,11 +314,23 @@ header {
 .img-screenshot {
   margin-top: 30px;
   margin-bottom: 30px;
-  display: none; }
+  display: none;
+  -webkit-animation-name: display_backdrop;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-name: display_backdrop;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1); }
 
 .error-message {
   display: none;
-  color: #FFF; }
+  color: #FFF;
+  -webkit-animation-name: display_backdrop;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-name: display_backdrop;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1); }
   .error-message code {
     color: #FFF; }
 

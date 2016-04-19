@@ -46,13 +46,13 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'templates/assets/css/style.css': 'templates/assets/css/style.scss'     // 'destination': 'source'
+                    'templates/assets/css/style.css': '_sass/style.scss'     // 'destination': 'source'
                 }
             }
         },
         watch: {
             css: {
-                files: 'templates/assets/css//*.scss',
+                files: '_sass/*.scss',
                 tasks: ['sass']
             }
         },
@@ -79,6 +79,4 @@ module.exports = function (grunt) {
 
     // By default, lint and run all tests.
     grunt.registerTask('default', ['jshint', 'sass', 'protractor-cucumber-html-report']);
-    grunt.registerTask('dev', ['watch', 'protractor-cucumber-html-report']);
-
 };
