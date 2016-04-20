@@ -73,20 +73,9 @@ app.navigation = (function () {
             },
 
             bindEvents: function (errors, scenarios, screenshots, filteringButtons, displayChartButton) {
-                var i = 0,
-                    self = this;
-                for (i = 0; i < scenarios.length; i++) {
+                for (var i = 0; i < scenarios.length; i++) {
                     scenarios[i].addEventListener('click', this.toggleStep, false);
                 }
-                //for (i = 0; i < screenshots.length; i++) {
-                //    //screenshots[i].addEventListener('click', this.showPrintScreen, false);
-                //    console.log(self);
-                //    screenshots[i].addEventListener('click', function (ev) {
-                //        console.log('arguments', arguments);
-                //        var element =  ev.target;
-                //        self.showPrintScreen(ev, printScreen, element);
-                //    }, false);
-                //}
             },
             /**
              * Filtering passed and failed scenarios by clicking the passed or failed button respectively
