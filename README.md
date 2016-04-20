@@ -66,11 +66,12 @@ var JsonFormatter = Cucumber.Listener.JsonFormatter();
 var reportDirectory = 'reports/one/two/';
 var reportFileName = 'cucumber-test-results.json';
 
-var reportDirectoryPath = path.join(__dirname, '../../' + reportDirectory);
-var reportFilePath = path.join(reportDirectoryPath + reportFileName);
+var reportDirectoryPath = path.join(__dirname, '../../', reportDirectory);
+var reportFilePath = path.join(reportDirectoryPath, reportFileName);
 
 function mkdirp(path, root) {
-  var dirs = path.split('/'), dir = dirs.shift(), root = (root || '') + dir + '/';
+  var dirs = path.split('/'), dir = dirs.shift();
+  root = (root || '') + dir + '/';
 
   try {
     fs.mkdirSync(root);
