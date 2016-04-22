@@ -24,12 +24,19 @@ app.navigation = (function () {
                 this.toggleDataVisibility(errorData.errorContainer, errorData.toggledElem, errorData.showMsg, errorData.hideMsg);
                 this.toggleDataVisibility(screenShot.screenShotContainer, screenShot.toggledElem, screenShot.showMsg, screenShot.hideMsg);
                 this.bindFilterButtonsEvent(filteringButtons, scenarios, steps);
+                this.tooltip();
             },
             currentView: 'all',
             writeNewText: function (loc, newText) {
                 loc.innerHTML = newText;
             },
-
+            tooltip: function () {
+                $(document).ready(function () {
+                    $('[data-toggle="tooltip"]').tooltip({
+                        placement: 'top'
+                    });
+                });
+            },
             toggleDataVisibility: function (dataContainer, displayedElementClass, showMsg, hideMsg) {
                 var errorContainers = dataContainer;
                 for (var i = 0, len = errorContainers.length; i < len; i++) {
