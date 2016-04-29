@@ -7,8 +7,8 @@ $failed-color: #A53D39;
 $skipped-color: #249CFF;
 $pending-color: #fcdfc2;
 $undefined-color: #fcdfc2;
-$background-color: #A3C1FD;
-$file-icon-color: #475368;
+$background-color: #DFE2E7;
+$file-icon-color: #DFE2E7;
 $test-summary-header-color: #363A40;
 $data-details-color: #A3C1FD;
 $report-background-color: #343537;
@@ -131,9 +131,14 @@ header {
   span {
     margin-top: 20px;
     margin-left: 22px;
+    color: $passed-color-font;
   }
   div {
     font-size: 22px;
+  }
+  h1 {
+    margin-left: 22px;
+    color: $font-primary-color;
   }
 }
 
