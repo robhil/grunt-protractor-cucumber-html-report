@@ -83,7 +83,7 @@ html, body {
   background: no-repeat;
   background-attachment: fixed;
   /*background-image: url("../images/background.jpg");*/
-  background-color: #DFE2E7;
+  background-color: #EDF2F9;
   background-position: left;
   background-size: 100% 100%; }
 
@@ -347,11 +347,11 @@ header {
   font-size: 18px;
   cursor: pointer; }
   .btn.focus, .btn:focus, .btn:hover {
-    color: #DFE2E7;
+    color: #EDF2F9;
     text-decoration: none;
-    border-bottom: solid 2px #DFE2E7; }
+    border-bottom: solid 2px #EDF2F9; }
   .btn.active {
-    border-bottom: solid 2px #DFE2E7;
+    border-bottom: solid 2px #EDF2F9;
     box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125); }
 
 .filtering-buttons-header {
@@ -430,7 +430,7 @@ header {
 .btn_list:active, .btn_list:hover,
 .btn_chart, .btn_chart.active, .btn_chart.active:hover, .btn_chart.active:focus,
 .btn_chart:active, .btn_chart:hover {
-  color: #DFE2E7;
+  color: #EDF2F9;
   opacity: 1;
   box-shadow: none;
   -webkit-box-shadow: none;
