@@ -70,7 +70,7 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-##### 0.2.6* Displaying scenarios outline table - to be prepared (Maciej Kamela).
+##### 0.3.0 New report's design. Displaying table for tests' data. Fixing broken chart presentation.
 ##### 0.2.5 Adding steps' duration and overall time elapsed for running tests.
 ##### 0.2.4 Adding css style for passed header when all scenarios have passed.
 ##### 0.2.3 Adding screenshots in report.
