@@ -7,7 +7,6 @@ app.navigation = (function () {
                 var filteringButtons = document.getElementsByClassName('btn'),
                     scenarios = document.querySelectorAll('.scenario-container'),
                     steps = document.querySelectorAll('.step'),
-                    displayChartButton = document.querySelector('.btn_chart'),
                     errorData = {
                         errorContainer: document.querySelectorAll('.error-container'),
                         toggledElem: '.error-message',
@@ -20,7 +19,7 @@ app.navigation = (function () {
                         showMsg: 'Show print screen',
                         hideMsg: 'Hide print screen'
                     };
-                this.bindEvents(errorData.errorContainer, scenarios, screenShot.screenShotContainer, filteringButtons, displayChartButton);
+                this.bindEvents(errorData.errorContainer, scenarios, screenShot.screenShotContainer);
                 this.toggleDataVisibility(errorData.errorContainer, errorData.toggledElem, errorData.showMsg, errorData.hideMsg);
                 this.toggleDataVisibility(screenShot.screenShotContainer, screenShot.toggledElem, screenShot.showMsg, screenShot.hideMsg);
                 this.bindFilterButtonsEvent(filteringButtons, scenarios, steps);
@@ -79,7 +78,7 @@ app.navigation = (function () {
                 }
             },
 
-            bindEvents: function (errors, scenarios, screenshots, filteringButtons, displayChartButton) {
+            bindEvents: function (errors, scenarios) {
                 for (var i = 0; i < scenarios.length; i++) {
                     scenarios[i].addEventListener('click', this.toggleStep, false);
                 }

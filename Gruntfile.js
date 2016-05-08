@@ -46,7 +46,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'templates/assets/css/style.css': '_sass/style.scss'     // 'destination': 'source'
+                    'templates/assets/css/style.css': '_sass/style.scss'
                 }
             }
         },
@@ -78,5 +78,5 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['clean', 'sass', 'protractor-cucumber-html-report', 'nodeunit']);
 
     // By default, lint and run all tests.
-    grunt.registerTask('default', ['jshint', 'sass', 'protractor-cucumber-html-report']);
+    grunt.registerTask('default', ['jshint','clean', 'sass', 'protractor-cucumber-html-report']);
 };
