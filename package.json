@@ -1,12 +1,18 @@
 {
   "name": "grunt-protractor-cucumber-html-report",
   "description": "Generate html report from JSON file returned by cucumber-js json formatter",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "homepage": "https://github.com/robhil/grunt-protractor-cucumber-html-report",
-  "author": {
-    "name": "Hilscher, Robert",
-    "email": "robert.hilscher@pearson.com"
-  },
+  "authors": [
+    {
+      "name": "Hilscher, Robert",
+      "email": "robert.hilscher@pearson.com"
+    },
+    {
+      "name": "Kamela, Maciej",
+      "email": "maciej.kamela@wp.pl"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/robhil/grunt-protractor-cucumber-html-report.git"
@@ -30,7 +36,10 @@
     "grunt-contrib-jshint": "^0.9.2",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-nodeunit": "^0.3.3",
-    "grunt": "~0.4.5"
+    "grunt": "~0.4.5",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-sass": "~1.1.0",
+    "load-grunt-tasks": "~3.5.0"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"

@@ -1,0 +1,24 @@
+{
+  "name": "grunt-protractor-cucumber-html-report",
+  "version": "0.1.0",
+  "homepage": "https://github.com/robhil/grunt-protractor-cucumber-html-report",
+  "authors": [
+    "Maciej Kamela <maciej.kamela@pearson.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.3",
+    "bootstrap": "~3.3.6"
+  }
+}

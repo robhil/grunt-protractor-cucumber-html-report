@@ -1,5 +1,7 @@
-<div class="step">
+<div class="step screenshot-container">
     <% if (screenshot) { %>
-        <img src="data:image/png;base64,<%= screenshot %>" width="1050" />
+    <span class="command-label">Show printscreen</span>
+    <span class="arrow fa fa-angle-down"></span>
+        <img class="img-screenshot" src="data:image/png;base64,<%= screenshot %>" width="100%" />
     <% } %>
 </div>

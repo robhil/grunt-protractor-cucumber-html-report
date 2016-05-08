@@ -3,3 +3,5 @@ npm-debug.log
 tmp
 .DS_Store
 .idea
+templates/assets/css/style.css
+templates/assets/css/style.css.map
