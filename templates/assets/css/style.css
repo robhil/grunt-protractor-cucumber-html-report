@@ -98,6 +98,7 @@ input, select {
 header {
     width: 100%;
     height: 70px;
+    position: fixed;
 }
 
 .report-date {
@@ -264,12 +265,38 @@ header h1 {
     color: white;
 }
 
+.error-container {
+    padding: 30px 0px 10px 0px;
+    font-size: 18px;
+}
+
 .error-details {
     padding: 10px;
     display: none;
     width: 100%;
     word-wrap: break-word;
     box-sizing: border-box;
+}
+
+.error-details code {
+    color: #FFF;
+}
+
+.error-message {
+    display: none;
+    color: #FFF;
+    -webkit-animation-name: display_backdrop;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+    animation-name: display_backdrop;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.error-message code {
+    color: #000;
+    font-size: 14px;
+    font-weight: 200;
 }
 
 .test-summary {
@@ -417,7 +444,6 @@ header h1 {
     top: 59px;
     width: 40%;
     min-width: 400px;
-    height: 500px;
     background-color: white;
     left: 0;
     right: 0;
@@ -433,6 +459,12 @@ header h1 {
     animation-name: display_chart;
     animation-duration: 0.5s;
 
+}
+
+.scenario-arrow {
+    float: right;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 @-moz-keyframes display_chart {
@@ -603,55 +635,6 @@ header h1 {
     padding-bottom: 10px;
 }
 
-.chart-legend {
-    float: left;
-    font-size: 18px;
-    font-family: 'Roboto', sans-serif;
-    margin-top: 6px;
-    margin-left: 20px;
-}
-
-.legend-details {
-    font-weight: bold;
-    font-size: 15px;
-    margin-left: 15px;
-}
-
-.legend_passed {
-    color: #4caf50;
-    display: inline-block;
-    padding: 10px;
-    float: left;
-}
-
-.legend_failed {
-    color: #ff5252;
-    display: inline-block;
-    padding: 10px;
-    float: left;
-}
-
-.legend_passed::before {
-    content: "";
-    display: block;
-    float: left;
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    background: #4caf50;
-}
-
-.legend_failed::before {
-    content: "";
-    display: block;
-    float: left;
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-    background: #ff5252;
-}
-
 .document_container.backdrop-hidden {
     -webkit-animation-name: hide_backdrop;
     -webkit-animation-duration: 0.5s;
@@ -752,11 +735,53 @@ header h1 {
 
 .table-outline {
     width: 100%;
-    border: 1px solid black;
     text-align: center;
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.table-outline-header {
+    border-bottom: 2px solid #ABA6A6;
+    color: #000;
+    font-weight: 600;
+}
+
+.command-label {
+    font-size: 17px;
+    font-weight: 400;
     padding: 5px;
 }
-.table-outline-header {
-    border: 1px solid black;
-    background-color: #DDDDDD;
+
+.printscreen-arrow {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+.img-screenshot {
+    padding: 0px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: none;
+    -webkit-animation-name: display_backdrop;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+    animation-name: display_backdrop;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+
+}
+
+.screenshot-container {
+    margin-top: 0px;
+    margin-right: auto;
+    background: #FFEBEE;
+    font-size: 18px;
+    border-left: 5px solid #E53935;
+    color: #000;
 }

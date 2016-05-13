@@ -2,28 +2,31 @@
     <span class="step-duration"><%= duration %></span>
     <%= name %>
     <% if (tableOutline) { %>
-            <table class="table-outline">
-                <thead>
-                <tr class="table-outline-header">
-                    <% for (var i = 0; i < tableOutline[0].cells.length; i++ ) { %>
-                        <td><%= tableOutline[0].cells[i].toUpperCase() %></td>
-                    <% } %>
-                </tr>
-                </thead>
-                <tbody>
-                <% for (var i = 1; i < tableOutline.length; i++ ) { %>
-                    <tr>
-                        <% for (var j = 0; j < tableOutline[i].cells.length; j++ ) { %>
-                            <td><%= tableOutline[i].cells[j] %></td>
-                        <% } %>
-                    </tr>
-                <% } %>
-                </tbody>
-            </table>
+    <table class="table-outline">
+        <thead>
+        <tr class="table-outline-header">
+            <% for (var i = 0; i < tableOutline[0].cells.length; i++ ) { %>
+            <td><%= tableOutline[0].cells[i]%></td>
+            <% } %>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (var i = 1; i < tableOutline.length; i++ ) { %>
+        <tr>
+            <% for (var j = 0; j < tableOutline[i].cells.length; j++ ) { %>
+            <td><%= tableOutline[i].cells[j] %></td>
+            <% } %>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
     <% } %>
     <% if (errorDetails) { %>
-    <div class="error-details">
-        <blockquote>
+    <div class="error-container">
+        <span class="command-label">Show error code</span>
+        <div class="arrow fa fa-angle-down"></div>
+        <span class="error-details"></span>
+        <blockquote class="error-message">
             <pre>
                 <code>
                     <%= errorDetails %>

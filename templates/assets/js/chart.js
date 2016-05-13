@@ -17,7 +17,7 @@ app.chart  = (function () {
         chart;
 
       chart = new app.chart.Chart(chartCtx);
-      chart.set(200, 200, 130, 0, Math.PI * 2, 70, "blue");
+      chart.set(230, 230, 180, 0, Math.PI * 2, 20, "blue");
       chart.draw(data);
 
       var chartContainer = document.querySelector('.scenario-chart');
@@ -36,9 +36,9 @@ app.chart  = (function () {
           hex = "#" + ("000000" + self.rgbToHex(p[0], p[1], p[2])).slice(-6);
 
         /** Displaying text inside donut chart*/
-        var a = 200;
-        var b = 200;
-        chartCtx.font = '30pt Arial';
+        var a = 240;
+        var b = 190;
+        chartCtx.font = '50pt Roboto';
         chartCtx.textAlign = 'center';
         chartCtx.fillStyle = hex;
         var statistics = self.getStatistics(),
@@ -46,12 +46,20 @@ app.chart  = (function () {
             passedRound = Math.round(passed) + "%",
             failed = statistics.failed,
             failedRound = Math.round(failed) + "%";
-        chartCtx.clearRect(120, 150, 150, 90);
+        chartCtx.clearRect(130, 120, 230, 220);
 
         if (hex.toLowerCase() === data.colors.cs[0].toLowerCase()) {
           chartCtx.fillText(passedRound, a, b);
+          chartCtx.font = '25px Roboto';
+          chartCtx.fillStyle = data.colors.cs[0];
+          chartCtx.fillText("Scenarios", a, b + 60);
+          chartCtx.fillText("passed", a, b + 90);
         } else if (hex.toLowerCase() === data.colors.cs[1].toLowerCase()) {
           chartCtx.fillText(failedRound, a, b);
+          chartCtx.font = '25px Roboto';
+          chartCtx.fillStyle = data.colors.cs[1];
+          chartCtx.fillText("Scenarios", a, b + 60);
+          chartCtx.fillText("failed", a, b + 90);
         } else {
           chartCtx.fillText("", a, b);
         }
@@ -138,8 +146,8 @@ app.chart  = (function () {
 
       statistics = {
         scenariosAmount: scenariosAmount,
-        passed: passed,
-        failed: failed
+        passed: Math.floor(passed),
+        failed: Math.ceil(failed)
       };
 
       return statistics;
@@ -151,6 +159,7 @@ app.chart  = (function () {
     },
     /** Displaying and hiding chart */
     toggleChart: function () {
+      window.scrollTo(0, 0);
       var chart = document.querySelector('.scenario-chart'),
           chartBtn = document.querySelectorAll('.btn_chart');
 
