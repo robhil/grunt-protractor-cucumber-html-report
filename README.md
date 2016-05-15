@@ -37,7 +37,7 @@ grunt.initConfig({
 ### Print screen examples
 1. Main Page
 
-![mainpage](./printScreens/mainPage.png?raw=true "Main page")
+![mainpage](./printScreens/main.png?raw=true "Main page")
 2. Extended scenario
 
 ![mainpage](./printScreens/extendedScenario.png?raw=true "Extended scenario")
