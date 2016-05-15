@@ -34,7 +34,16 @@ grunt.initConfig({
   },
 });
 ```
+### Print screen examples
+1. Main Page
 
+![mainpage](./mainPage.png?raw=true "Main page")
+2. Extended scenario
+
+![mainpage](./extendedScenario.png?raw=true "Extended scenario")
+3. Report chart with basic statistics
+
+![mainpage](./chart.png?raw=true "Extended scenario")
 ### Options
 
 #### options.separator
