@@ -17,7 +17,7 @@ app.chart  = (function () {
         chart;
 
       chart = new app.chart.Chart(chartCtx);
-      chart.set(230, 230, 180, 0, Math.PI * 2, 20, "blue");
+      chart.set(230, 230, 180, 0, Math.PI * 2, 50, "blue");
       chart.draw(data);
 
       var chartContainer = document.querySelector('.scenario-chart');
@@ -46,7 +46,7 @@ app.chart  = (function () {
             passedRound = Math.round(passed) + "%",
             failed = statistics.failed,
             failedRound = Math.round(failed) + "%";
-        chartCtx.clearRect(130, 120, 230, 220);
+        chartCtx.clearRect(120, 120, 200, 200);
 
         if (hex.toLowerCase() === data.colors.cs[0].toLowerCase()) {
           chartCtx.fillText(passedRound, a, b);

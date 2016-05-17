@@ -622,7 +622,9 @@ header h1 {
     }
 
 }
-
+.chart {
+    cursor: pointer;
+}
 .chart-title {
     margin-top: 15px;
     top: 40px;
