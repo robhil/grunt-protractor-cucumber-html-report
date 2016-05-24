@@ -158,45 +158,43 @@ header {
   }
 }
 
-.error_btn {
-  background: $failed;
-  margin-left: 20px;
-}
-
 .passed_btn {
   background: $passed;
   margin-left: 20px;
+  &:not(active) {
+    opacity: 0.5;
+  }
+  &.active, &.active:hover, &.active:focus, &:active, &:hover {
+    color: $font-primary;
+    opacity: 1;
+    border: none;
+  }
+}
+
+.error_btn {
+  background: $failed;
+  margin-left: 20px;
+  &:not(active) {
+    opacity: 0.5;
+  }
+  &:hover, &.active:focus, &:active {
+    color: $font-primary;
+    opacity: 1;
+    border: none;
+  }
 }
 
 .all_btn {
   background: $all-btn-background;
   color: $feature-font;
-}
-
-.passed_btn:not(active), .error_btn:not(active), .all_btn:not(active) {
-  opacity: 0.5;
-}
-
-.passed_btn.active, .passed_btn.active:hover, .passed_btn.active:focus,
-.passed_btn:active, .passed_btn:hover {
-  background: $step-passed-border;
-  color: $font-primary;
-  opacity: 1;
-  border: none;
-}
-
-.all_btn.active, .all_btn.active:hover, .all_btn.active:focus,
-.all_btn:active, .all_btn:hover {
-  background: $all-btn-background;
-  color: $feature-font;
-  border: none;
-}
-
-.error_btn, .error_btn:hover, .error_btn.active:focus, .error_btn:active {
-  background: $failed;
-  color: $font-primary;
-  opacity: 1;
-  border: none;
+  &:not(active) {
+    opacity: 0.5;
+  }
+  &.active, &.active:hover, &.active:focus, &:active, &:hover {
+    color: $font-primary;
+    opacity: 1;
+    border: none;
+  }
 }
 
 .btn_list, .btn_chart {
@@ -204,16 +202,10 @@ header {
   color: $feature-font;
   width: 82px;
   height: 45px;
-}
-
-.btn_list {
   margin-right: 20px;
-}
-
-.btn_list:active, .btn_list:hover, .btn_list:focus,
-.btn_chart:active, .btn_chart:hover {
-  color: $feature-font;
-  opacity: 1;
+  &:active, &:hover, &:focus {
+    opacity: 1;
+  }
 }
 
 .main_btns {
@@ -250,7 +242,7 @@ header {
 }
 
 .feature-container {
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .feature-description {
@@ -258,6 +250,42 @@ header {
   margin-bottom: 5px;
   margin-left: 29px;
   font-size: 16px;
+}
+
+.feature-with-scenarios {
+  padding: 10px;
+  margin-bottom: 40px;
+  &.hidden {
+    display: none;
+  }
+}
+
+//--------SCENARIOS-------//
+.scenario {
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-left: 15px;
+  display: block;
+  cursor: pointer;
+  min-height: 35px;
+  line-height: 35px;
+  color: $font-primary;
+  &.skipped {
+    background: $step-skipped-border;
+    color: $font-primary;
+  }
+  &.pending, &.undefined {
+    background: $step-pending-border;
+    color: $font-primary;
+  }
+}
+
+.scenario-arrow {
+  float: right;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 15px;
 }
 
 .scenario-label, .steps-label {
@@ -288,121 +316,9 @@ header {
   border-left: none;
   line-height: 14px;
   padding-top: 11px;
-}
-
-.scenario-amount-passed span, .steps-amount-passed span {
-  font-size: 14px;
-}
-
-.steps-label {
-  background: $step-passed;
-}
-
-.step {
-  font-size: 14px;
-  padding: 5px;
-  margin-top: 10px;
-  margin-left: 45px;
-  display: none;
-}
-
-.scenario {
-  font-weight: 600;
-  font-size: 16px;
-  margin-top: 10px;
-  margin-left: 15px;
-  display: block;
-  cursor: pointer;
-  min-height: 35px;
-  line-height: 35px;
-  color: $font-primary;
-}
-
-.step.passed {
-  background: $step-passed;
-  color: $feature-font;
-  border-left: 5px solid $step-passed-border;
-}
-
-.step.skipped {
-  background: $step-skipped;
-  color: $feature-font;
-  border-left: 5px solid $step-skipped-border;
-}
-
-.step.failed {
-  background: $step-failed;
-  color: $feature-font;
-  border-left: 5px solid $step-failed-border;
-  cursor: pointer;
-}
-
-.step.pending {
-  background: $step-pending;
-  color: $step-pending-border;
-  border-left: 5px solid $step-pending-border;
-  cursor: pointer;
-}
-
-.step.undefined {
-  background: $step-undefined;
-  color: $feature-font;
-  border-left: 5px solid $step-pending-border;
-  cursor: pointer;
-}
-
-.scenario.skipped {
-  background: $step-skipped-border;
-  color: $font-primary;
-}
-
-.scenario.pending, .scenario.undefined {
-  background: $step-pending-border;
-  color: $font-primary;
-}
-
-.error-container {
-  padding: 10px 0px 0px 0px;
-  font-size: 18px;
-}
-
-.error-details {
-  padding: 10px;
-  display: none;
-  width: 100%;
-  word-wrap: break-word;
-  box-sizing: border-box;
-}
-
-.error-details code {
-  color: $font-primary;
-}
-
-.error-message {
-  display: none;
-  color: $font-primary;
-  -webkit-animation-name: display_backdrop;
-  -webkit-animation-duration: 0.3s;
-  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
-  animation-name: display_backdrop;
-  animation-duration: 0.3s;
-  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.error-message code {
-  color: $feature-font;
-  font-size: 14px;
-  font-weight: 200;
-}
-
-.scenario-chart.chart-hidden {
-
-  -webkit-animation-name: hide_chart;
-  -webkit-animation-duration: 0.3s;
-  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
-  animation-name: hide_chart;
-  animation-duration: 0.3s;
-  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  & span {
+    font-size: 14px;
+  }
 }
 
 .scenario-chart {
@@ -426,14 +342,117 @@ header {
   -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
   animation-name: display_chart;
   animation-duration: 0.5s;
+  &.chart-hidden {
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+
+  }
+}
+
+//--------STEPS-------//
+
+.steps-label {
+  background: $step-passed;
+}
+
+.step {
+  font-size: 14px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-left: 45px;
+  display: none;
+  color: $feature-font;
+  cursor: pointer;
+  &.passed {
+    background: $step-passed;
+    border-left: 5px solid $step-passed-border;
+  }
+  &.skipped {
+    background: $step-skipped;
+    border-left: 5px solid $step-skipped-border;
+  }
+  &.failed {
+    background: $step-failed;
+    border-left: 5px solid $step-failed-border;
+
+  }
+  &.pending, &.undefined {
+    background: $step-pending;
+    border-left: 5px solid $step-pending-border;
+  }
+}
+
+.step-duration {
+  float: right;
+  margin-right: 10px;
+}
+.error-container {
+  padding: 10px 0px 0px 0px;
+  font-size: 18px;
+}
+
+.error-details {
+  padding: 10px;
+  display: none;
+  width: 100%;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  & code {
+    color: $font-primary;
+  }
+}
+
+.error-message {
+  display: none;
+  color: $font-primary;
+  -webkit-animation-name: display_backdrop;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-name: display_backdrop;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  & code {
+    color: $feature-font;
+    font-size: 14px;
+    font-weight: 200;
+  }
+}
+.command-label {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 5px;
+}
+
+.printscreen-arrow {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+.img-screenshot {
+  padding: 0px 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: none;
+  -webkit-animation-name: display_backdrop;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-name: display_backdrop;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
 
 }
 
-.scenario-arrow {
-  float: right;
-  font-size: 20px;
-  font-weight: 600;
-  padding: 10px 15px;
+.screenshot-container {
+  margin-top: 0px;
+  margin-right: auto;
+  background: $step-failed;
+  font-size: 18px;
+  border-left: 5px solid $step-failed-border;
+  color: $feature-font;
 }
 
 .close_chart {
@@ -462,15 +481,6 @@ header {
   border-bottom: 1px solid #bbb;
   box-sizing: border-box;
   padding-bottom: 10px;
-}
-
-.document_container.backdrop-hidden {
-  -webkit-animation-name: hide_backdrop;
-  -webkit-animation-duration: 0.5s;
-  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
-  animation-name: hide_backdrop;
-  animation-duration: 0.5s;
-  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @-moz-keyframes display_chart {
@@ -537,6 +547,14 @@ header {
   -webkit-animation-duration: 0.5s;
   -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
   cursor: pointer;
+  &.backdrop-hidden {
+    -webkit-animation-name: hide_backdrop;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+    animation-name: hide_backdrop;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
 }
 
 @media (max-width: 768px) {
@@ -571,45 +589,19 @@ header {
 
 }
 
-.feature-container {
-  margin-top: 30px;
-}
-
-.feature {
-  border-top: 3px red;
-}
-
-.feature-with-scenarios {
-  padding: 10px;
-  margin-bottom: 40px;
-}
-
-.feature-with-scenarios.hidden {
-  display: none;
-
-}
-
-.status.failed {
-  background: $failed;
-}
-
-.status.passed {
-  background: $passed;
-}
-
-.status.skipped {
-  background: $step-skipped-border;
-}
-
 .status {
   display: block;
   margin: 0;
   padding: 10px;
-}
-
-.step-duration {
-  float: right;
-  margin-right: 10px;
+  &.failed {
+    background: $failed;
+  }
+  &.passed {
+    background: $passed;
+  }
+  &.skipped {
+    background: $step-skipped-border;
+  }
 }
 
 .table-outline {
@@ -624,43 +616,4 @@ header {
   border-bottom: 2px solid $table-outline-header;
   color: $feature-font;
   font-weight: 600;
-}
-
-.command-label {
-  font-size: 14px;
-  font-weight: 400;
-  padding: 5px;
-}
-
-.printscreen-arrow {
-  font-size: 20px;
-  font-weight: 600;
-  padding: 10px;
-  width: 0;
-  height: 0;
-  cursor: pointer;
-  vertical-align: top;
-}
-
-.img-screenshot {
-  padding: 0px 20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  display: none;
-  -webkit-animation-name: display_backdrop;
-  -webkit-animation-duration: 0.5s;
-  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
-  animation-name: display_backdrop;
-  animation-duration: 0.5s;
-  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
-
-}
-
-.screenshot-container {
-  margin-top: 0px;
-  margin-right: auto;
-  background: $step-failed;
-  font-size: 18px;
-  border-left: 5px solid $step-failed-border;
-  color: $feature-font;
 }
