@@ -321,6 +321,16 @@ header {
   }
 }
 
+.scenario-chart.chart-hidden {
+
+  -webkit-animation-name: hide_chart;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-name: hide_chart;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
 .scenario-chart {
   text-align: center;
   display: none;
@@ -342,10 +352,7 @@ header {
   -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
   animation-name: display_chart;
   animation-duration: 0.5s;
-  &.chart-hidden {
-    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
 
-  }
 }
 
 //--------STEPS-------//
