@@ -64,8 +64,8 @@ app.chart = (function () {
                 chartCtx.textBaseline = 'middle';
             };
 
-            document.querySelector('.close_chart').onclick = this.toggleChart.bind(this);
-            document.querySelector('.document_container').onclick = this.toggleChart.bind(this);
+            document.querySelector('.close-chart').onclick = this.toggleChart.bind(this);
+            document.querySelector('.document-container').onclick = this.toggleChart.bind(this);
         },
         displayDefaultStatistics: function (canvas, passedAmount, failedAmount) {
             canvas.font = '50pt Roboto';
@@ -103,7 +103,7 @@ app.chart = (function () {
         },
         /** Animated displaying and hiding chart */
         onAnimationEnd: function () {
-            var documentContainer = document.querySelector('.document_container');
+            var documentContainer = document.querySelector('.document-container');
             if (documentContainer.classList.contains('backdrop-hidden')) {
                 documentContainer.classList.remove('backdrop-hidden');
                 documentContainer.style.display = 'none';
@@ -164,14 +164,14 @@ app.chart = (function () {
         },
 
         toggleChartBackdrop: function () {
-            var documentContainer = document.querySelector('.document_container');
+            var documentContainer = document.querySelector('.document-container');
             documentContainer.style.display = (documentContainer.style.display != 'block' ? 'block' : documentContainer.classList.add('backdrop-hidden'));
         },
         /** Displaying and hiding chart */
         toggleChart: function () {
             window.scrollTo(0, 0);
             var chart = document.querySelector('.scenario-chart'),
-                chartBtn = document.querySelectorAll('.btn_chart');
+                chartBtn = document.querySelectorAll('.btn-chart');
             if (chart.style.display != 'block') {
                 chart.style.display = 'block';
                 document.body.style.overflow = 'hidden';

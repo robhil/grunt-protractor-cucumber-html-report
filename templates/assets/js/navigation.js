@@ -218,16 +218,17 @@ app.navigation = (function () {
          * @param steps indicate all steps in report
          */
         toggleSteps: function (steps) {
-            var scenarioArrowCollection = document.querySelectorAll('.scenario-arrow');
+            var scenarioArrowCollection = document.querySelectorAll('.scenario-arrow'),
+                allBtn = document.querySelector('.all-btn');
             for (var i = 0; i < steps.length; i++) {
                 var display = steps[i].style.display;
                 if (display === 'none' || display === '') {
                     this.addArrowUp(scenarioArrowCollection);
                     steps[i].style.display = 'block';
-                    all_btn.classList.add('active');
+                    allBtn.classList.add('active');
                 } else {
                     this.addArrowDown(scenarioArrowCollection);
-                    all_btn.classList.add('active');
+                    allBtn.classList.add('active');
                     steps[i].style.display = 'none';
                 }
             }

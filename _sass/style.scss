@@ -19,13 +19,10 @@ $all-btn-background: #C4C7C7;
 $table-outline-header: #ABA6A6;
 
 //-------mixins--------//
-@mixin main_btn {
-  color: $font-primary-color;
-  font-size: 11px;
-  padding: 3px 6px 3px 6px;
-  border-radius: 42%;
-  margin-left: 5px;
-  vertical-align: text-top;
+@mixin btn-states {
+  color: $font-primary;
+  opacity: 1;
+  border: none;
 }
 
 @mixin display-chart-frame {
@@ -158,46 +155,40 @@ header {
   }
 }
 
-.passed_btn {
+.passed-btn {
   background: $passed;
   margin-left: 20px;
   &:not(active) {
     opacity: 0.5;
   }
   &.active, &.active:hover, &.active:focus, &:active, &:hover {
-    color: $font-primary;
-    opacity: 1;
-    border: none;
+    @include btn-states;
   }
 }
 
-.error_btn {
+.error-btn {
   background: $failed;
   margin-left: 20px;
   &:not(active) {
     opacity: 0.5;
   }
   &:hover, &.active:focus, &:active {
-    color: $font-primary;
-    opacity: 1;
-    border: none;
+    @include btn-states;
   }
 }
 
-.all_btn {
+.all-btn {
   background: $all-btn-background;
   color: $feature-font;
   &:not(active) {
     opacity: 0.5;
   }
   &.active, &.active:hover, &.active:focus, &:active, &:hover {
-    color: $font-primary;
-    opacity: 1;
-    border: none;
+    @include btn-states;
   }
 }
 
-.btn_list, .btn_chart {
+.btn-list, .btn-chart {
   font-size: 23px;
   color: $feature-font;
   width: 82px;
@@ -208,18 +199,13 @@ header {
   }
 }
 
-.main_btns {
+.main-btns, .additional-btns {
   margin-bottom: 50px;
   margin-top: 50px;
 }
 
-.btn_menu {
+.btn-menu {
   margin-left: 15px;
-}
-
-.additional_btns {
-  margin-bottom: 50px;
-  margin-top: 50px;
 }
 
 //--------FEATURES-------//
@@ -392,6 +378,7 @@ header {
   float: right;
   margin-right: 10px;
 }
+
 .error-container {
   padding: 10px 0px 0px 0px;
   font-size: 18px;
@@ -423,20 +410,11 @@ header {
     font-weight: 200;
   }
 }
+
 .command-label {
   font-size: 14px;
   font-weight: 400;
   padding: 5px;
-}
-
-.printscreen-arrow {
-  font-size: 20px;
-  font-weight: 600;
-  padding: 10px;
-  width: 0;
-  height: 0;
-  cursor: pointer;
-  vertical-align: top;
 }
 
 .img-screenshot {
@@ -462,7 +440,7 @@ header {
   color: $feature-font;
 }
 
-.close_chart {
+.close-chart {
   font-size: 30px;
   position: absolute;
   padding-right: 10px;
@@ -540,7 +518,7 @@ header {
 
 }
 
-.document_container {
+.document-container {
   background: $document-background;
   position: absolute;
   top: 0;
@@ -564,36 +542,42 @@ header {
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1120px) {
+  .chart {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
 
   .feature-statistics {
     margin-left: 15px;
   }
 
-  .btn_support {
+  .btn-support {
     margin-left: 15px;
   }
 
-  .btn_menu .btn {
-    margin: 0;
+  .btn-menu .btn {
+    margin: 0 0 10px 0;
     width: 100%;
-    margin-bottom: 10px;
   }
 
-  .main_btns {
+  .main-btns {
     margin-bottom: 0;
   }
 
-  .btn_support .btn {
+  .btn-support .btn {
     width: 100%;
-    margin: 0;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
   }
 
-  .additional_btns {
+  .additional-btns {
     margin-top: 0;
   }
-
+  .chart {
+    width: 100%;
+  }
 }
 
 .status {
