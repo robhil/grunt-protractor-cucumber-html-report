@@ -82,7 +82,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 
 ## Release History
-##### 0.2.6* Displaying scenarios outline table - to be prepared (Maciej Kamela).
+##### 0.2.6 Displaying scenarios outline table, incorporating sass and some small tweaks.
 ##### 0.2.5 Adding steps' duration and overall time elapsed for running tests.
 ##### 0.2.4 Adding css style for passed header when all scenarios have passed.
 ##### 0.2.3 Adding screenshots in report.
