@@ -210,7 +210,6 @@ header {
 
 //--------FEATURES-------//
 .feature {
-  margin-left: 15px;
   margin-bottom: 10px;
   background: $step-passed;
   clear: both;
@@ -251,7 +250,6 @@ header {
   font-weight: 600;
   font-size: 16px;
   margin-top: 10px;
-  margin-left: 15px;
   display: block;
   cursor: pointer;
   min-height: 35px;
@@ -535,7 +533,7 @@ header {
   &.backdrop-hidden {
     -webkit-animation-name: hide_backdrop;
     -webkit-animation-duration: 0.5s;
-    -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+    -webkit-animatio-17pxn-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
     animation-name: hide_backdrop;
     animation-duration: 0.5s;
     animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
@@ -557,7 +555,6 @@ header {
   .btn-support {
     margin-left: 15px;
   }
-
   .btn-menu .btn {
     margin: 0 0 10px 0;
     width: 100%;
@@ -607,4 +604,7 @@ header {
   border-bottom: 2px solid $table-outline-header;
   color: $feature-font;
   font-weight: 600;
+}
+.navigation-buttons {
+  margin-left: -29px;
 }
