@@ -4,45 +4,74 @@ app.navigation = (function () {
 
     return {
         init: function () {
-            var errors = document.querySelectorAll('.step.failed'),
-                filteringButtons = document.getElementsByClassName('btn'),
+            var filteringButtons = document.getElementsByClassName('btn'),
                 scenarios = document.querySelectorAll('.scenario-container'),
                 steps = document.querySelectorAll('.step'),
-                displayChartButton = document.querySelector('.btn_chart');
-            this.bindEvents(errors, scenarios, filteringButtons, displayChartButton);
+                errorData = {
+                    errorContainer: document.querySelectorAll('.error-container'),
+                    toggledElem: '.error-message',
+                    showMsg: 'Show error code',
+                    hideMsg: 'Hide error code'
+                },
+                screenShot = {
+                    screenShotContainer: document.querySelectorAll('.screenshot-container'),
+                    toggledElem: '.img-screenshot',
+                    showMsg: 'Show print screen',
+                    hideMsg: 'Hide print screen'
+                };
+            this.bindEvents(errorData.errorContainer, scenarios, screenShot.screenShotContainer);
+            this.toggleDataVisibility(errorData.errorContainer, errorData.toggledElem, errorData.showMsg, errorData.hideMsg);
+            this.toggleDataVisibility(screenShot.screenShotContainer, screenShot.toggledElem, screenShot.showMsg, screenShot.hideMsg);
             this.bindFilterButtonsEvent(filteringButtons, scenarios, steps);
         },
         currentView: 'all',
-        /** Showing error log  for step that failed */
-        showErrorDetails: function (e) {
-            e.stopPropagation();
-            var display = this.querySelector('.error-details').style.display;
-
-            if (display === 'block') {
-                this.querySelector('.error-details').style.display = 'none';
-            } else {
-                this.querySelector('.error-details').style.display = 'block';
+        writeNewText: function (loc, newText) {
+            loc.innerHTML = newText;
+        },
+        toggleDataVisibility: function (dataContainer, displayedElementClass, showMsg, hideMsg) {
+            var errorContainers = dataContainer;
+            for (var i = 0, len = errorContainers.length; i < len; i++) {
+                errorContainers[i].addEventListener("click", function (e) {
+                    if (e.target) {
+                        var displayedData = this.querySelector(displayedElementClass),
+                            arrow = this.querySelector('.arrow'),
+                            commandLoc = this.querySelector('.command-label');
+                        if (displayedData.style.display === 'block') {
+                            arrow.classList.remove('fa-angle-up');
+                            arrow.classList.add('fa-angle-down');
+                            app.navigation.writeNewText(commandLoc, showMsg);
+                            displayedData.style.display = 'none';
+                        } else {
+                            arrow.classList.remove('fa-angle-down');
+                            arrow.classList.add('fa-angle-up');
+                            app.navigation.writeNewText(commandLoc, hideMsg);
+                            displayedData.style.display = 'block';
+                        }
+                    }
+                    e.stopPropagation();
+                });
             }
         },
         /** Hiding and displaying steps after clicking on scenario header*/
         toggleStep: function () {
             var steps = this.querySelectorAll('.step');
+            var scenarioArrow = this.querySelector('.scenario-arrow');
+
             for (var k = 0; k < steps.length; k++) {
                 if (steps[k].style.display === 'block') {
+                    scenarioArrow.classList.remove('fa-angle-up');
+                    scenarioArrow.classList.add('fa-angle-down');
                     steps[k].style.display = 'none';
                 } else {
                     steps[k].style.display = 'block';
+                    scenarioArrow.classList.remove('fa-angle-down');
+                    scenarioArrow.classList.add('fa-angle-up');
                 }
             }
         },
 
-        bindEvents: function (errors, scenarios, filteringButtons, displayChartButton) {
-            var i = 0,
-                self = this;
-            for (i = 0; i < errors.length; i++) {
-                errors[i].addEventListener('click', this.showErrorDetails, false);
-            }
-            for (i = 0; i < scenarios.length; i++) {
+        bindEvents: function (errors, scenarios) {
+            for (var i = 0; i < scenarios.length; i++) {
                 scenarios[i].addEventListener('click', this.toggleStep, false);
             }
         },
@@ -73,8 +102,6 @@ app.navigation = (function () {
                 self.currentView = 'passed';
                 this.hideFeatureContainer('failed');
             }
-
-
         },
         /**
          * Displaying all scenarios within the report
@@ -160,30 +187,48 @@ app.navigation = (function () {
         toggleStepsVisibilities: function (stepsLocator, status) {
             var self = this,
                 stepsCollection = document.querySelectorAll(stepsLocator),
-                i;
+                i,
+                scenarioArrowCollection = document.querySelectorAll('.scenario-arrow');
             for (i = 0; i < stepsCollection.length; i++) {
                 if (stepsCollection[i].style.display === 'none') {
+                    this.addArrowUp(scenarioArrowCollection);
                     stepsCollection[i].style.display = 'block';
                 } else {
+                    this.addArrowDown(scenarioArrowCollection);
                     stepsCollection[i].style.display = 'none';
                 }
             }
             self.hideFeatureContainer(status);
         },
-
+        addArrowUp: function (collection) {
+            for (var i = 0; i < collection.length; i++) {
+                collection[i].classList.remove('fa-angle-down');
+                collection[i].classList.add('fa-angle-up');
+            }
+        },
+        addArrowDown: function (collection) {
+            for (var i = 0; i < collection.length; i++) {
+                collection[i].classList.remove('fa-angle-up');
+                collection[i].classList.add('fa-angle-down');
+            }
+        },
         /**
          * Displaying and hiding steps by clicking "chart report" button
          *
          * @param steps indicate all steps in report
          */
         toggleSteps: function (steps) {
+            var scenarioArrowCollection = document.querySelectorAll('.scenario-arrow'),
+                allBtn = document.querySelector('.all-btn');
             for (var i = 0; i < steps.length; i++) {
                 var display = steps[i].style.display;
                 if (display === 'none' || display === '') {
+                    this.addArrowUp(scenarioArrowCollection);
                     steps[i].style.display = 'block';
-                    all_btn.classList.add('active');
+                    allBtn.classList.add('active');
                 } else {
-                    all_btn.classList.add('active');
+                    this.addArrowDown(scenarioArrowCollection);
+                    allBtn.classList.add('active');
                     steps[i].style.display = 'none';
                 }
             }

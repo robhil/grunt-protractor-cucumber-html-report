@@ -1,0 +1,610 @@
+@import 'reset';
+
+//-----variables colors-----//
+$document-background: #989893;
+$font-primary: #FFF;
+$failed: #FF5252;
+$passed: #4CAF50;
+$step-failed: #FFEBEE;
+$step-passed: #E8F5E9;
+$step-skipped: #E3F2FD;
+$step-pending: #fcdfc2;
+$step-undefined: #fcdfc2;
+$feature-font: #000;
+$step-passed-border: #388E3C;
+$step-failed-border: #E53935;
+$step-skipped-border: #2196F3;
+$step-pending-border: #c99404;
+$all-btn-background: #C4C7C7;
+$table-outline-header: #ABA6A6;
+
+//-------mixins--------//
+@mixin btn-states {
+  color: $font-primary;
+  opacity: 1;
+  border: none;
+}
+
+@mixin display-chart-frame {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@mixin display_backdrop-frame {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@mixin hide_backdrop-frame {
+  0% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@mixin hide-chart-frame {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+//---------HEADER---------//
+
+header {
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  h1 {
+    float: left;
+    font-size: 23px;
+    color: $font-primary;
+    height: 46px;
+    line-height: 51px;
+    font-weight: 500;
+    margin-left: 5px;
+    margin-top: 14px;
+  }
+  &.failed {
+    background: $failed;
+    color: $font-primary;
+    position: relative;
+  }
+  &.passed {
+    background: $passed;
+    color: $font-primary;
+    position: relative;
+  }
+}
+
+.report-date {
+  font-family: Roboto;
+  color: $font-primary;
+  font-size: 13px;
+  margin-top: 5px;
+  padding: 3px;
+  margin-left: 3px;
+  position: absolute;
+  left: 0;
+}
+
+.test-summary {
+  color: $font-primary;
+  float: right;
+  margin: 5px;
+  font-family: Roboto;
+  font-size: 14px;
+  div {
+    margin-top: 5px;
+  }
+}
+
+.elapsed-time .fa-hourglass-end {
+  font-size: 14px;
+  color: $font-primary;
+  padding-right: 3px;
+}
+
+//------BUTTONS-------//
+
+.btn {
+  color: $font-primary;
+  outline: none !important;
+  padding: 7px;
+  border: none;
+  width: 115px;
+  height: 44px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  &:hover {
+    opacity: 1;
+    -webkit-box-shadow: 0px 2px 7px -2px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 2px 7px -2px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 2px 7px -2px rgba(0, 0, 0, 0.38);
+  }
+  &.active {
+    opacity: 1;
+  }
+}
+
+.passed-btn {
+  background: $passed;
+  margin-left: 20px;
+  &:not(active) {
+    opacity: 0.5;
+  }
+  &.active, &.active:hover, &.active:focus, &:active, &:hover {
+    @include btn-states;
+  }
+}
+
+.error-btn {
+  background: $failed;
+  margin-left: 20px;
+  &:not(active) {
+    opacity: 0.5;
+  }
+  &:hover, &.active:focus, &:active {
+    @include btn-states;
+  }
+}
+
+.all-btn {
+  background: $all-btn-background;
+  color: $feature-font;
+  &:not(active) {
+    opacity: 0.5;
+  }
+  &.active, &.active:hover, &.active:focus, &:active, &:hover {
+    @include btn-states;
+  }
+}
+
+.btn-list, .btn-chart {
+  font-size: 23px;
+  color: $feature-font;
+  width: 82px;
+  height: 45px;
+  margin-right: 20px;
+  &:active, &:hover, &:focus {
+    opacity: 1;
+  }
+}
+
+.main-btns, .additional-btns {
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.btn-menu {
+  margin-left: 15px;
+}
+
+//--------FEATURES-------//
+.feature {
+  margin-bottom: 10px;
+  background: $step-passed;
+  clear: both;
+  padding: 15px;
+  overflow: auto;
+  height: 102px;
+  h2 {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .fa-magic {
+    font-size: 20px;
+    margin-right: 5px;
+  }
+}
+
+.feature-container {
+  margin-top: 20px;
+}
+
+.feature-description {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-left: 29px;
+  font-size: 16px;
+}
+
+.feature-with-scenarios {
+  // padding: 10px;
+  margin-bottom: 40px;
+  &.hidden {
+    display: none;
+  }
+}
+
+//--------SCENARIOS-------//
+.scenario {
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 10px;
+  display: block;
+  cursor: pointer;
+  min-height: 35px;
+  line-height: 35px;
+  color: $font-primary;
+  &.skipped {
+    background: $step-skipped-border;
+    color: $font-primary;
+  }
+  &.pending, &.undefined {
+    background: $step-pending-border;
+    color: $font-primary;
+  }
+}
+
+.scenario-arrow {
+  float: right;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 15px;
+}
+
+.scenario-label, .steps-label {
+  background: $step-passed;
+  font-size: 14px;
+  text-align: center;
+  width: 90px;
+  height: 51px;
+  line-height: 51px;
+  float: left;
+}
+
+.scenario-label {
+  border-bottom: solid 2px $font-primary;
+}
+
+.clear {
+  clear: both;
+}
+
+.scenario-amount-passed, .steps-amount-passed {
+  font-size: 24px;
+  text-align: center;
+  height: 51px;
+  margin-left: 90px;
+  box-sizing: border-box;
+  border: 1px solid $step-passed;
+  border-left: none;
+  line-height: 14px;
+  padding-top: 11px;
+  & span {
+    font-size: 14px;
+  }
+}
+
+.scenario-chart.chart-hidden {
+
+  -webkit-animation-name: hide_chart;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-name: hide_chart;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.scenario-chart {
+  text-align: center;
+  display: none;
+  position: fixed;
+  top: 59px;
+  width: 40%;
+  min-width: 400px;
+  background-color: $font-primary;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border: 1px solid #aaa;
+  z-index: 3;
+  -webkit-box-shadow: 3px 10px 156px -29px rgba(0, 0, 0, 0.61);
+  -moz-box-shadow: 3px 10px 156px -29px rgba(0, 0, 0, 0.61);
+  box-shadow: 3px 10px 156px -29px rgba(0, 0, 0, 0.61);
+  -webkit-animation-name: display_chart;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-name: display_chart;
+  animation-duration: 0.5s;
+
+}
+
+//--------STEPS-------//
+
+.steps-label {
+  background: $step-passed;
+}
+
+.step {
+  font-size: 14px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-left: 22px;
+  display: none;
+  color: $feature-font;
+  cursor: pointer;
+  &.passed {
+    background: $step-passed;
+    border-left: 5px solid $step-passed-border;
+  }
+  &.skipped {
+    background: $step-skipped;
+    border-left: 5px solid $step-skipped-border;
+  }
+  &.failed {
+    background: $step-failed;
+    border-left: 5px solid $step-failed-border;
+
+  }
+  &.pending, &.undefined {
+    background: $step-pending;
+    border-left: 5px solid $step-pending-border;
+  }
+}
+
+.step-duration {
+  float: right;
+  margin-right: 10px;
+}
+
+.error-container {
+  padding: 10px 0px 0px 0px;
+  font-size: 18px;
+}
+
+.error-details {
+  padding: 10px;
+  display: none;
+  width: 100%;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  & code {
+    color: $font-primary;
+  }
+}
+
+.error-message {
+  display: none;
+  color: $font-primary;
+  -webkit-animation-name: display_backdrop;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-name: display_backdrop;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  & code {
+    color: $feature-font;
+    font-size: 14px;
+    font-weight: 200;
+  }
+}
+
+.command-label {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 5px;
+}
+
+.img-screenshot {
+  padding: 0px 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: none;
+  -webkit-animation-name: display_backdrop;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-name: display_backdrop;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+
+}
+
+.screenshot-container {
+  margin-top: 0px;
+  margin-right: auto;
+  background: $step-failed;
+  font-size: 18px;
+  border-left: 5px solid $step-failed-border;
+  color: $feature-font;
+}
+
+.close-chart {
+  font-size: 30px;
+  position: absolute;
+  padding-right: 10px;
+  padding-top: 5px;
+  cursor: pointer;
+  right: 0;
+  color: #bbb;
+  top: 5px;
+}
+
+.chart {
+  cursor: pointer;
+}
+
+.chart-title {
+  margin-top: 15px;
+  top: 40px;
+  width: 100%;
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  padding-left: 20px;
+  border-bottom: 1px solid #bbb;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+}
+
+@-moz-keyframes display_chart {
+  @include display-chart-frame
+}
+
+@keyframes display_chart {
+  @include display-chart-frame
+}
+
+@-webkit-keyframes display_chart {
+  @include display-chart-frame
+}
+
+@-webkit-keyframes display_backdrop {
+  @include display_backdrop-frame
+}
+
+@-moz-keyframes display_backdrop {
+  @include display_backdrop-frame
+}
+
+@keyframes display_backdrop {
+  @include display_backdrop-frame
+}
+
+@-webkit-keyframes hide_backdrop {
+  @include hide_backdrop-frame
+}
+
+@-moz-keyframes hide_backdrop {
+  @include hide_backdrop-frame
+}
+
+@keyframes hide_backdrop {
+  @include hide_backdrop-frame
+}
+
+@-moz-keyframes hide_chart {
+  @include hide-chart-frame
+}
+
+@keyframes hide_chart {
+  @include hide-chart-frame
+
+}
+
+@-webkit-keyframes hide_chart {
+  @include hide-chart-frame
+
+}
+
+.document-container {
+  background: $document-background;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.6;
+  display: none;
+  z-index: 2;
+  -webkit-animation-name: display_backdrop;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
+  &.backdrop-hidden {
+    -webkit-animation-name: hide_backdrop;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animatio-17pxn-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+    animation-name: hide_backdrop;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  .chart {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .feature-statistics {
+    margin-left: 15px;
+  }
+
+  .btn-support {
+    margin-left: 15px;
+  }
+  .btn-menu .btn {
+    margin: 0 0 10px 0;
+    width: 100%;
+  }
+
+  .main-btns {
+    margin-bottom: 0;
+  }
+
+  .btn-support .btn {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+
+  .additional-btns {
+    margin-top: 0;
+  }
+  .chart {
+    width: 100%;
+  }
+}
+
+.status {
+  display: block;
+  margin: 0;
+  padding: 10px;
+  &.failed {
+    background: $failed;
+  }
+  &.passed {
+    background: $passed;
+  }
+  &.skipped {
+    background: $step-skipped-border;
+  }
+}
+
+.table-outline {
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.table-outline-header {
+  border-bottom: 2px solid $table-outline-header;
+  color: $feature-font;
+  font-weight: 600;
+}
+.navigation-buttons {
+  margin-left: -29px;
+}
