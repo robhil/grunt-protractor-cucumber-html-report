@@ -58,7 +58,7 @@ Default value: `'.'`
 
 A string value that is used to do something else with whatever else.
 
-### Usage Examples
+# Usage Examples
 
 #### Default Options
 
@@ -79,12 +79,14 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 
-## Release history:
-##### 0.2.6 Displaying scenarios outline table, incorporating sass and some small tweaks.
-##### 0.2.5 Adding steps' duration and overall time elapsed for running tests.
-##### 0.2.4 Adding css style for passed header when all scenarios have passed.
-##### 0.2.3 Adding screenshots in report.
-##### 0.2.2 Changes in filtering steps. Small changes in css.
-##### 0.2.1 Creating output directory when it doesn't exist.
-##### 0.2.0 Generating reports from more than one browser.
-##### 0.0.x Creating report and grunt task. Bug fixes for current versions.
+#### Release history:
+###### 0.2.8 Display steps' example table for cucumber > 1.2.x.
+###### 0.2.7 Do not show before in the steps.
+###### 0.2.6 Displaying scenarios outline table, incorporating sass and some small tweaks.
+###### 0.2.5 Adding steps' duration and overall time elapsed for running tests.
+###### 0.2.4 Adding css style for passed header when all scenarios have passed.
+###### 0.2.3 Adding screenshots in report.
+###### 0.2.2 Changes in filtering steps. Small changes in css.
+###### 0.2.1 Creating output directory when it doesn't exist.
+###### 0.2.0 Generating reports from more than one browser.
+###### 0.0.x Creating report and grunt task. Bug fixes for current versions.
